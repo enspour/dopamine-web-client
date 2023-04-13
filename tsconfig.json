@@ -20,9 +20,14 @@
       "@assets/*": ["./src/assets/*"],
       "@api/*": ["./src/api/*"],
       "@components/*": ["./src/components/*"],
-      "@hooks/*": ["./src/hooks/*"],
       "@features/*": ["./src/features/*"],
       "@redux/*": ["./src/redux/*"],
+
+      "@hooks": ["./src/hooks"],
+      "@utils": ["./src/utils"],
+      "@interfaces": ["./src/interfaces"],
+      "@dto": ["./src/dto"],
+      
       "@/*": ["./src/*"]
     }
   },
