@@ -1,0 +1,7 @@
+{
+    "--theme-primary-color": "#000000",
+    "--theme-primary-color-hover": "#000000",
+    "--theme-primary-bg": "#FFFFFF",
+    "--theme-primary-bg-hover": "#F5F5F5",
+    "--theme-primary-link-color": "#6A6A6A"
+}
