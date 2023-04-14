@@ -2,6 +2,8 @@ import { Service } from ".";
 
 export type Theme = "light";
 
+export type Palette = "primary";
+
 export class ThemeService implements Service {
     initialize(): void {
         this.set("light");
