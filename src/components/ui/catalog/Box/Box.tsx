@@ -7,7 +7,7 @@ import { getProperty } from "@utils";
 import styles from "./Box.module.scss";
 
 interface BoxProps {
-    children: ReactNode;
+    children: ReactNode | ReactNode[];
 
     height?: string;
     maxHeight?: string;

@@ -9,7 +9,7 @@ import { getProperty } from "@utils";
 import styles from "./Button.module.scss";
 
 interface ButtonProps {
-    children: ReactNode;
+    children: ReactNode | ReactNode[];
     onClick: (e: MouseEvent<HTMLButtonElement>) => void;
     palette?: Palette;
 }
