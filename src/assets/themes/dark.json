@@ -1,0 +1,12 @@
+{
+    "--theme-primary-color": "#FFFFFF",
+    "--theme-primary-color-hover": "#FFFFFF",
+    "--theme-primary-bg": "#353535",
+    "--theme-primary-bg-hover": "#5e5e5e",
+    "--theme-primary-icon": "#FFFFFF",
+    "--theme-primary-link": "#B9B9B9",
+    "--theme-primary-border": "#B9B9B9",
+    "--theme-primary-shadow": "#0000000d",
+    "--theme-primary-scroll-thumb": "#EEEEEE",
+    "--theme-primary-scroll-thumb-hover": "#EEEEEE"
+}

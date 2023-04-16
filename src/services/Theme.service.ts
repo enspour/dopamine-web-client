@@ -1,6 +1,6 @@
 import { Service } from ".";
 
-export type Theme = "light";
+export type Theme = "light" | "dark";
 
 export type Palette = "primary";
 
