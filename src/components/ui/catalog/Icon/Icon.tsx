@@ -22,14 +22,18 @@ const Icon: FC<IconProps> = ({
     };
 
     return (
-        <div style={getStyle()} onClick={clickHandler}>
+        <div
+            style={getStyle(onClick ? "pointer" : "auto")}
+            onClick={clickHandler}
+        >
             <Svg fill={color} />
         </div>
     );
 };
 
-const getStyle = (): CSSProperties => ({
+const getStyle = (cursor: "pointer" | "auto"): CSSProperties => ({
     display: "contents",
+    cursor,
 });
 
 export default memo(Icon);
