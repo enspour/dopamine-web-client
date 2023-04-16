@@ -1,0 +1,79 @@
+.card {
+    font-weight: 500;
+    white-space: nowrap;
+    height: 6rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border-radius: 1rem;
+    transition: .3s;
+    cursor: pointer;
+
+    &:hover .card__image::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #000000;
+        opacity: .3;
+    }
+
+    &:hover .card__image__control {
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+.card__num {
+    min-width: 5rem;
+    text-align: center;
+}
+
+.card__image {
+    height: 5rem;
+    min-width: 5rem;
+    position: relative;
+    border-radius: 1rem;
+    overflow: hidden;
+    transition: .3s;
+}
+
+.card__image__control {
+    display: flex;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    visibility: hidden;
+    opacity: 0;
+    transition: .3s;
+}
+
+.card__wrapper {
+    padding: 0 2.5rem;
+    width: calc(100% - 10rem);
+    display: flex;
+    gap: 2.5rem;
+}
+
+.card__info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-grow: 1;
+    overflow: hidden;
+}
+
+.card__dash {
+    height: .1rem;
+    min-width: 1rem;
+}
+
+.card__controls {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+}
