@@ -1,8 +1,8 @@
-import { useRef, memo, FC, ReactNode, CSSProperties } from "react";
+import { useRef, memo, FC, ReactNode, CSSProperties, MouseEvent } from "react";
 
 import { useIsHover } from "@hooks";
 
-import { Palette } from "@services/Theme.service";
+import type { Palette } from "@services/Theme.service";
 
 import { getProperty } from "@utils";
 
@@ -10,7 +10,7 @@ import styles from "./Button.module.scss";
 
 interface ButtonProps {
     children: ReactNode;
-    onClick: () => void;
+    onClick: (e: MouseEvent<HTMLButtonElement>) => void;
     palette?: Palette;
 }
 
@@ -24,14 +24,14 @@ const Button: FC<ButtonProps> = ({
     const isHover = useIsHover(buttonRef);
 
     return (
-        <div
+        <button
             ref={buttonRef}
             className={styles.button}
             style={getStyle(isHover, palette)}
             onClick={onClick}
         >
             {children}
-        </div>
+        </button>
     );
 };
 
@@ -42,7 +42,7 @@ const getStyle = (isHover: boolean, palette: Palette): CSSProperties => ({
     color: isHover
         ? getProperty("color-hover", palette)
         : getProperty("color", palette),
-    border: `.1rem solid ${getProperty("border-color", palette)}`,
+    border: `.1rem solid ${getProperty("border", palette)}`,
 });
 
 export default memo(Button);
