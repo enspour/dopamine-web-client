@@ -6,8 +6,14 @@
     "--theme-primary-icon": "#000000",
     "--theme-primary-link": "#6A6A6A",
     "--theme-primary-border": "#E2E2E2",
-    "--theme-primary-border-focus": "#b3b3b3",
+    "--theme-primary-border-hover": "#b3b3b3",
+    "--theme-primary-border-focus": "#0000000d",
     "--theme-primary-shadow": "#0000000d",
     "--theme-primary-scroll-thumb": "#000000",
-    "--theme-primary-scroll-thumb-hover": "#000000"
+    "--theme-primary-scroll-thumb-hover": "#000000",
+    "--theme-primary-placeholder": "#7A7A7A",
+    "--theme-primary-switcher-active": "#000000",
+    "--theme-primary-switcher-active-inner": "#FFFFFF",
+    "--theme-primary-switcher-disabled-bg": "#f6f8ff",
+    "--theme-primary-switcher-disabled-bg-inner": "#e1e6f9"
 }

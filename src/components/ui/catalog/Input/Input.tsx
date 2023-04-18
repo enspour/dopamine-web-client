@@ -1,8 +1,15 @@
-import { FC, Dispatch, SetStateAction, CSSProperties, useRef } from "react";
+import {
+    useRef,
+    useEffect,
+    FC,
+    Dispatch,
+    SetStateAction,
+    CSSProperties,
+} from "react";
 
 import Icon from "../Icon/Icon";
 
-import { useIsFocus } from "@hooks";
+import { useIsFocus, useIsHover } from "@hooks";
 
 import { getProperty } from "@utils";
 
@@ -27,17 +34,34 @@ const Input: FC<InputProps> = ({
     setValue,
     palette = "primary",
 }) => {
-    const inputRef = useRef(null);
+    const wrapperRef = useRef<HTMLDivElement>(null);
 
-    const isFocus = useIsFocus(inputRef);
+    const isHover = useIsHover(wrapperRef);
+    const isFocus = useIsFocus(wrapperRef);
 
     const clear = () => setValue("");
 
+    useEffect(() => {
+        const wrapper = wrapperRef.current;
+
+        if (wrapper) {
+            wrapper.style.setProperty(
+                "--placeholder",
+                getProperty("placeholder", palette)
+            );
+
+            wrapper.style.setProperty(
+                "--border-focus",
+                getProperty("border-focus", palette)
+            );
+        }
+    }, []); //eslint-disable-line
+
     return (
         <div
-            ref={inputRef}
+            ref={wrapperRef}
             className={styles.wrapper}
-            style={getStyle(isFocus, palette)}
+            style={getStyle(isHover, isFocus, palette)}
         >
             <input
                 className={styles.input}
@@ -56,12 +80,16 @@ const Input: FC<InputProps> = ({
     );
 };
 
-const getStyle = (isFocus: boolean, palette: Palette): CSSProperties => ({
+const getStyle = (
+    isHover: boolean,
+    isFocus: boolean,
+    palette: Palette
+): CSSProperties => ({
     backgroundColor: getProperty("bg", palette),
     color: getProperty("color", palette),
     border: `.1rem solid ${
-        isFocus
-            ? getProperty("border-focus", palette)
+        isHover || isFocus
+            ? getProperty("border-hover", palette)
             : getProperty("border", palette)
     }`,
 });

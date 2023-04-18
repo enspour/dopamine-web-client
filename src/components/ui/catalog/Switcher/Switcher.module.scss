@@ -1,0 +1,92 @@
+.wrapper {
+    display: flex;
+    gap: 2rem;
+    cursor: pointer;
+}
+
+.switcher {
+    --active: var(--theme-primary-switcher-active);
+    --active-inner: var(--theme-primary-switcher-active-inner);
+    --border: var(--theme-primary-border);
+    --border-hover: var(--theme-primary-border-hover);
+    --border-focus: var(--theme-primary-border-focus);
+    --background: var(--theme-primary-bg);
+    --disabled: var(--theme-primary-switcher-disabled);
+    --disabled-inner: var(--theme-primary-switcher-disabled-inner);
+
+    height: 2.1rem;
+    width: 3.8rem;
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+    margin: 0;
+    border: 0.1rem solid var(--bc, var(--border));
+    border-radius: 1.1rem;
+    background: var(--b, var(--background));
+    transition: background-color 0.3s, border-color 0.3s, box-shadow 0.2s;
+    cursor: pointer;
+
+    &:after {
+        content: "";
+        width: 1.5rem;
+        height: 1.5rem;
+        display: block;
+        position: absolute;
+        left: 0.2rem;
+        top: 0.2rem;
+        border-radius: 50%;
+        background: var(--ab, var(--border));
+        transition: transform var(--d-t, 0.3s) var(--d-t-e, ease),
+            opacity var(--d-o, 0.2s);
+        transform: translateX(var(--x, 0));
+    }
+
+    &:checked {
+        --b: var(--active);
+        --bc: var(--active);
+        --d-o: 0.3s;
+        --d-t: 0.6s;
+        --d-t-e: cubic-bezier(0.2, 0.85, 0.32, 1.2);
+        --ab: var(--active-inner);
+        --x: 1.7rem;
+    }
+
+    &:disabled {
+        --b: var(--disabled);
+        cursor: not-allowed;
+        opacity: 0.9;
+
+        &:checked {
+            --b: var(--disabled-inner);
+            --bc: var(--border);
+        }
+
+        & + div {
+            cursor: not-allowed;
+        }
+
+        &:not(:checked) {
+            &:after {
+                opacity: 0.6;
+            }
+        }
+    }
+
+    &:hover {
+        &:not(:checked) {
+            &:not(:disabled) {
+                --bc: var(--border-hover);
+            }
+        }
+    }
+
+    &:focus {
+        box-shadow: 0 0 0 0.2rem var(--border-focus);
+    }
+
+    & + div {
+        font-size: 1.6rem;
+        font-weight: 500;
+        line-height: 2.1rem;
+    }
+}

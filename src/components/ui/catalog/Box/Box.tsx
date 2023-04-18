@@ -87,7 +87,7 @@ const getStyle = (
     maxWidth,
     minWidth,
 
-    boxShadow: `0px 0px 10px 4px ${getProperty("shadow", palette)}`,
+    boxShadow: `0rem 0rem 1rem .4rem ${getProperty("shadow", palette)}`,
     backgroundColor: getProperty("bg", palette),
 });
 

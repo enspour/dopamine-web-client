@@ -1,4 +1,12 @@
-import { useRef, memo, FC, ReactNode, CSSProperties, MouseEvent } from "react";
+import {
+    useRef,
+    useEffect,
+    memo,
+    FC,
+    ReactNode,
+    CSSProperties,
+    MouseEvent,
+} from "react";
 
 import { useIsHover } from "@hooks";
 
@@ -19,9 +27,20 @@ const Button: FC<ButtonProps> = ({
     onClick,
     palette = "primary",
 }) => {
-    const buttonRef = useRef(null);
+    const buttonRef = useRef<HTMLButtonElement>(null);
 
     const isHover = useIsHover(buttonRef);
+
+    useEffect(() => {
+        const button = buttonRef.current;
+
+        if (button) {
+            button.style.setProperty(
+                "--border-focus",
+                getProperty("border-focus", palette)
+            );
+        }
+    }, []); //eslint-disable-line
 
     return (
         <button
@@ -42,7 +61,11 @@ const getStyle = (isHover: boolean, palette: Palette): CSSProperties => ({
     color: isHover
         ? getProperty("color-hover", palette)
         : getProperty("color", palette),
-    border: `.1rem solid ${getProperty("border", palette)}`,
+    border: `.1rem solid ${
+        isHover
+            ? getProperty("border-hover", palette)
+            : getProperty("border", palette)
+    }`,
 });
 
 export default memo(Button);

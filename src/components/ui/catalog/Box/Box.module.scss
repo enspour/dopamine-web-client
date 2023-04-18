@@ -1,8 +1,8 @@
 @import "@styles/mixins/scroll.scss";
 
 .box {
-    --thumb: #000000;
-    --thumb-hover: #000000;
+    --thumb: var(--theme-primary-scroll-thumb);
+    --thumb-hover: var(--theme-primary-scroll-thumb-hover);
 
     padding: 2rem;
     border-radius: 3rem;
@@ -20,8 +20,7 @@
     &::-webkit-scrollbar-track-piece:end {
         display: block;
         background-color: transparent;
-        margin-bottom: 2.5rem; 
+        margin-bottom: 2.5rem;
         margin-right: 2.5rem;
     }
 }
-

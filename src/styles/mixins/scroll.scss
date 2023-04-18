@@ -2,19 +2,19 @@
     /* Scrollbar */
     &::-webkit-scrollbar {
         display: block;
-        width: .6rem;
-        height: .5rem;
+        width: 0.6rem;
+        height: 0.5rem;
     }
 
     /* Track */
     &::-webkit-scrollbar-track {
         background-color: transparent;
     }
-    
+
     /* Thumb */
     &::-webkit-scrollbar-thumb {
         background-color: $thumb;
-        border: .1rem solid transparent;
+        border: 0.1rem solid transparent;
         border-radius: 2rem;
         background-clip: padding-box;
 
