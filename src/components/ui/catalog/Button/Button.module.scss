@@ -2,7 +2,6 @@
     --border-focus: var(--theme-primary-border-focus);
 
     height: 3.5rem;
-    width: 100%;
     padding: 0 1.5rem;
     display: flex;
     align-items: center;
@@ -11,9 +10,15 @@
     font-size: 1.6rem;
     font-weight: 600;
     transition: 0.2s;
+    user-select: none;
     cursor: pointer;
 
     &:focus-within {
         box-shadow: 0 0 0 0.2rem var(--border-focus);
+    }
+
+    &:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
     }
 }

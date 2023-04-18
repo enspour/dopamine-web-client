@@ -36,6 +36,8 @@ const Modal: FC<ModalProps> = ({
     width = "100%",
     maxWidth = "inherit",
     minWidth = "inherit",
+
+    palette = "primary",
 }) => {
     if (!isOpen) {
         return null;
@@ -51,6 +53,7 @@ const Modal: FC<ModalProps> = ({
                     width={width}
                     maxWidth={maxWidth}
                     minWidth={minWidth}
+                    palette={palette}
                 >
                     <div ref={modalRef} className={styles.modal}>
                         {children}

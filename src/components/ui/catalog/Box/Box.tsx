@@ -17,6 +17,8 @@ interface BoxProps {
     maxWidth?: string;
     minWidth?: string;
 
+    direction?: "column" | "row";
+
     palette?: Palette;
 }
 
@@ -30,6 +32,8 @@ const Box: FC<BoxProps> = ({
     width = "100%",
     maxWidth = "inherit",
     minWidth = "inherit",
+
+    direction = "column",
 
     palette = "primary",
 }) => {
@@ -60,6 +64,8 @@ const Box: FC<BoxProps> = ({
                 maxWidth,
                 minWidth,
 
+                direction,
+
                 palette
             )}
         >
@@ -77,6 +83,8 @@ const getStyle = (
     maxWidth: string,
     minWidth: string,
 
+    direction: "column" | "row",
+
     palette: Palette
 ): CSSProperties => ({
     height,
@@ -86,6 +94,8 @@ const getStyle = (
     width,
     maxWidth,
     minWidth,
+
+    flexDirection: direction,
 
     boxShadow: `0rem 0rem 1rem .4rem ${getProperty("shadow", palette)}`,
     backgroundColor: getProperty("bg", palette),

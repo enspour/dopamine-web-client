@@ -8,6 +8,7 @@
     align-items: center;
     gap: 1rem;
     border-radius: 2rem;
+    user-select: none;
 
     &:focus-within {
         box-shadow: 0 0 0 0.2rem var(--border-focus);

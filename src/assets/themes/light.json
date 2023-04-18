@@ -15,5 +15,6 @@
     "--theme-primary-switcher-active": "#000000",
     "--theme-primary-switcher-active-inner": "#FFFFFF",
     "--theme-primary-switcher-disabled-bg": "#f6f8ff",
-    "--theme-primary-switcher-disabled-bg-inner": "#e1e6f9"
+    "--theme-primary-switcher-disabled-bg-inner": "#e1e6f9",
+    "--theme-primary-loader": "#000000"
 }

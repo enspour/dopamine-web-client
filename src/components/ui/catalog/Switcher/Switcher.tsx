@@ -83,7 +83,7 @@ const Switcher: FC<SwitcherProps> = ({
                 className={styles.switcher}
                 type="checkbox"
                 checked={value}
-                onClick={() => setValue((prev) => !prev)}
+                onChange={(e) => setValue(e.target.checked)}
                 disabled={disabled}
             />
 

@@ -19,12 +19,16 @@ import styles from "./Button.module.scss";
 interface ButtonProps {
     children: ReactNode | ReactNode[];
     onClick: (e: MouseEvent<HTMLButtonElement>) => void;
+    width?: string;
+    disabled?: boolean;
     palette?: Palette;
 }
 
 const Button: FC<ButtonProps> = ({
     children,
     onClick,
+    width = "100%",
+    disabled = false,
     palette = "primary",
 }) => {
     const buttonRef = useRef<HTMLButtonElement>(null);
@@ -46,21 +50,23 @@ const Button: FC<ButtonProps> = ({
         <button
             ref={buttonRef}
             className={styles.button}
-            style={getStyle(isHover, palette)}
+            style={getStyle(isHover, width, palette)}
             onClick={onClick}
+            disabled={disabled}
         >
             {children}
         </button>
     );
 };
 
-const getStyle = (isHover: boolean, palette: Palette): CSSProperties => ({
-    backgroundColor: isHover
-        ? getProperty("bg-hover", palette)
-        : getProperty("bg", palette),
-    color: isHover
-        ? getProperty("color-hover", palette)
-        : getProperty("color", palette),
+const getStyle = (
+    isHover: boolean,
+    width: string,
+    palette: Palette
+): CSSProperties => ({
+    width,
+    color: getProperty("color", palette),
+    backgroundColor: getProperty("bg", palette),
     border: `.1rem solid ${
         isHover
             ? getProperty("border-hover", palette)

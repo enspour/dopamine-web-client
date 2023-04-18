@@ -1,0 +1,46 @@
+.loader,
+.loader:before,
+.loader:after {
+    border-radius: 50%;
+    width: 1rem;
+    height: 1rem;
+    animation-fill-mode: both;
+    animation: bblFadInOut 1.8s infinite ease-in-out;
+}
+
+.loader {
+    color: #fff;
+    font-size: 0.4rem;
+    position: relative;
+    top: -1rem;
+    text-indent: -9999rem;
+    transform: translateZ(0);
+    animation-delay: -0.16s;
+}
+
+.loader:before,
+.loader:after {
+    content: "";
+    position: absolute;
+    top: 0;
+}
+
+.loader:before {
+    left: -1.5rem;
+    animation-delay: -0.32s;
+}
+
+.loader:after {
+    left: 1.5rem;
+}
+
+@keyframes bblFadInOut {
+    0%,
+    80%,
+    100% {
+        box-shadow: 0 1rem 0 -0.5rem;
+    }
+    40% {
+        box-shadow: 0 1rem 0 0;
+    }
+}
