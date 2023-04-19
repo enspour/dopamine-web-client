@@ -30,8 +30,8 @@ const SongCardControls: FC<SongCardControlsProps> = ({
 
     return (
         <div className={styles.card__controls}>
-            <Icon svg={LikeIcon} color={getProperty("icon", palette)} />
-            <Icon svg={MoreIcon} color={getProperty("icon", palette)} />
+            <Icon svg={LikeIcon} palette={palette} />
+            <Icon svg={MoreIcon} palette={palette} />
         </div>
     );
 };

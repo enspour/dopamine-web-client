@@ -2,6 +2,8 @@ import { memo, FC, MouseEvent, CSSProperties } from "react";
 
 import { getProperty } from "@utils";
 
+import type { Palette } from "@services/Theme.service";
+
 interface SvgProps {
     fill: string;
 }
@@ -10,12 +12,14 @@ interface IconProps {
     svg: FC<SvgProps>;
     onClick?: (e: MouseEvent<HTMLElement>) => void;
     color?: string;
+    palette?: Palette;
 }
 
 const Icon: FC<IconProps> = ({
     svg: Svg,
     onClick,
-    color = getProperty("icon", "primary"),
+    color,
+    palette = "primary",
 }) => {
     const clickHandler = (e: MouseEvent<HTMLElement>) => {
         onClick?.call({}, e);
@@ -26,7 +30,7 @@ const Icon: FC<IconProps> = ({
             style={getStyle(onClick ? "pointer" : "auto")}
             onClick={clickHandler}
         >
-            <Svg fill={color} />
+            <Svg fill={color || getProperty("icon", palette)} />
         </div>
     );
 };

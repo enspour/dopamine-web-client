@@ -17,7 +17,10 @@ interface BoxProps {
     maxWidth?: string;
     minWidth?: string;
 
+    padding?: string;
+
     direction?: "column" | "row";
+    gap?: string;
 
     palette?: Palette;
 }
@@ -33,7 +36,10 @@ const Box: FC<BoxProps> = ({
     maxWidth = "inherit",
     minWidth = "inherit",
 
+    padding = "4rem",
+
     direction = "column",
+    gap = "0rem",
 
     palette = "primary",
 }) => {
@@ -64,7 +70,10 @@ const Box: FC<BoxProps> = ({
                 maxWidth,
                 minWidth,
 
+                padding,
+
                 direction,
+                gap,
 
                 palette
             )}
@@ -83,7 +92,10 @@ const getStyle = (
     maxWidth: string,
     minWidth: string,
 
+    padding: string,
+
     direction: "column" | "row",
+    gap: string,
 
     palette: Palette
 ): CSSProperties => ({
@@ -95,7 +107,10 @@ const getStyle = (
     maxWidth,
     minWidth,
 
+    padding,
+
     flexDirection: direction,
+    gap,
 
     boxShadow: `0rem 0rem 1rem .4rem ${getProperty("shadow", palette)}`,
     backgroundColor: getProperty("bg", palette),
