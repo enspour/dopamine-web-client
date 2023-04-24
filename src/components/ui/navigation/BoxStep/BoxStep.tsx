@@ -3,7 +3,7 @@ import { useState, useRef, memo, FC } from "react";
 import Box from "@components/ui/catalog/Box/Box";
 import SimpleCarousel from "@components/ui/catalog/SimpleCarousel/SimpleCarousel";
 
-import type { Palette } from "@services/Theme.service";
+import type { ThemePalette } from "@services/Theme.service";
 
 import styles from "./BoxStep.module.scss";
 
@@ -13,7 +13,7 @@ export interface BoxStepSlideProps {
     data: SharedData;
     next: () => void;
     prev: () => void;
-    palette: Palette;
+    palette: ThemePalette;
 }
 
 export interface BoxStepHeaderProps {
@@ -22,7 +22,7 @@ export interface BoxStepHeaderProps {
     data: SharedData;
     next: () => void;
     prev: () => void;
-    palette: Palette;
+    palette: ThemePalette;
 }
 
 export interface BoxStepFooterProps {
@@ -31,7 +31,7 @@ export interface BoxStepFooterProps {
     data: SharedData;
     next: () => void;
     prev: () => void;
-    palette: Palette;
+    palette: ThemePalette;
 }
 
 interface BoxStepProps {
@@ -47,7 +47,7 @@ interface BoxStepProps {
     maxWidth?: string;
     minWidth?: string;
 
-    palette?: Palette;
+    palette?: ThemePalette;
 }
 
 const BoxStep: FC<BoxStepProps> = ({

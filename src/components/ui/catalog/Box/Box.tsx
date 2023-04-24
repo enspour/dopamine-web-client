@@ -1,6 +1,6 @@
 import { useEffect, useRef, memo, ReactNode, FC, CSSProperties } from "react";
 
-import type { Palette } from "@services/Theme.service";
+import type { ThemePalette } from "@services/Theme.service";
 
 import { getThemeValue } from "@utils";
 
@@ -22,7 +22,7 @@ interface BoxProps {
     direction?: "column" | "row";
     gap?: string;
 
-    palette?: Palette;
+    palette?: ThemePalette;
 }
 
 const Box: FC<BoxProps> = ({
@@ -97,7 +97,7 @@ const getStyle = (
     direction: "column" | "row",
     gap: string,
 
-    palette: Palette
+    palette: ThemePalette
 ): CSSProperties => ({
     height,
     maxHeight,

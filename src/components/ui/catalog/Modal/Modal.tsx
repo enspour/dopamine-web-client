@@ -1,8 +1,8 @@
-import { FC, ReactNode, RefObject } from "react";
+import { memo, FC, ReactNode, RefObject } from "react";
 
 import Box from "../Box/Box";
 
-import type { Palette } from "@services/Theme.service";
+import type { ThemePalette } from "@services/Theme.service";
 
 import styles from "./Modal.module.scss";
 
@@ -20,7 +20,7 @@ interface ModalProps {
     maxWidth?: string;
     minWidth?: string;
 
-    palette?: Palette;
+    palette?: ThemePalette;
 }
 
 const Modal: FC<ModalProps> = ({
@@ -64,4 +64,4 @@ const Modal: FC<ModalProps> = ({
     );
 };
 
-export default Modal;
+export default memo(Modal);

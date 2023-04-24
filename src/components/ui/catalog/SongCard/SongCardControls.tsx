@@ -4,7 +4,7 @@ import type { Song } from "@interfaces";
 
 import Icon from "../Icon/Icon";
 
-import type { Palette } from "@services/Theme.service";
+import type { ThemePalette } from "@services/Theme.service";
 
 import { toHHMMSS } from "@utils";
 
@@ -16,7 +16,7 @@ import styles from "./SongCard.module.scss";
 interface SongCardControlsProps {
     song: Song;
     isHover: boolean;
-    palette: Palette;
+    palette: ThemePalette;
 }
 
 const SongCardControls: FC<SongCardControlsProps> = ({

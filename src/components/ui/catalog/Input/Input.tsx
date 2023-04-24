@@ -1,6 +1,7 @@
 import {
     useRef,
     useEffect,
+    memo,
     FC,
     Dispatch,
     SetStateAction,
@@ -14,7 +15,7 @@ import { useIsHover } from "@hooks/useIsHover";
 
 import { getThemeValue } from "@utils";
 
-import type { Palette } from "@services/Theme.service";
+import type { ThemePalette } from "@services/Theme.service";
 
 import ClearIcon from "@assets/icons/input/clear.svg";
 
@@ -25,7 +26,7 @@ interface InputProps {
     placeholder?: string;
     value: string;
     setValue: Dispatch<SetStateAction<string>>;
-    palette?: Palette;
+    palette?: ThemePalette;
 }
 
 const Input: FC<InputProps> = ({
@@ -84,7 +85,7 @@ const Input: FC<InputProps> = ({
 const getStyle = (
     isHover: boolean,
     isFocus: boolean,
-    palette: Palette
+    palette: ThemePalette
 ): CSSProperties => ({
     backgroundColor: getThemeValue("bg", palette),
     color: getThemeValue("color", palette),
@@ -95,4 +96,4 @@ const getStyle = (
     }`,
 });
 
-export default Input;
+export default memo(Input);

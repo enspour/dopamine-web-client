@@ -1,6 +1,7 @@
 import {
     useEffect,
     useRef,
+    memo,
     FC,
     Dispatch,
     SetStateAction,
@@ -9,7 +10,7 @@ import {
 
 import { getThemeValue } from "@utils";
 
-import type { Palette } from "@services/Theme.service";
+import type { ThemePalette } from "@services/Theme.service";
 
 import styles from "./Switcher.module.scss";
 
@@ -18,7 +19,7 @@ interface SwitcherProps {
     value: boolean;
     setValue: Dispatch<SetStateAction<boolean>>;
     disabled?: boolean;
-    palette?: Palette;
+    palette?: ThemePalette;
 }
 
 const Switcher: FC<SwitcherProps> = ({
@@ -92,8 +93,8 @@ const Switcher: FC<SwitcherProps> = ({
     );
 };
 
-const getStyle = (palette: Palette): CSSProperties => ({
+const getStyle = (palette: ThemePalette): CSSProperties => ({
     color: getThemeValue("color", palette),
 });
 
-export default Switcher;
+export default memo(Switcher);

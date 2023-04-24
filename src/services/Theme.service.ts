@@ -4,11 +4,13 @@ import { Service } from ".";
 
 import { getThemeProperties } from "@utils";
 
-export type Theme = "light" | "dark";
+export const THEME_STORAGE_PATH = "--theme-name";
 
-export type Palette = "primary";
+export const THEMES = ["light", "dark"] as const;
+export const THEME_PALETTES = ["primary"] as const;
 
-export const COOKIE_NAME = "--theme-name";
+export type Theme = (typeof THEMES)[number];
+export type ThemePalette = (typeof THEME_PALETTES)[number];
 
 export class ThemeService implements Service {
     async initialize() {}
@@ -30,6 +32,6 @@ export class ThemeService implements Service {
     }
 
     private save(theme: Theme) {
-        Cookie.set(COOKIE_NAME, theme);
+        Cookie.set(THEME_STORAGE_PATH, theme);
     }
 }

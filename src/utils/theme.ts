@@ -1,8 +1,9 @@
-import type { Palette, Theme } from "@services/Theme.service";
+import type { ThemePalette, Theme } from "@services/Theme.service";
+import { THEMES } from "@services/Theme.service";
 
 export const getThemeValue = (
     property: string,
-    palette: Palette = "primary"
+    palette: ThemePalette = "primary"
 ) => {
     return `var(--theme-${palette}-${property})`;
 };
@@ -10,4 +11,8 @@ export const getThemeValue = (
 export const getThemeProperties = async (theme: Theme) => {
     const result = await import(`@assets/themes/${theme}.json`);
     return result.default;
+};
+
+export const isTheme = (theme: string): theme is Theme => {
+    return THEMES.includes(theme as Theme);
 };

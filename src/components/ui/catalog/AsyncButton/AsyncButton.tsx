@@ -1,18 +1,18 @@
-import { useState, FC, ReactNode, MouseEvent } from "react";
+import { useState, memo, FC, ReactNode, MouseEvent } from "react";
 
 import Button from "../Button/Button";
 import Loader from "../Loader/Loader";
 
 import type { LoadingState } from "@interfaces";
 
-import type { Palette } from "@services/Theme.service";
+import type { ThemePalette } from "@services/Theme.service";
 
 interface AsyncButtonProps {
     children: ReactNode | ReactNode[];
     onClick: (e: MouseEvent<HTMLButtonElement>) => Promise<void>;
     width?: string;
     disabled?: boolean;
-    palette?: Palette;
+    palette?: ThemePalette;
 }
 
 const AsyncButton: FC<AsyncButtonProps> = ({
@@ -44,4 +44,4 @@ const AsyncButton: FC<AsyncButtonProps> = ({
     );
 };
 
-export default AsyncButton;
+export default memo(AsyncButton);

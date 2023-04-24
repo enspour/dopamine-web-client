@@ -10,14 +10,14 @@ import { useIsHover } from "@hooks/useIsHover";
 
 import { getThemeValue } from "@utils";
 
-import type { Palette } from "@services/Theme.service";
+import type { ThemePalette } from "@services/Theme.service";
 
 import styles from "./SongCard.module.scss";
 
 interface SongCardProps {
     num: number;
     song: Song;
-    palette?: Palette;
+    palette?: ThemePalette;
 }
 
 const SongCard: FC<SongCardProps> = ({ num, song, palette = "primary" }) => {
@@ -48,7 +48,7 @@ const SongCard: FC<SongCardProps> = ({ num, song, palette = "primary" }) => {
     );
 };
 
-const getStyle = (isHover: boolean, palette: Palette): CSSProperties => ({
+const getStyle = (isHover: boolean, palette: ThemePalette): CSSProperties => ({
     color: isHover
         ? getThemeValue("color-hover", palette)
         : getThemeValue("color", palette),

@@ -2,7 +2,7 @@ import { memo, FC, MouseEvent, CSSProperties } from "react";
 
 import { getThemeValue } from "@utils";
 
-import type { Palette } from "@services/Theme.service";
+import type { ThemePalette } from "@services/Theme.service";
 
 interface SvgProps {
     fill: string;
@@ -12,7 +12,7 @@ interface IconProps {
     svg: FC<SvgProps>;
     onClick?: (e: MouseEvent<HTMLElement>) => void;
     color?: string;
-    palette?: Palette;
+    palette?: ThemePalette;
 }
 
 const Icon: FC<IconProps> = ({

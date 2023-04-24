@@ -1,13 +1,19 @@
 import { cookies } from "next/headers";
 
 import type { Theme } from "@services/Theme.service";
-import { COOKIE_NAME } from "@services/Theme.service";
+import { THEME_STORAGE_PATH } from "@services/Theme.service";
 
-const useThemeCookie = () => {
+import { isTheme } from "@utils";
+
+const useThemeCookie = (): Theme => {
     const cookieStore = cookies();
-    const theme = cookieStore.get(COOKIE_NAME)?.value || "light";
+    const theme = cookieStore.get(THEME_STORAGE_PATH)?.value;
 
-    return theme as Theme;
+    if (theme && isTheme(theme)) {
+        return theme;
+    }
+
+    return "light";
 };
 
 export { useThemeCookie };

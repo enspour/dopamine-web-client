@@ -2,7 +2,7 @@ import { memo, FC, CSSProperties } from "react";
 
 import type { Song } from "@interfaces";
 
-import type { Palette } from "@services/Theme.service";
+import type { ThemePalette } from "@services/Theme.service";
 
 import { getThemeValue } from "@utils";
 
@@ -10,7 +10,7 @@ import styles from "./SongCard.module.scss";
 
 interface SongCardInfoProps {
     song: Song;
-    palette?: Palette;
+    palette?: ThemePalette;
 }
 
 const SongCardInfo: FC<SongCardInfoProps> = ({ song, palette = "primary" }) => {
@@ -23,11 +23,11 @@ const SongCardInfo: FC<SongCardInfoProps> = ({ song, palette = "primary" }) => {
     );
 };
 
-const getDashStyle = (palette: Palette): CSSProperties => ({
+const getDashStyle = (palette: ThemePalette): CSSProperties => ({
     backgroundColor: getThemeValue("color", palette),
 });
 
-const getLinkStyle = (palette: Palette): CSSProperties => ({
+const getLinkStyle = (palette: ThemePalette): CSSProperties => ({
     color: getThemeValue("link", palette),
 });
 

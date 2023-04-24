@@ -10,7 +10,7 @@ import {
 
 import { useIsHover } from "@hooks/useIsHover";
 
-import type { Palette } from "@services/Theme.service";
+import type { ThemePalette } from "@services/Theme.service";
 
 import { getThemeValue } from "@utils";
 
@@ -21,7 +21,7 @@ interface ButtonProps {
     onClick: (e: MouseEvent<HTMLButtonElement>) => void;
     width?: string;
     disabled?: boolean;
-    palette?: Palette;
+    palette?: ThemePalette;
 }
 
 const Button: FC<ButtonProps> = ({
@@ -62,7 +62,7 @@ const Button: FC<ButtonProps> = ({
 const getStyle = (
     isHover: boolean,
     width: string,
-    palette: Palette
+    palette: ThemePalette
 ): CSSProperties => ({
     width,
     color: getThemeValue("color", palette),
