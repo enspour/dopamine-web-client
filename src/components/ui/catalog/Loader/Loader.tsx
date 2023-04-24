@@ -2,7 +2,7 @@ import { memo, FC, CSSProperties } from "react";
 
 import type { Palette } from "@services/Theme.service";
 
-import { getProperty } from "@utils";
+import { getThemeValue } from "@utils";
 
 import styles from "./Loader.module.scss";
 
@@ -15,7 +15,7 @@ const Loader: FC<LoaderProps> = ({ palette = "primary" }) => {
 };
 
 const getStyle = (palette: Palette): CSSProperties => ({
-    color: getProperty("loader", palette),
+    color: getThemeValue("loader", palette),
 });
 
 export default memo(Loader);

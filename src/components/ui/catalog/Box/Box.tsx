@@ -1,8 +1,8 @@
-import { memo, useEffect, useRef, ReactNode, FC, CSSProperties } from "react";
+import { useEffect, useRef, memo, ReactNode, FC, CSSProperties } from "react";
 
 import type { Palette } from "@services/Theme.service";
 
-import { getProperty } from "@utils";
+import { getThemeValue } from "@utils";
 
 import styles from "./Box.module.scss";
 
@@ -49,10 +49,10 @@ const Box: FC<BoxProps> = ({
         const box = boxRef.current;
 
         if (box) {
-            box.style.setProperty("--thumb", getProperty("scroll-thumb"));
+            box.style.setProperty("--thumb", getThemeValue("scroll-thumb"));
             box.style.setProperty(
                 "--thumb-hover",
-                getProperty("scroll-thumb-hover")
+                getThemeValue("scroll-thumb-hover")
             );
         }
     }, []);
@@ -112,8 +112,8 @@ const getStyle = (
     flexDirection: direction,
     gap,
 
-    boxShadow: `0rem 0rem 1rem .4rem ${getProperty("shadow", palette)}`,
-    backgroundColor: getProperty("bg", palette),
+    boxShadow: `0rem 0rem 1rem .4rem ${getThemeValue("shadow", palette)}`,
+    backgroundColor: getThemeValue("bg", palette),
 });
 
 export default memo(Box);

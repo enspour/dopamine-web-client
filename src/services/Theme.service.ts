@@ -1,26 +1,35 @@
+import Cookie from "js-cookie";
+
 import { Service } from ".";
+
+import { getThemeProperties } from "@utils";
 
 export type Theme = "light" | "dark";
 
 export type Palette = "primary";
 
+export const COOKIE_NAME = "--theme-name";
+
 export class ThemeService implements Service {
-    initialize(): void {
-        this.set("light");
+    async initialize() {}
+
+    async destroy() {}
+
+    async switch(theme: Theme) {
+        const properties = await getThemeProperties(theme);
+        this.set(properties);
+        this.save(theme);
     }
 
-    destroy(): void {}
-
-    async set(theme: Theme) {
-        const result = await import(`@assets/themes/${theme}`);
-
-        const properties = result.default;
+    private set(properties: any) {
+        const html = document.querySelector("html");
 
         for (const property in properties) {
-            document.documentElement.style.setProperty(
-                property,
-                properties[property]
-            );
+            html?.style.setProperty(property, properties[property]);
         }
+    }
+
+    private save(theme: Theme) {
+        Cookie.set(COOKIE_NAME, theme);
     }
 }

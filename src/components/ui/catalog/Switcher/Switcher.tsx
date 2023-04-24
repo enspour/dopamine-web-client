@@ -1,13 +1,13 @@
 import {
+    useEffect,
+    useRef,
     FC,
     Dispatch,
     SetStateAction,
     CSSProperties,
-    useEffect,
-    useRef,
 } from "react";
 
-import { getProperty } from "@utils";
+import { getThemeValue } from "@utils";
 
 import type { Palette } from "@services/Theme.service";
 
@@ -36,42 +36,42 @@ const Switcher: FC<SwitcherProps> = ({
         if (switcher) {
             switcher.style.setProperty(
                 "--active",
-                getProperty("switcher-active", palette)
+                getThemeValue("switcher-active", palette)
             );
 
             switcher.style.setProperty(
                 "--active-inner",
-                getProperty("switcher-active-inner", palette)
+                getThemeValue("switcher-active-inner", palette)
             );
 
             switcher.style.setProperty(
                 "--border",
-                getProperty("border", palette)
+                getThemeValue("border", palette)
             );
 
             switcher.style.setProperty(
                 "--border-hover",
-                getProperty("border-hover", palette)
+                getThemeValue("border-hover", palette)
             );
 
             switcher.style.setProperty(
                 "--border-focus",
-                getProperty("border-focus", palette)
+                getThemeValue("border-focus", palette)
             );
 
             switcher.style.setProperty(
                 "--background",
-                getProperty("bg", palette)
+                getThemeValue("bg", palette)
             );
 
             switcher.style.setProperty(
                 "--disabled",
-                getProperty("switcher-disabled", palette)
+                getThemeValue("switcher-disabled", palette)
             );
 
             switcher.style.setProperty(
                 "--disabled-inner",
-                getProperty("switcher-disabled-inner", palette)
+                getThemeValue("switcher-disabled-inner", palette)
             );
         }
     }, []); // eslint-disable-line
@@ -93,7 +93,7 @@ const Switcher: FC<SwitcherProps> = ({
 };
 
 const getStyle = (palette: Palette): CSSProperties => ({
-    color: getProperty("color", palette),
+    color: getThemeValue("color", palette),
 });
 
 export default Switcher;

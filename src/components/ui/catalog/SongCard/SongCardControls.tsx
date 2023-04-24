@@ -6,7 +6,7 @@ import Icon from "../Icon/Icon";
 
 import type { Palette } from "@services/Theme.service";
 
-import { getProperty, toHHMMSS } from "@utils";
+import { toHHMMSS } from "@utils";
 
 import LikeIcon from "@assets/icons/song-card/like.svg";
 import MoreIcon from "@assets/icons/song-card/more.svg";

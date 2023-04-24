@@ -1,5 +1,13 @@
-import { Palette } from "@services/Theme.service";
+import type { Palette, Theme } from "@services/Theme.service";
 
-export const getProperty = (property: string, palette: Palette = "primary") => {
+export const getThemeValue = (
+    property: string,
+    palette: Palette = "primary"
+) => {
     return `var(--theme-${palette}-${property})`;
+};
+
+export const getThemeProperties = async (theme: Theme) => {
+    const result = await import(`@assets/themes/${theme}.json`);
+    return result.default;
 };

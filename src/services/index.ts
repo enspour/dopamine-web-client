@@ -3,8 +3,8 @@ import { ServicesManager } from "./ServicesManager";
 import { ThemeService } from "./Theme.service";
 
 export interface Service {
-    initialize(services: Services): void;
-    destroy(): void;
+    initialize(services: Services): Promise<void>;
+    destroy(): Promise<void>;
 }
 
 type ServicesType = {
@@ -18,14 +18,14 @@ export class Services {
         this.manager = new ServicesManager();
     }
 
-    initialize() {
+    async initialize() {
         this.manager.register("theme", new ThemeService());
 
-        this.manager.initialize(this);
+        await this.manager.initialize(this);
     }
 
-    destroy() {
-        this.manager.destroy();
+    async destroy() {
+        await this.manager.destroy();
     }
 
     get Theme() {

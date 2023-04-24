@@ -7,12 +7,16 @@ export class ServicesManager<T extends { [key: string]: Service }> {
         this.services = new Map();
     }
 
-    initialize(services: Services): void {
-        this.services.forEach((service) => service.initialize(services));
+    async initialize(services: Services) {
+        for (const [_, service] of Array.from(this.services)) {
+            await service.initialize(services);
+        }
     }
 
-    destroy(): void {
-        this.services.forEach((service) => service.destroy());
+    async destroy() {
+        for (const [_, service] of Array.from(this.services)) {
+            await service.destroy();
+        }
     }
 
     register(name: keyof T, service: T[keyof T]) {

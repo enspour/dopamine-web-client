@@ -4,7 +4,7 @@ import type { Song } from "@interfaces";
 
 import type { Palette } from "@services/Theme.service";
 
-import { getProperty } from "@utils";
+import { getThemeValue } from "@utils";
 
 import styles from "./SongCard.module.scss";
 
@@ -24,11 +24,11 @@ const SongCardInfo: FC<SongCardInfoProps> = ({ song, palette = "primary" }) => {
 };
 
 const getDashStyle = (palette: Palette): CSSProperties => ({
-    backgroundColor: getProperty("color", palette),
+    backgroundColor: getThemeValue("color", palette),
 });
 
 const getLinkStyle = (palette: Palette): CSSProperties => ({
-    color: getProperty("link", palette),
+    color: getThemeValue("link", palette),
 });
 
 export default memo(SongCardInfo);

@@ -8,11 +8,11 @@ import {
     MouseEvent,
 } from "react";
 
-import { useIsHover } from "@hooks";
+import { useIsHover } from "@hooks/useIsHover";
 
 import type { Palette } from "@services/Theme.service";
 
-import { getProperty } from "@utils";
+import { getThemeValue } from "@utils";
 
 import styles from "./Button.module.scss";
 
@@ -41,7 +41,7 @@ const Button: FC<ButtonProps> = ({
         if (button) {
             button.style.setProperty(
                 "--border-focus",
-                getProperty("border-focus", palette)
+                getThemeValue("border-focus", palette)
             );
         }
     }, []); //eslint-disable-line
@@ -65,12 +65,12 @@ const getStyle = (
     palette: Palette
 ): CSSProperties => ({
     width,
-    color: getProperty("color", palette),
-    backgroundColor: getProperty("bg", palette),
+    color: getThemeValue("color", palette),
+    backgroundColor: getThemeValue("bg", palette),
     border: `.1rem solid ${
         isHover
-            ? getProperty("border-hover", palette)
-            : getProperty("border", palette)
+            ? getThemeValue("border-hover", palette)
+            : getThemeValue("border", palette)
     }`,
 });
 

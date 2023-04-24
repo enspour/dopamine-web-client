@@ -1,5 +1,5 @@
 import { axios } from "./axios";
 import { toHHMMSS } from "./formatTime";
-import { getProperty } from "./theme";
+import { getThemeValue, getThemeProperties } from "./theme";
 
-export { axios, toHHMMSS, getProperty };
+export { axios, toHHMMSS, getThemeProperties, getThemeValue };

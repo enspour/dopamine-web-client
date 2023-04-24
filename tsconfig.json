@@ -1,38 +1,41 @@
 {
-  "compilerOptions": {
-    "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "noEmit": true,
-    "esModuleInterop": true,
-    "module": "esnext",
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "jsx": "preserve",
-    "incremental": true,
-    "paths": {
-      "@services": ["./src/services"],
-      "@hooks": ["./src/hooks"],
-      "@utils": ["./src/utils"],
-      "@interfaces": ["./src/interfaces"],
-      "@dto": ["./src/dto"],
-      
-      "@services/*": ["./src/services/*"],
-      "@configs/*": ["./src/configs/*"],
-      "@styles/*": ["./src/styles/*"],
-      "@assets/*": ["./src/assets/*"],
-      "@api/*": ["./src/api/*"],
-      "@components/*": ["./src/components/*"],
-      "@features/*": ["./src/features/*"],
-      "@redux/*": ["./src/redux/*"],
-
-      "@/*": ["./src/*"]
-    }
-  },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules"]
+    "compilerOptions": {
+        "target": "es5",
+        "lib": ["dom", "dom.iterable", "esnext"],
+        "allowJs": true,
+        "skipLibCheck": true,
+        "strict": true,
+        "forceConsistentCasingInFileNames": true,
+        "noEmit": true,
+        "esModuleInterop": true,
+        "module": "esnext",
+        "moduleResolution": "node",
+        "resolveJsonModule": true,
+        "isolatedModules": true,
+        "jsx": "preserve",
+        "incremental": true,
+        "paths": {
+            "@services": ["./src/services"],
+            "@utils": ["./src/utils"],
+            "@interfaces": ["./src/interfaces"],
+            "@dto": ["./src/dto"],
+            "@hooks/*": ["./src/hooks/*"],
+            "@services/*": ["./src/services/*"],
+            "@configs/*": ["./src/configs/*"],
+            "@styles/*": ["./src/styles/*"],
+            "@assets/*": ["./src/assets/*"],
+            "@api/*": ["./src/api/*"],
+            "@components/*": ["./src/components/*"],
+            "@features/*": ["./src/features/*"],
+            "@redux/*": ["./src/redux/*"],
+            "@/*": ["./src/*"]
+        },
+        "plugins": [
+            {
+                "name": "next"
+            }
+        ]
+    },
+    "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+    "exclude": ["node_modules"]
 }

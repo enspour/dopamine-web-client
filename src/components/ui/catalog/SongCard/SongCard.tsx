@@ -1,4 +1,4 @@
-import { useRef, FC, CSSProperties, memo } from "react";
+import { useRef, memo, FC, CSSProperties } from "react";
 
 import type { Song } from "@interfaces";
 
@@ -6,9 +6,9 @@ import SongCardInfo from "./SongCardInfo";
 import SongCardImage from "./SongCardImage";
 import SongCardControls from "./SongCardControls";
 
-import { useIsHover } from "@hooks";
+import { useIsHover } from "@hooks/useIsHover";
 
-import { getProperty } from "@utils";
+import { getThemeValue } from "@utils";
 
 import type { Palette } from "@services/Theme.service";
 
@@ -50,11 +50,11 @@ const SongCard: FC<SongCardProps> = ({ num, song, palette = "primary" }) => {
 
 const getStyle = (isHover: boolean, palette: Palette): CSSProperties => ({
     color: isHover
-        ? getProperty("color-hover", palette)
-        : getProperty("color", palette),
+        ? getThemeValue("color-hover", palette)
+        : getThemeValue("color", palette),
     backgroundColor: isHover
-        ? getProperty("bg-hover", palette)
-        : getProperty("bg", palette),
+        ? getThemeValue("bg-hover", palette)
+        : getThemeValue("bg", palette),
 });
 
 export default memo(SongCard);
