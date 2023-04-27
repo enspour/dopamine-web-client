@@ -23,4 +23,4 @@ const useIsFocus = (ref: RefObject<HTMLElement>) => {
     return isFocus;
 };
 
-export { useIsFocus };
+export default useIsFocus;

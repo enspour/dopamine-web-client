@@ -2,7 +2,7 @@ import { ReactNode, CSSProperties } from "react";
 
 import InitializationLayout from "@components/layouts/InitializationLayout/InitializationLayout";
 
-import { useThemeCookie } from "@hooks/useThemeCookie";
+import useThemeCookie from "@hooks/useThemeCookie";
 
 import { getThemeProperties } from "@utils";
 

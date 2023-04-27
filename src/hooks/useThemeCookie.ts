@@ -16,4 +16,4 @@ const useThemeCookie = (): Theme => {
     return "light";
 };
 
-export { useThemeCookie };
+export default useThemeCookie;

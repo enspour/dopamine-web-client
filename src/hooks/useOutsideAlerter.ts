@@ -20,4 +20,4 @@ const useOutsideAlerter = (
     return [isOpen, setIsOpen] as const;
 };
 
-export { useOutsideAlerter };
+export default useOutsideAlerter;

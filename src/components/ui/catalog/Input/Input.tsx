@@ -10,8 +10,8 @@ import {
 
 import Icon from "../Icon/Icon";
 
-import { useIsFocus } from "@hooks/useIsFocus";
-import { useIsHover } from "@hooks/useIsHover";
+import useIsFocus from "@hooks/useIsFocus";
+import useIsHover from "@hooks/useIsHover";
 
 import { getThemeValue } from "@utils";
 

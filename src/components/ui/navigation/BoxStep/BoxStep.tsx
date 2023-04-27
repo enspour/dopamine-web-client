@@ -1,16 +1,15 @@
-import { useState, useRef, memo, FC } from "react";
+import { useState, FC } from "react";
 
 import Box from "@components/ui/catalog/Box/Box";
 import SimpleCarousel from "@components/ui/catalog/SimpleCarousel/SimpleCarousel";
 
 import type { ThemePalette } from "@services/Theme.service";
 
+import { typedMemo } from "@utils";
+
 import styles from "./BoxStep.module.scss";
 
-export type SharedData = { [key: string]: any };
-
 export interface BoxStepSlideProps {
-    data: SharedData;
     next: () => void;
     prev: () => void;
     palette: ThemePalette;
@@ -19,7 +18,6 @@ export interface BoxStepSlideProps {
 export interface BoxStepHeaderProps {
     index: number;
     size: number;
-    data: SharedData;
     next: () => void;
     prev: () => void;
     palette: ThemePalette;
@@ -28,16 +26,17 @@ export interface BoxStepHeaderProps {
 export interface BoxStepFooterProps {
     index: number;
     size: number;
-    data: SharedData;
     next: () => void;
     prev: () => void;
     palette: ThemePalette;
 }
 
-interface BoxStepProps {
-    slides: FC<BoxStepSlideProps>[];
-    footer?: FC<BoxStepFooterProps>;
-    header?: FC<BoxStepHeaderProps>;
+interface BoxStepProps<T> {
+    slides: FC<BoxStepSlideProps & T>[];
+    header?: FC<BoxStepHeaderProps & T>;
+    footer?: FC<BoxStepFooterProps & T>;
+
+    extraProps: T;
 
     height?: string;
     maxHeight?: string;
@@ -50,10 +49,12 @@ interface BoxStepProps {
     palette?: ThemePalette;
 }
 
-const BoxStep: FC<BoxStepProps> = ({
+const BoxStep = <T,>({
     slides,
     footer: Footer,
     header: Header,
+
+    extraProps,
 
     height = "100%",
     maxHeight = "inherit",
@@ -64,9 +65,7 @@ const BoxStep: FC<BoxStepProps> = ({
     minWidth = "inherit",
 
     palette = "primary",
-}) => {
-    const sharedData = useRef({});
-
+}: BoxStepProps<T>) => {
     const [index, setIndex] = useState(0);
 
     const next = () => {
@@ -90,45 +89,49 @@ const BoxStep: FC<BoxStepProps> = ({
             maxWidth={maxWidth}
             minWidth={minWidth}
             padding="0rem"
-            gap="0rem"
+            gap="4rem"
             palette={palette}
         >
-            {Header && (
-                <Header
-                    index={index}
-                    size={slides.length}
-                    data={sharedData.current}
-                    next={next}
-                    prev={prev}
-                    palette={palette}
-                />
-            )}
+            <div className={styles.header}>
+                {Header && (
+                    <Header
+                        index={index}
+                        size={slides.length}
+                        next={next}
+                        prev={prev}
+                        palette={palette}
+                        {...extraProps}
+                    />
+                )}
+            </div>
 
             <SimpleCarousel index={index}>
                 {slides.map((Slide, idx) => (
                     <div key={idx} className={styles.slide}>
                         <Slide
-                            data={sharedData.current}
                             next={next}
                             prev={prev}
                             palette={palette}
+                            {...extraProps}
                         />
                     </div>
                 ))}
             </SimpleCarousel>
 
-            {Footer && (
-                <Footer
-                    index={index}
-                    size={slides.length}
-                    data={sharedData.current}
-                    next={next}
-                    prev={prev}
-                    palette={palette}
-                />
-            )}
+            <div className={styles.footer}>
+                {Footer && (
+                    <Footer
+                        index={index}
+                        size={slides.length}
+                        next={next}
+                        prev={prev}
+                        palette={palette}
+                        {...extraProps}
+                    />
+                )}
+            </div>
         </Box>
     );
 };
 
-export default memo(BoxStep);
+export default typedMemo(BoxStep);

@@ -8,7 +8,7 @@ import {
     MouseEvent,
 } from "react";
 
-import { useIsHover } from "@hooks/useIsHover";
+import useIsHover from "@hooks/useIsHover";
 
 import type { ThemePalette } from "@services/Theme.service";
 

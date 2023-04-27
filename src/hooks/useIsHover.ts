@@ -23,4 +23,4 @@ const useIsHover = (ref: RefObject<HTMLElement>) => {
     return isHover;
 };
 
-export { useIsHover };
+export default useIsHover;
