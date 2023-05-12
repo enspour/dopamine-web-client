@@ -1,4 +1,4 @@
-import { useEffect, useRef, memo, ReactNode, FC, CSSProperties } from "react";
+import { CSSProperties, FC, ReactNode, memo, useEffect, useRef } from "react";
 
 import type { ThemePalette } from "@services/Theme.service";
 

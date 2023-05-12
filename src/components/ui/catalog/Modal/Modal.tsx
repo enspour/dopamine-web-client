@@ -1,4 +1,4 @@
-import { memo, FC, ReactNode, RefObject } from "react";
+import { FC, ReactNode, RefObject, memo } from "react";
 
 import Box from "../Box/Box";
 

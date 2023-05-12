@@ -1,4 +1,4 @@
-import { memo, FC, MouseEvent, CSSProperties } from "react";
+import { CSSProperties, FC, MouseEvent, memo } from "react";
 
 import { getThemeValue } from "@utils";
 

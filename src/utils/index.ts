@@ -1,7 +1,7 @@
 import { axios } from "./axios";
 import { toHHMMSS } from "./formatTime";
+import { getThemeProperties, getThemeValue, isTheme } from "./theme";
 import { typedMemo } from "./typedMemo";
-import { isTheme, getThemeValue, getThemeProperties } from "./theme";
 
 export {
     axios,

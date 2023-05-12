@@ -1,4 +1,4 @@
-import { memo, FC, ReactNode, CSSProperties } from "react";
+import { CSSProperties, FC, ReactNode, memo } from "react";
 
 import styles from "./SimpleCarousel.module.scss";
 

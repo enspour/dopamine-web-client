@@ -1,11 +1,11 @@
 import {
-    useRef,
-    useEffect,
-    memo,
-    FC,
-    ReactNode,
     CSSProperties,
+    FC,
     MouseEvent,
+    ReactNode,
+    memo,
+    useEffect,
+    useRef,
 } from "react";
 
 import useIsHover from "@hooks/useIsHover";

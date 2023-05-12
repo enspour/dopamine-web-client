@@ -1,5 +1,5 @@
-import { memo, FC } from "react";
 import Image from "next/image";
+import { FC, memo } from "react";
 
 import Icon from "../Icon/Icon";
 

@@ -1,4 +1,4 @@
-import a, { AxiosRequestConfig } from "axios";
+import _axios, { AxiosRequestConfig } from "axios";
 
 import "./interceptors";
 
@@ -25,7 +25,7 @@ const axios = {
         url: string,
         config?: AxiosRequestConfig
     ): Promise<Response<T>> => {
-        return await a.get<any, Response<T>>(url, config);
+        return await _axios.get<any, Response<T>>(url, config);
     },
 
     post: async <T>(
@@ -33,15 +33,15 @@ const axios = {
         data: any,
         config?: AxiosRequestConfig
     ): Promise<Response<T>> => {
-        return await a.post<any, Response<T>>(url, data, config);
+        return await _axios.post<any, Response<T>>(url, data, config);
     },
 
     put: async <T>(url: string, data: any, config?: AxiosRequestConfig) => {
-        return await a.put<any, Response<T>>(url, data, config);
+        return await _axios.put<any, Response<T>>(url, data, config);
     },
 
     delete: async <T>(url: string, config?: AxiosRequestConfig) => {
-        return await a.delete(url, config);
+        return await _axios.delete(url, config);
     },
 };
 

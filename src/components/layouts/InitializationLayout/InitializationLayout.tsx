@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, memo, FC, ReactNode } from "react";
+import { FC, ReactNode, memo, useEffect } from "react";
 
 import services from "@services";
 

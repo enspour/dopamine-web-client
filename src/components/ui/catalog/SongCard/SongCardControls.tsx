@@ -1,4 +1,4 @@
-import { memo, FC } from "react";
+import { FC, memo } from "react";
 
 import type { Song } from "@interfaces";
 

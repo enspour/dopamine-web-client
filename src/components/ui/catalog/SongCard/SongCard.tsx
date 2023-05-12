@@ -1,10 +1,10 @@
-import { useRef, memo, FC, CSSProperties } from "react";
+import { CSSProperties, FC, memo, useRef } from "react";
 
 import type { Song } from "@interfaces";
 
-import SongCardInfo from "./SongCardInfo";
-import SongCardImage from "./SongCardImage";
 import SongCardControls from "./SongCardControls";
+import SongCardImage from "./SongCardImage";
+import SongCardInfo from "./SongCardInfo";
 
 import useIsHover from "@hooks/useIsHover";
 

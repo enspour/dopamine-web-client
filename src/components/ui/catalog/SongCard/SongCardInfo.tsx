@@ -1,4 +1,4 @@
-import { memo, FC, CSSProperties } from "react";
+import { CSSProperties, FC, memo } from "react";
 
 import type { Song } from "@interfaces";
 

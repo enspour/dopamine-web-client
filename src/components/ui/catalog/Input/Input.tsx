@@ -25,7 +25,7 @@ interface InputProps {
     type?: "text" | "password";
     placeholder?: string;
     value: string;
-    setValue: Dispatch<SetStateAction<string>>;
+    setValue: (value: string) => void;
     palette?: ThemePalette;
 }
 

@@ -1,4 +1,4 @@
-import { useState, FC } from "react";
+import { FC, useState } from "react";
 
 import Box from "@components/ui/catalog/Box/Box";
 import SimpleCarousel from "@components/ui/catalog/SimpleCarousel/SimpleCarousel";
@@ -7,36 +7,32 @@ import type { ThemePalette } from "@services/Theme.service";
 
 import { typedMemo } from "@utils";
 
-import styles from "./BoxStep.module.scss";
+import styles from "./Stepper.module.scss";
 
-export interface BoxStepSlideProps {
+export interface StepperStepProps {
     next: () => void;
     prev: () => void;
     palette: ThemePalette;
 }
 
-export interface BoxStepHeaderProps {
-    index: number;
-    size: number;
+export interface StepperHeaderProps {
     next: () => void;
     prev: () => void;
     palette: ThemePalette;
 }
 
-export interface BoxStepFooterProps {
-    index: number;
-    size: number;
+export interface StepperFooterProps {
     next: () => void;
     prev: () => void;
     palette: ThemePalette;
 }
 
-interface BoxStepProps<T> {
-    slides: FC<BoxStepSlideProps & T>[];
-    header?: FC<BoxStepHeaderProps & T>;
-    footer?: FC<BoxStepFooterProps & T>;
+interface StepperProps<ExtraProps> {
+    steps: FC<StepperStepProps & ExtraProps>[];
+    headers: FC<StepperHeaderProps & ExtraProps>[];
+    footers: FC<StepperFooterProps & ExtraProps>[];
 
-    extraProps: T;
+    extraProps: ExtraProps;
 
     height?: string;
     maxHeight?: string;
@@ -49,10 +45,10 @@ interface BoxStepProps<T> {
     palette?: ThemePalette;
 }
 
-const BoxStep = <T,>({
-    slides,
-    footer: Footer,
-    header: Header,
+const Stepper = <ExtraProps,>({
+    steps,
+    footers,
+    headers,
 
     extraProps,
 
@@ -65,11 +61,14 @@ const BoxStep = <T,>({
     minWidth = "inherit",
 
     palette = "primary",
-}: BoxStepProps<T>) => {
+}: StepperProps<ExtraProps>) => {
     const [index, setIndex] = useState(0);
 
+    const Header = headers[index];
+    const Footer = footers[index];
+
     const next = () => {
-        if (index + 1 < slides.length) {
+        if (index + 1 < steps.length) {
             setIndex(index + 1);
         }
     };
@@ -93,22 +92,18 @@ const BoxStep = <T,>({
             palette={palette}
         >
             <div className={styles.header}>
-                {Header && (
-                    <Header
-                        index={index}
-                        size={slides.length}
-                        next={next}
-                        prev={prev}
-                        palette={palette}
-                        {...extraProps}
-                    />
-                )}
+                <Header
+                    next={next}
+                    prev={prev}
+                    palette={palette}
+                    {...extraProps}
+                />
             </div>
 
             <SimpleCarousel index={index}>
-                {slides.map((Slide, idx) => (
-                    <div key={idx} className={styles.slide}>
-                        <Slide
+                {steps.map((Step, idx) => (
+                    <div key={idx} className={styles.step}>
+                        <Step
                             next={next}
                             prev={prev}
                             palette={palette}
@@ -119,19 +114,15 @@ const BoxStep = <T,>({
             </SimpleCarousel>
 
             <div className={styles.footer}>
-                {Footer && (
-                    <Footer
-                        index={index}
-                        size={slides.length}
-                        next={next}
-                        prev={prev}
-                        palette={palette}
-                        {...extraProps}
-                    />
-                )}
+                <Footer
+                    next={next}
+                    prev={prev}
+                    palette={palette}
+                    {...extraProps}
+                />
             </div>
         </Box>
     );
 };
 
-export default typedMemo(BoxStep);
+export default typedMemo(Stepper);

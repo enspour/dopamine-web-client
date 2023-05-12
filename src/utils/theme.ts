@@ -1,4 +1,4 @@
-import type { ThemePalette, Theme } from "@services/Theme.service";
+import type { Theme, ThemePalette } from "@services/Theme.service";
 import { THEMES } from "@services/Theme.service";
 
 export const getThemeValue = (

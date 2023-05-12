@@ -1,4 +1,4 @@
-import { useState, memo, FC, ReactNode, MouseEvent } from "react";
+import { FC, MouseEvent, ReactNode, memo, useState } from "react";
 
 import Button from "../Button/Button";
 import Loader from "../Loader/Loader";

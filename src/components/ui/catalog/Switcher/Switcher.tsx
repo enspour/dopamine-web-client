@@ -1,12 +1,4 @@
-import {
-    useEffect,
-    useRef,
-    memo,
-    FC,
-    Dispatch,
-    SetStateAction,
-    CSSProperties,
-} from "react";
+import { CSSProperties, FC, memo, useEffect, useRef } from "react";
 
 import { getThemeValue } from "@utils";
 
@@ -17,7 +9,7 @@ import styles from "./Switcher.module.scss";
 interface SwitcherProps {
     label: string;
     value: boolean;
-    setValue: Dispatch<SetStateAction<boolean>>;
+    setValue: (value: boolean) => void;
     disabled?: boolean;
     palette?: ThemePalette;
 }
