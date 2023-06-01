@@ -2,14 +2,12 @@ import { CSSProperties, ReactNode } from "react";
 
 import InitializationLayout from "@components/layouts/InitializationLayout/InitializationLayout";
 
-import useThemeCookie from "@hooks/useThemeCookie";
+import { useThemeCookie } from "@hooks/server";
 
 import { getThemeProperties } from "@utils";
 
 import "@styles/globals.scss";
 import "@styles/reset.css";
-
-import "@api/mock";
 
 import { Nunito } from "next/font/google";
 

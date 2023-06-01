@@ -25,6 +25,10 @@ const AsyncButton: FC<AsyncButtonProps> = ({
     const [loading, setLoading] = useState<LoadingState>("idle");
 
     const clickHandler = async (e: MouseEvent<HTMLButtonElement>) => {
+        if (loading === "loading") {
+            return;
+        }
+
         setLoading("loading");
 
         await onClick(e);

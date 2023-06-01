@@ -1,5 +1,7 @@
 import axios from "axios";
 
+import "@api/mock";
+
 // Add a request interceptor
 axios.interceptors.request.use(
     function (config) {

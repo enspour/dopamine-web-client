@@ -1,17 +1,8 @@
-import {
-    useRef,
-    useEffect,
-    memo,
-    FC,
-    Dispatch,
-    SetStateAction,
-    CSSProperties,
-} from "react";
+import { CSSProperties, FC, memo, useEffect, useRef } from "react";
 
 import Icon from "../Icon/Icon";
 
-import useIsFocus from "@hooks/useIsFocus";
-import useIsHover from "@hooks/useIsHover";
+import { useIsFocus, useIsHover } from "@hooks/client";
 
 import { getThemeValue } from "@utils";
 

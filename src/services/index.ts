@@ -12,15 +12,9 @@ type ServicesType = {
 };
 
 export class Services {
-    private manager: ServicesManager<ServicesType>;
-
-    constructor() {
-        this.manager = new ServicesManager();
-    }
+    constructor(private manager: ServicesManager<ServicesType>) {}
 
     async initialize() {
-        this.manager.register("theme", new ThemeService());
-
         await this.manager.initialize(this);
     }
 
@@ -33,6 +27,10 @@ export class Services {
     }
 }
 
-const services = new Services();
+const manager = new ServicesManager<ServicesType>();
+
+manager.register("theme", new ThemeService());
+
+const services = new Services(manager);
 
 export default services;

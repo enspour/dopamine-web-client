@@ -6,7 +6,7 @@ import SongCardControls from "./SongCardControls";
 import SongCardImage from "./SongCardImage";
 import SongCardInfo from "./SongCardInfo";
 
-import useIsHover from "@hooks/useIsHover";
+import { useIsHover } from "@hooks/client";
 
 import { getThemeValue } from "@utils";
 

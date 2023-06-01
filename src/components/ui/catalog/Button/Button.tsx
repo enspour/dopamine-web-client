@@ -8,7 +8,7 @@ import {
     useRef,
 } from "react";
 
-import useIsHover from "@hooks/useIsHover";
+import { useIsHover } from "@hooks/client";
 
 import type { ThemePalette } from "@services/Theme.service";
 
