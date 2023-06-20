@@ -5,6 +5,15 @@ const nextConfig = {
         appDir: true,
     },
 
+    async rewrites() {
+        return [
+            {
+                source: "/api/v1/:path*",
+                destination: "http://localhost:3010/api/v1/:path*",
+            },
+        ];
+    },
+
     webpack(config) {
         config.module.rules.push({
             test: /\.svg$/i,

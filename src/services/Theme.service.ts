@@ -7,7 +7,7 @@ import { getThemeProperties } from "@utils";
 export const THEME_STORAGE_PATH = "--theme-name";
 
 export const THEMES = ["light", "dark"] as const;
-export const THEME_PALETTES = ["primary"] as const;
+export const THEME_PALETTES = ["primary", "secondary"] as const;
 
 export type Theme = (typeof THEMES)[number];
 export type ThemePalette = (typeof THEME_PALETTES)[number];
