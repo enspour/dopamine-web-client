@@ -16,5 +16,12 @@
     "--theme-primary-switcher-active-inner": "#FFFFFF",
     "--theme-primary-switcher-disabled-bg": "#f6f8ff",
     "--theme-primary-switcher-disabled-bg-inner": "#e1e6f9",
-    "--theme-primary-loader": "#000000"
+    "--theme-primary-loader": "#000000",
+    "--theme-primary-code-bg-focus": "#EEEEEE",
+    "--theme-primary-code-border": "#E2E2E2",
+    "--theme-primary-code-border-focus": "#898989",
+    "--theme-primary-nav-color": "#000000",
+    "--theme-primary-nav-bg": "#FFFFFF",
+
+    "--theme-secondary-bg": "#F5F5F5"
 }
