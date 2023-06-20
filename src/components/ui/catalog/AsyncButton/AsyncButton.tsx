@@ -11,6 +11,7 @@ interface AsyncButtonProps {
     children: ReactNode | ReactNode[];
     onClick: (e: MouseEvent<HTMLButtonElement>) => Promise<void>;
     width?: string;
+    height?: string;
     disabled?: boolean;
     palette?: ThemePalette;
 }
@@ -19,6 +20,7 @@ const AsyncButton: FC<AsyncButtonProps> = ({
     children,
     onClick,
     width = "100%",
+    height = "3.5rem",
     disabled = false,
     palette,
 }) => {
@@ -41,6 +43,7 @@ const AsyncButton: FC<AsyncButtonProps> = ({
             onClick={clickHandler}
             palette={palette}
             width={width}
+            height={height}
             disabled={disabled}
         >
             {loading === "loading" ? <Loader /> : children}

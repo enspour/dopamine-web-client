@@ -1,4 +1,12 @@
-import { CSSProperties, FC, ReactNode, memo, useEffect, useRef } from "react";
+import {
+    CSSProperties,
+    FC,
+    ReactNode,
+    RefObject,
+    memo,
+    useEffect,
+    useRef,
+} from "react";
 
 import type { ThemePalette } from "@services/Theme.service";
 
@@ -8,6 +16,8 @@ import styles from "./Box.module.scss";
 
 interface BoxProps {
     children: ReactNode | ReactNode[];
+
+    boxRef?: RefObject<HTMLDivElement>;
 
     height?: string;
     maxHeight?: string;
@@ -28,6 +38,8 @@ interface BoxProps {
 const Box: FC<BoxProps> = ({
     children,
 
+    boxRef = useRef<HTMLDivElement>(null),
+
     height = "100%",
     maxHeight = "inherit",
     minHeight = "inherit",
@@ -43,8 +55,6 @@ const Box: FC<BoxProps> = ({
 
     palette = "primary",
 }) => {
-    const boxRef = useRef<HTMLDivElement>(null);
-
     useEffect(() => {
         const box = boxRef.current;
 

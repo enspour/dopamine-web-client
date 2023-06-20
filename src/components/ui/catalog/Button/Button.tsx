@@ -20,6 +20,7 @@ interface ButtonProps {
     children: ReactNode | ReactNode[];
     onClick: (e: MouseEvent<HTMLButtonElement>) => void;
     width?: string;
+    height?: string;
     disabled?: boolean;
     palette?: ThemePalette;
 }
@@ -28,6 +29,7 @@ const Button: FC<ButtonProps> = ({
     children,
     onClick,
     width = "100%",
+    height = "3.5rem",
     disabled = false,
     palette = "primary",
 }) => {
@@ -50,7 +52,7 @@ const Button: FC<ButtonProps> = ({
         <button
             ref={buttonRef}
             className={styles.button}
-            style={getStyle(isHover, width, palette)}
+            style={getStyle(isHover, width, height, palette)}
             onClick={onClick}
             disabled={disabled}
         >
@@ -62,9 +64,11 @@ const Button: FC<ButtonProps> = ({
 const getStyle = (
     isHover: boolean,
     width: string,
+    height: string,
     palette: ThemePalette
 ): CSSProperties => ({
     width,
+    height,
     color: getThemeValue("color", palette),
     backgroundColor: getThemeValue("bg", palette),
     border: `.1rem solid ${

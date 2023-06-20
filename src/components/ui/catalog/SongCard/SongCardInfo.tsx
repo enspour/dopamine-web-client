@@ -17,7 +17,12 @@ const SongCardInfo: FC<SongCardInfoProps> = ({ song, palette = "primary" }) => {
     return (
         <div className={styles.card__info}>
             <div>{song.name}</div>
-            <div className={styles.card__dash} style={getDashStyle(palette)} />
+
+            <div
+                className={styles.card__info__dash}
+                style={getDashStyle(palette)}
+            />
+
             <div style={getLinkStyle(palette)}>{song.owner.name}</div>
         </div>
     );

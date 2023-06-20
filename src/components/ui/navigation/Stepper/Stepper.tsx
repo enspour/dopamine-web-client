@@ -1,6 +1,5 @@
 import { FC, useState } from "react";
 
-import Box from "@components/ui/catalog/Box/Box";
 import SimpleCarousel from "@components/ui/catalog/SimpleCarousel/SimpleCarousel";
 
 import type { ThemePalette } from "@services/Theme.service";
@@ -31,17 +30,7 @@ interface StepperProps<ExtraProps> {
     steps: FC<StepperStepProps & ExtraProps>[];
     headers: FC<StepperHeaderProps & ExtraProps>[];
     footers: FC<StepperFooterProps & ExtraProps>[];
-
     extraProps: ExtraProps;
-
-    height?: string;
-    maxHeight?: string;
-    minHeight?: string;
-
-    width?: string;
-    maxWidth?: string;
-    minWidth?: string;
-
     palette?: ThemePalette;
 }
 
@@ -49,17 +38,7 @@ const Stepper = <ExtraProps,>({
     steps,
     footers,
     headers,
-
     extraProps,
-
-    height = "100%",
-    maxHeight = "inherit",
-    minHeight = "inherit",
-
-    width = "100%",
-    maxWidth = "inherit",
-    minWidth = "inherit",
-
     palette = "primary",
 }: StepperProps<ExtraProps>) => {
     const [index, setIndex] = useState(0);
@@ -80,17 +59,7 @@ const Stepper = <ExtraProps,>({
     };
 
     return (
-        <Box
-            height={height}
-            maxHeight={maxHeight}
-            minHeight={minHeight}
-            width={width}
-            maxWidth={maxWidth}
-            minWidth={minWidth}
-            padding="0rem"
-            gap="4rem"
-            palette={palette}
-        >
+        <div className={styles.stepper}>
             <div className={styles.header}>
                 <Header
                     next={next}
@@ -121,7 +90,7 @@ const Stepper = <ExtraProps,>({
                     {...extraProps}
                 />
             </div>
-        </Box>
+        </div>
     );
 };
 

@@ -25,10 +25,10 @@
     &::placeholder {
         color: var(--placeholder);
     }
-}
 
-.input__controls {
-    padding-right: 2rem;
-    display: flex;
-    align-items: center;
+    &__controls {
+        padding-right: 2rem;
+        display: flex;
+        align-items: center;
+    }
 }
