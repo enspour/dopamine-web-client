@@ -1,14 +1,17 @@
 "use client";
 
 import { FC, ReactNode, memo, useEffect } from "react";
+import { Provider } from "react-redux";
+
+import store from "@redux/store";
 
 import services from "@services";
 
-interface InitializationProps {
+interface ClientLayoutProps {
     children: ReactNode;
 }
 
-const InitializationLayout: FC<InitializationProps> = ({ children }) => {
+const ClientLayout: FC<ClientLayoutProps> = ({ children }) => {
     useEffect(() => {
         services.initialize();
 
@@ -17,7 +20,7 @@ const InitializationLayout: FC<InitializationProps> = ({ children }) => {
         };
     }, []);
 
-    return <>{children}</>;
+    return <Provider store={store}>{children}</Provider>;
 };
 
-export default memo(InitializationLayout);
+export default memo(ClientLayout);

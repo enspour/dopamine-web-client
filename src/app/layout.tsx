@@ -1,20 +1,11 @@
-import { CSSProperties, ReactNode } from "react";
+import { ReactNode } from "react";
 
-import InitializationLayout from "@components/layouts/InitializationLayout/InitializationLayout";
+import ClientLayout from "@components/layouts/ClientLayout/ClientLayout";
+import ServerLayout from "@components/layouts/ServerLayout/ServerLayout";
 
 import { useThemeCookie } from "@hooks/server";
 
 import { getThemeProperties } from "@utils";
-
-import "@styles/globals.scss";
-import "@styles/reset.css";
-
-import { Nunito } from "next/font/google";
-
-const nunito = Nunito({
-    weight: ["400", "500", "600", "700"],
-    subsets: ["latin"],
-});
 
 interface RootLayoutProps {
     children: ReactNode;
@@ -22,20 +13,13 @@ interface RootLayoutProps {
 
 const RootLayout = async ({ children }: RootLayoutProps) => {
     const theme = useThemeCookie();
-    const properties = await getThemeProperties(theme);
+    const themeProperties = await getThemeProperties(theme);
 
     return (
-        <html lang="en" style={getStyle(properties)}>
-            <body className={nunito.className}>
-                <InitializationLayout>{children}</InitializationLayout>
-            </body>
-        </html>
+        <ServerLayout themeProperties={themeProperties}>
+            <ClientLayout>{children}</ClientLayout>
+        </ServerLayout>
     );
 };
-
-const getStyle = (properties: any): CSSProperties =>
-    ({
-        ...properties,
-    } as CSSProperties);
 
 export default RootLayout;
