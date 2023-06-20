@@ -1,5 +1,6 @@
 import useIsFocus from "./useIsFocus";
 import useIsHover from "./useIsHover";
-import useOutsideAlerter from "./useOutsideAlerter";
+import useOutsideClick from "./useOutsideClick";
+import useOutsideClickAlerter from "./useOutsideClickAlerter";
 
-export { useIsFocus, useIsHover, useOutsideAlerter };
+export { useIsFocus, useIsHover, useOutsideClick, useOutsideClickAlerter };

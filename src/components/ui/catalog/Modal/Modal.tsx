@@ -1,6 +1,6 @@
 import { CSSProperties, FC, ReactNode, memo, useRef } from "react";
 
-import { useOutsideClickHandler } from "@hooks/client";
+import { useOutsideClick } from "@hooks/client";
 
 import styles from "./Modal.module.scss";
 
@@ -35,14 +35,14 @@ const Modal: FC<ModalProps> = ({
 }) => {
     const modalRef = useRef<HTMLDivElement>(null);
 
-    const handleClick = useOutsideClickHandler(modalRef, close);
+    const click = useOutsideClick(modalRef, close);
 
     if (!isOpen) {
         return null;
     }
 
     return (
-        <div className={styles.black} onClick={handleClick}>
+        <div className={styles.black} onClick={click}>
             <div className={styles.container}>
                 <div
                     ref={modalRef}

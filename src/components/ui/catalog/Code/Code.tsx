@@ -1,4 +1,4 @@
-import { CSSProperties, ChangeEvent, FC, useEffect, useRef } from "react";
+import { CSSProperties, ChangeEvent, FC, memo, useEffect, useRef } from "react";
 
 import { ThemePalette } from "@services/Theme.service";
 
@@ -92,4 +92,4 @@ const getDigitStyle = (palette: ThemePalette): CSSProperties => ({
     border: `0.1rem solid ${getThemeValue("code-border", palette)}`,
 });
 
-export default Code;
+export default memo(Code);

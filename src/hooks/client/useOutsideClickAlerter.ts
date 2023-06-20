@@ -1,13 +1,14 @@
 import { RefObject, useEffect, useState } from "react";
 
-const useOutsideAlerter = (
-    ref: RefObject<HTMLElement>,
-    initial: boolean = false
-) => {
-    const [isOpen, setIsOpen] = useState<boolean>(initial);
+const useOutsideClickAlerter = (...refs: RefObject<HTMLElement>[]) => {
+    const [isOpen, setIsOpen] = useState(false);
 
     const clickOutside = (e: MouseEvent) => {
-        if (ref.current && !ref.current.contains(e.target as Node)) {
+        const isAllNotContains = refs.every(
+            (ref) => ref.current && !ref.current.contains(e.target as Node)
+        );
+
+        if (isAllNotContains) {
             setIsOpen(false);
         }
     };
@@ -15,9 +16,9 @@ const useOutsideAlerter = (
     useEffect(() => {
         document.addEventListener("click", clickOutside);
         return () => document.removeEventListener("click", clickOutside);
-    }, []); // eslint-disable-line
+    }, []);
 
     return [isOpen, setIsOpen] as const;
 };
 
-export default useOutsideAlerter;
+export default useOutsideClickAlerter;
