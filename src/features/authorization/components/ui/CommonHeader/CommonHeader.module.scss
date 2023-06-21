@@ -1,0 +1,10 @@
+.header {
+    height: 4rem;
+    display: flex;
+    align-items: center;
+
+    &__btn {
+        padding: 0 1rem;
+        display: flex;
+    }
+}
