@@ -1,0 +1,12 @@
+[
+    {
+        "name": "light",
+        "primary": "#FFFFFF",
+        "secondary": "#F5F5F5"
+    },
+    {
+        "name": "dark",
+        "primary": "#FFFFFF",
+        "secondary": "#404040"
+    }
+]

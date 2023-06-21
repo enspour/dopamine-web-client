@@ -1,10 +1,10 @@
 import { CSSProperties, FC, MouseEvent, memo } from "react";
 
-import { getThemeValue } from "@utils";
+import { getThemePropertyValue } from "@utils";
 
 import type { ThemePalette } from "@services/Theme.service";
 
-interface SvgProps {
+export interface SvgProps {
     fill: string;
 }
 
@@ -30,7 +30,7 @@ const Icon: FC<IconProps> = ({
             style={getStyle(onClick ? "pointer" : "auto")}
             onClick={clickHandler}
         >
-            <Svg fill={color || getThemeValue("icon", palette)} />
+            <Svg fill={color || getThemePropertyValue("icon", palette)} />
         </div>
     );
 };

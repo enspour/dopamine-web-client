@@ -2,7 +2,7 @@ import { CSSProperties, ChangeEvent, FC, memo, useEffect, useRef } from "react";
 
 import { ThemePalette } from "@services/Theme.service";
 
-import { getThemeValue } from "@utils";
+import { getThemePropertyValue } from "@utils";
 
 import styles from "./Code.module.scss";
 
@@ -54,12 +54,12 @@ const Code: FC<CodeProps> = ({ code, setCode, palette = "primary" }) => {
         if (target) {
             target.style.setProperty(
                 "--bg-focus",
-                getThemeValue("code-bg-focus", palette)
+                getThemePropertyValue("code-bg-focus", palette)
             );
 
             target.style.setProperty(
                 "--border-focus",
-                getThemeValue("code-border-focus", palette)
+                getThemePropertyValue("code-border-focus", palette)
             );
         }
     }, []); //eslint-disable-line
@@ -84,12 +84,12 @@ const Code: FC<CodeProps> = ({ code, setCode, palette = "primary" }) => {
 };
 
 const getStyle = (palette: ThemePalette): CSSProperties => ({
-    backgroundColor: getThemeValue("bg", palette),
-    color: getThemeValue("color", palette),
+    backgroundColor: getThemePropertyValue("bg", palette),
+    color: getThemePropertyValue("color", palette),
 });
 
 const getDigitStyle = (palette: ThemePalette): CSSProperties => ({
-    border: `0.1rem solid ${getThemeValue("code-border", palette)}`,
+    border: `0.1rem solid ${getThemePropertyValue("code-border", palette)}`,
 });
 
 export default memo(Code);

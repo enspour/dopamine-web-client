@@ -1,3 +1,3 @@
-import useThemeCookie from "./useThemeCookie";
+import useSavedThemeName from "./useSavedThemeName";
 
-export { useThemeCookie };
+export { useSavedThemeName };

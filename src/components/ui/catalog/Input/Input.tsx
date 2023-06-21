@@ -4,7 +4,7 @@ import Icon from "../Icon/Icon";
 
 import { useIsFocus, useIsHover } from "@hooks/client";
 
-import { getThemeValue } from "@utils";
+import { getThemePropertyValue } from "@utils";
 
 import type { ThemePalette } from "@services/Theme.service";
 
@@ -40,12 +40,12 @@ const Input: FC<InputProps> = ({
         if (wrapper) {
             wrapper.style.setProperty(
                 "--placeholder",
-                getThemeValue("placeholder", palette)
+                getThemePropertyValue("placeholder", palette)
             );
 
             wrapper.style.setProperty(
                 "--border-focus",
-                getThemeValue("border-focus", palette)
+                getThemePropertyValue("border-focus", palette)
             );
         }
     }, []); //eslint-disable-line
@@ -78,12 +78,12 @@ const getStyle = (
     isFocus: boolean,
     palette: ThemePalette
 ): CSSProperties => ({
-    backgroundColor: getThemeValue("bg", palette),
-    color: getThemeValue("color", palette),
+    backgroundColor: getThemePropertyValue("bg", palette),
+    color: getThemePropertyValue("color", palette),
     border: `.1rem solid ${
         isHover || isFocus
-            ? getThemeValue("border-hover", palette)
-            : getThemeValue("border", palette)
+            ? getThemePropertyValue("border-hover", palette)
+            : getThemePropertyValue("border", palette)
     }`,
 });
 

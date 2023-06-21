@@ -10,7 +10,7 @@ import {
 
 import type { ThemePalette } from "@services/Theme.service";
 
-import { getThemeValue } from "@utils";
+import { getThemePropertyValue } from "@utils";
 
 import styles from "./Box.module.scss";
 
@@ -48,7 +48,7 @@ const Box: FC<BoxProps> = ({
     maxWidth = "inherit",
     minWidth = "inherit",
 
-    padding = "4rem",
+    padding = "0rem",
 
     direction = "column",
     gap = "0rem",
@@ -59,10 +59,13 @@ const Box: FC<BoxProps> = ({
         const box = boxRef.current;
 
         if (box) {
-            box.style.setProperty("--thumb", getThemeValue("scroll-thumb"));
+            box.style.setProperty(
+                "--thumb",
+                getThemePropertyValue("scroll-thumb")
+            );
             box.style.setProperty(
                 "--thumb-hover",
-                getThemeValue("scroll-thumb-hover")
+                getThemePropertyValue("scroll-thumb-hover")
             );
         }
     }, []);
@@ -122,8 +125,11 @@ const getStyle = (
     flexDirection: direction,
     gap,
 
-    boxShadow: `0rem 0rem 1rem .4rem ${getThemeValue("shadow", palette)}`,
-    backgroundColor: getThemeValue("bg", palette),
+    boxShadow: `0rem 0rem 1rem .4rem ${getThemePropertyValue(
+        "shadow",
+        palette
+    )}`,
+    backgroundColor: getThemePropertyValue("bg", palette),
 });
 
 export default memo(Box);
