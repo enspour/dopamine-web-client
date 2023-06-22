@@ -41,7 +41,7 @@ const Login = () => {
     return (
         <div className={styles.login} style={getStyle("secondary")}>
             <Box width="50rem" height="41rem">
-                <Stepper<ExtraProps>
+                <Stepper
                     steps={[SelectionStep, CredentialsStep, TwoFactorStep]}
                     headers={[SelectionHeader, CommonHeader, CommonHeader]}
                     footers={[
@@ -50,6 +50,7 @@ const Login = () => {
                         TwoFactorFooter,
                     ]}
                     extraProps={{ credentialsState, twoFactorCodeState }}
+                    css={{ gap: "3rem" }}
                     palette="primary"
                 />
             </Box>

@@ -40,14 +40,14 @@ const Signup = () => {
         password: "",
     });
 
-    const passwordConfirmationState = useState("123#qwe");
+    const passwordConfirmationState = useState("");
 
     const confirmationCodeState = useState(" ".repeat(6));
 
     return (
         <div className={styles.signup} style={getStyle("secondary")}>
             <Box width="50rem" height="41rem">
-                <Stepper<ExtraProps>
+                <Stepper
                     steps={[
                         SelectionStep,
                         CredentialsStep,
@@ -71,6 +71,7 @@ const Signup = () => {
                         passwordConfirmationState,
                         confirmationCodeState,
                     }}
+                    css={{ gap: "3rem" }}
                     palette="primary"
                 />
             </Box>
