@@ -31,15 +31,15 @@ interface StepperProps<ExtraProps> {
     headers?: FC<StepperHeaderProps & ExtraProps>[];
     footers?: FC<StepperFooterProps & ExtraProps>[];
     extraProps: ExtraProps;
-    css?: StepperPropsCSS;
+    style?: StepperStyle;
     palette?: ThemePalette;
 }
 
-interface StepperPropsCSS {
+interface StepperStyle {
     gap?: string;
 }
 
-const initialCSS: StepperPropsCSS = {
+const initialStyle: StepperStyle = {
     gap: "2rem",
 };
 
@@ -48,7 +48,7 @@ const Stepper = <ExtraProps,>({
     footers,
     headers,
     extraProps,
-    css = initialCSS,
+    style = initialStyle,
     palette = "primary",
 }: StepperProps<ExtraProps>) => {
     const [index, setIndex] = useState(0);
@@ -69,7 +69,7 @@ const Stepper = <ExtraProps,>({
     };
 
     return (
-        <div className={styles.stepper} style={getStyle(css, palette)}>
+        <div className={styles.stepper} style={getStyle(style, palette)}>
             {Header && (
                 <div className={styles.header}>
                     <Header
@@ -109,10 +109,10 @@ const Stepper = <ExtraProps,>({
 };
 
 const getStyle = (
-    css: StepperPropsCSS,
+    style: StepperStyle,
     palette: ThemePalette
 ): CSSProperties => ({
-    ...Object.assign({}, initialCSS, css),
+    ...Object.assign({}, initialStyle, style),
 });
 
 export default typedMemo(Stepper);

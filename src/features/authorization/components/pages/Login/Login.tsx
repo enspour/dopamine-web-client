@@ -50,7 +50,7 @@ const Login = () => {
                         TwoFactorFooter,
                     ]}
                     extraProps={{ credentialsState, twoFactorCodeState }}
-                    css={{ gap: "3rem" }}
+                    style={{ gap: "3rem" }}
                     palette="primary"
                 />
             </Box>

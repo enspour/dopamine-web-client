@@ -71,7 +71,7 @@ const Signup = () => {
                         passwordConfirmationState,
                         confirmationCodeState,
                     }}
-                    css={{ gap: "3rem" }}
+                    style={{ gap: "3rem" }}
                     palette="primary"
                 />
             </Box>
