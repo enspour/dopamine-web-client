@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { CSSProperties, FC, useState } from "react";
 
 import SimpleCarousel from "@components/ui/catalog/SimpleCarousel/SimpleCarousel";
 
@@ -28,23 +28,33 @@ export interface StepperFooterProps {
 
 interface StepperProps<ExtraProps> {
     steps: FC<StepperStepProps & ExtraProps>[];
-    headers: FC<StepperHeaderProps & ExtraProps>[];
-    footers: FC<StepperFooterProps & ExtraProps>[];
+    headers?: FC<StepperHeaderProps & ExtraProps>[];
+    footers?: FC<StepperFooterProps & ExtraProps>[];
     extraProps: ExtraProps;
+    css?: StepperPropsCSS;
     palette?: ThemePalette;
 }
+
+interface StepperPropsCSS {
+    gap?: string;
+}
+
+const initialCSS: StepperPropsCSS = {
+    gap: "2rem",
+};
 
 const Stepper = <ExtraProps,>({
     steps,
     footers,
     headers,
     extraProps,
+    css = initialCSS,
     palette = "primary",
 }: StepperProps<ExtraProps>) => {
     const [index, setIndex] = useState(0);
 
-    const Header = headers[index];
-    const Footer = footers[index];
+    const Header = headers ? headers[index] : null;
+    const Footer = footers ? footers[index] : null;
 
     const next = () => {
         if (index + 1 < steps.length) {
@@ -59,15 +69,17 @@ const Stepper = <ExtraProps,>({
     };
 
     return (
-        <div className={styles.stepper}>
-            <div className={styles.header}>
-                <Header
-                    next={next}
-                    prev={prev}
-                    palette={palette}
-                    {...extraProps}
-                />
-            </div>
+        <div className={styles.stepper} style={getStyle(css, palette)}>
+            {Header && (
+                <div className={styles.header}>
+                    <Header
+                        next={next}
+                        prev={prev}
+                        palette={palette}
+                        {...extraProps}
+                    />
+                </div>
+            )}
 
             <SimpleCarousel index={index}>
                 {steps.map((Step, idx) => (
@@ -82,16 +94,25 @@ const Stepper = <ExtraProps,>({
                 ))}
             </SimpleCarousel>
 
-            <div className={styles.footer}>
-                <Footer
-                    next={next}
-                    prev={prev}
-                    palette={palette}
-                    {...extraProps}
-                />
-            </div>
+            {Footer && (
+                <div className={styles.footer}>
+                    <Footer
+                        next={next}
+                        prev={prev}
+                        palette={palette}
+                        {...extraProps}
+                    />
+                </div>
+            )}
         </div>
     );
 };
+
+const getStyle = (
+    css: StepperPropsCSS,
+    palette: ThemePalette
+): CSSProperties => ({
+    ...Object.assign({}, initialCSS, css),
+});
 
 export default typedMemo(Stepper);

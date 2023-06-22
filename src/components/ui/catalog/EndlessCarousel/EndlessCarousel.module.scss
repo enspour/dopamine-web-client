@@ -6,7 +6,7 @@
 
     &__slide {
         min-width: 100%;
-        transition: 0.4s;
+        transition: inherit;
         overflow: hidden;
     }
 }

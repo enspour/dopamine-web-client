@@ -13,8 +13,8 @@ const SimpleCarousel: FC<SimpleCarouselProps> = ({ index, children }) => {
             {children.map((child, idx) => (
                 <div
                     key={idx}
-                    className={styles.carousel__item}
-                    style={getItemStyle(index)}
+                    className={styles.carousel__slide}
+                    style={getSlideStyle(index)}
                 >
                     {child}
                 </div>
@@ -23,7 +23,7 @@ const SimpleCarousel: FC<SimpleCarouselProps> = ({ index, children }) => {
     );
 };
 
-const getItemStyle = (index: number): CSSProperties => ({
+const getSlideStyle = (index: number): CSSProperties => ({
     transform: `translateX(-${index * 100}%)`,
 });
 
