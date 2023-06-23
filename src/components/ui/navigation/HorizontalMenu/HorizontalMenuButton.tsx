@@ -8,10 +8,7 @@ import {
     useRef,
 } from "react";
 
-import {
-    HorizontalMenuItemOptions,
-    initialItemOptions,
-} from "./HorizontalMenu";
+import { HorizontalMenuStyle, initialStyle } from "./HorizontalMenu";
 
 import { useIsHover } from "@hooks/client";
 
@@ -27,7 +24,7 @@ interface HorizontalMenuButtonProps {
 }
 
 interface HorizontalMenuButtonExtendedProps extends HorizontalMenuButtonProps {
-    options?: HorizontalMenuItemOptions;
+    style?: HorizontalMenuStyle;
     isActive?: boolean;
     palette?: ThemePalette;
 }
@@ -35,7 +32,7 @@ interface HorizontalMenuButtonExtendedProps extends HorizontalMenuButtonProps {
 const HorizontalMenuButton: FC<HorizontalMenuButtonProps> = ({
     children,
     onClick,
-    options = initialItemOptions,
+    style = initialStyle,
     isActive = false,
     palette = "primary",
 }: HorizontalMenuButtonExtendedProps) => {
@@ -59,7 +56,7 @@ const HorizontalMenuButton: FC<HorizontalMenuButtonProps> = ({
             ref={buttonRef}
             className={styles.menu__button}
             onClick={onClick}
-            style={getStyle(isHover, isActive, options, palette)}
+            style={getStyle(isHover, isActive, style, palette)}
         >
             {children}
         </button>
@@ -69,10 +66,10 @@ const HorizontalMenuButton: FC<HorizontalMenuButtonProps> = ({
 const getStyle = (
     isHover: boolean,
     isActive: boolean,
-    options: HorizontalMenuItemOptions,
+    style: HorizontalMenuStyle,
     palette: ThemePalette
 ): CSSProperties => ({
-    ...options,
+    ...style,
     color:
         isHover || isActive
             ? getThemePropertyValue("color-hover", palette)

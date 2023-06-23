@@ -14,11 +14,7 @@ import { getThemePropertyValue } from "@utils";
 
 import styles from "./Box.module.scss";
 
-interface BoxProps {
-    children: ReactNode | ReactNode[];
-
-    boxRef?: RefObject<HTMLDivElement>;
-
+interface BoxStyle {
     height?: string;
     maxHeight?: string;
     minHeight?: string;
@@ -29,30 +25,36 @@ interface BoxProps {
 
     padding?: string;
 
-    direction?: "column" | "row";
+    flexDirection?: "column" | "row";
     gap?: string;
+}
 
+const initialStyle: BoxStyle = {
+    height: "100%",
+    maxHeight: "inherit",
+    minHeight: "inherit",
+
+    width: "100%",
+    maxWidth: "inherit",
+    minWidth: "inherit",
+
+    padding: "0rem",
+
+    flexDirection: "column",
+    gap: "0rem",
+};
+
+interface BoxProps {
+    children: ReactNode | ReactNode[];
+    boxRef?: RefObject<HTMLDivElement>;
+    style?: BoxStyle;
     palette?: ThemePalette;
 }
 
 const Box: FC<BoxProps> = ({
     children,
-
     boxRef = useRef<HTMLDivElement>(null),
-
-    height = "100%",
-    maxHeight = "inherit",
-    minHeight = "inherit",
-
-    width = "100%",
-    maxWidth = "inherit",
-    minWidth = "inherit",
-
-    padding = "0rem",
-
-    direction = "column",
-    gap = "0rem",
-
+    style = initialStyle,
     palette = "primary",
 }) => {
     useEffect(() => {
@@ -74,57 +76,15 @@ const Box: FC<BoxProps> = ({
         <div
             ref={boxRef}
             className={styles.box}
-            style={getStyle(
-                height,
-                maxHeight,
-                minHeight,
-
-                width,
-                maxWidth,
-                minWidth,
-
-                padding,
-
-                direction,
-                gap,
-
-                palette
-            )}
+            style={getStyle(style, palette)}
         >
             {children}
         </div>
     );
 };
 
-const getStyle = (
-    height: string,
-    maxHeight: string,
-    minHeight: string,
-
-    width: string,
-    maxWidth: string,
-    minWidth: string,
-
-    padding: string,
-
-    direction: "column" | "row",
-    gap: string,
-
-    palette: ThemePalette
-): CSSProperties => ({
-    height,
-    maxHeight,
-    minHeight,
-
-    width,
-    maxWidth,
-    minWidth,
-
-    padding,
-
-    flexDirection: direction,
-    gap,
-
+const getStyle = (style: BoxStyle, palette: ThemePalette): CSSProperties => ({
+    ...style,
     boxShadow: `0rem 0rem 1rem .4rem ${getThemePropertyValue(
         "shadow",
         palette

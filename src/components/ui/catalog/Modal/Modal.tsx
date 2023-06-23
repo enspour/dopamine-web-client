@@ -4,12 +4,7 @@ import { useOutsideClick } from "@hooks/client";
 
 import styles from "./Modal.module.scss";
 
-interface ModalProps {
-    children: ReactNode | ReactNode[];
-
-    isOpen: boolean;
-    close: () => void;
-
+interface ModalStyle {
     height?: string;
     maxHeight?: string;
     minHeight?: string;
@@ -19,19 +14,29 @@ interface ModalProps {
     minWidth?: string;
 }
 
+const initialStyle: ModalStyle = {
+    height: "100%",
+    maxHeight: "inherit",
+    minHeight: "inherit",
+
+    width: "100%",
+    maxWidth: "inherit",
+    minWidth: "inherit",
+};
+
+interface ModalProps {
+    children: ReactNode | ReactNode[];
+
+    isOpen: boolean;
+    close: () => void;
+    style?: ModalStyle;
+}
+
 const Modal: FC<ModalProps> = ({
     children,
-
     isOpen,
     close,
-
-    height = "100%",
-    maxHeight = "inherit",
-    minHeight = "inherit",
-
-    width = "100%",
-    maxWidth = "inherit",
-    minWidth = "inherit",
+    style = initialStyle,
 }) => {
     const modalRef = useRef<HTMLDivElement>(null);
 
@@ -44,17 +49,7 @@ const Modal: FC<ModalProps> = ({
     return (
         <div className={styles.black} onClick={click}>
             <div className={styles.container}>
-                <div
-                    ref={modalRef}
-                    style={getStyle(
-                        height,
-                        maxHeight,
-                        minHeight,
-                        width,
-                        maxWidth,
-                        minWidth
-                    )}
-                >
+                <div ref={modalRef} style={getStyle(style)}>
                     {children}
                 </div>
             </div>
@@ -62,22 +57,8 @@ const Modal: FC<ModalProps> = ({
     );
 };
 
-const getStyle = (
-    height: string,
-    maxHeight: string,
-    minHeight: string,
-
-    width: string,
-    maxWidth: string,
-    minWidth: string
-): CSSProperties => ({
-    height,
-    maxHeight,
-    minHeight,
-
-    width,
-    maxWidth,
-    minWidth,
+const getStyle = (style: ModalStyle): CSSProperties => ({
+    ...style,
 });
 
 export default memo(Modal);

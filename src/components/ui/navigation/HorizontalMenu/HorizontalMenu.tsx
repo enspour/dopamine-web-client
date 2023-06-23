@@ -14,25 +14,23 @@ import type { ThemePalette } from "@services/Theme.service";
 
 import styles from "./HorizontalMenu.module.scss";
 
-export interface HorizontalMenuItemOptions {
-    gap?: string;
+export interface HorizontalMenuStyle {
     justifyContent?: "flex-start" | "flex-end" | "center";
 }
 
-export const initialItemOptions: HorizontalMenuItemOptions = {
-    gap: "2rem",
+export const initialStyle: HorizontalMenuStyle = {
     justifyContent: "center",
 };
 
 interface HorizontalMenuProps {
     children: ReactNode[];
-    itemOptions?: HorizontalMenuItemOptions;
+    style?: HorizontalMenuStyle;
     palette?: ThemePalette;
 }
 
 const HorizontalMenu: FC<HorizontalMenuProps> = ({
     children,
-    itemOptions,
+    style,
     palette = "primary",
 }) => {
     const [activeIndex, setActiveIndex] = useState(-1);
@@ -48,7 +46,7 @@ const HorizontalMenu: FC<HorizontalMenuProps> = ({
         if (isValidElement(child)) {
             return cloneElement(child, {
                 onClick: getOnClick(child, index),
-                options: Object.assign({}, initialItemOptions, itemOptions),
+                options: Object.assign({}, initialStyle, style),
                 isActive: activeIndex === index,
                 palette,
             } as any);

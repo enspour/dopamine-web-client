@@ -6,10 +6,13 @@ import type { ThemePalette } from "@services/Theme.service";
 
 import styles from "./Switcher.module.scss";
 
+type SwitcherLabelPosition = "right" | "left";
+
 interface SwitcherProps {
     label: string;
     value: boolean;
     setValue: (value: boolean) => void;
+    position?: SwitcherLabelPosition;
     disabled?: boolean;
     palette?: ThemePalette;
 }
@@ -18,6 +21,7 @@ const Switcher: FC<SwitcherProps> = ({
     label,
     value,
     setValue,
+    position = "right",
     disabled = false,
     palette = "primary",
 }) => {
@@ -71,6 +75,8 @@ const Switcher: FC<SwitcherProps> = ({
 
     return (
         <label className={styles.wrapper} style={getStyle(palette)}>
+            {position === "left" && <div>{label}</div>}
+
             <input
                 ref={switcherRef}
                 className={styles.switcher}
@@ -80,7 +86,7 @@ const Switcher: FC<SwitcherProps> = ({
                 disabled={disabled}
             />
 
-            <div>{label}</div>
+            {position === "right" && <div>{label}</div>}
         </label>
     );
 };

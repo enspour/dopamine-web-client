@@ -6,17 +6,27 @@ import styles from "./Dropdown.module.scss";
 
 type DropdownLocation = "right" | "left";
 
-interface DropProps {
+interface DropdownStyle {
+    gap?: string;
+}
+
+const initialStyle: DropdownStyle = {
+    gap: "0rem",
+};
+
+interface DropdownProps {
     children: ReactNode;
     isOpen: boolean;
     location?: DropdownLocation;
+    style?: DropdownStyle;
     palette?: ThemePalette;
 }
 
-const Dropdown: FC<DropProps> = ({
+const Dropdown: FC<DropdownProps> = ({
     children,
     isOpen,
     location = "left",
+    style = initialStyle,
     palette = "primary",
 }) => {
     if (!isOpen) {
@@ -24,17 +34,26 @@ const Dropdown: FC<DropProps> = ({
     }
 
     return (
-        <div className={styles.drop} style={getStyle(location, palette)}>
+        <div
+            className={styles.dropdown}
+            style={getStyle(style, location, palette)}
+        >
             {children}
         </div>
     );
 };
 
 const getStyle = (
+    style: DropdownStyle,
     direction: DropdownLocation,
     palette: ThemePalette
-): CSSProperties => ({
-    ...(direction === "left" ? { left: 0 } : { right: 0 }),
-});
+): CSSProperties => {
+    const properties = Object.assign({}, initialStyle, style);
+
+    return {
+        ...(direction === "left" ? { left: 0 } : { right: 0 }),
+        bottom: `-${properties.gap}`,
+    };
+};
 
 export default memo(Dropdown);
