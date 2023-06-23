@@ -40,7 +40,7 @@ const Login = () => {
 
     return (
         <div className={styles.login} style={getStyle("secondary")}>
-            <Box width="50rem" height="41rem">
+            <Box style={{ width: "50rem", height: "41rem" }}>
                 <Stepper
                     steps={[SelectionStep, CredentialsStep, TwoFactorStep]}
                     headers={[SelectionHeader, CommonHeader, CommonHeader]}

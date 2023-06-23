@@ -46,7 +46,7 @@ const Signup = () => {
 
     return (
         <div className={styles.signup} style={getStyle("secondary")}>
-            <Box width="50rem" height="41rem">
+            <Box style={{ width: "50rem", height: "41rem" }}>
                 <Stepper
                     steps={[
                         SelectionStep,
