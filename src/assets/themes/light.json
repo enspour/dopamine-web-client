@@ -20,8 +20,6 @@
     "--theme-primary-code-bg-focus": "#EEEEEE",
     "--theme-primary-code-border": "#E2E2E2",
     "--theme-primary-code-border-focus": "#898989",
-    "--theme-primary-nav-color": "#000000",
-    "--theme-primary-nav-bg": "#FFFFFF",
 
-    "--theme-secondary-bg": "#F5F5F5"
+    "--theme-secondary-bg": "#F0F0F0"
 }
