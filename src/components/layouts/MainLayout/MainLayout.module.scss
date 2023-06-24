@@ -1,0 +1,7 @@
+.main {
+    background-color: var(--theme-secondary-bg);
+}
+
+.content {
+    min-height: calc(100vh - 5rem); // - header height
+}

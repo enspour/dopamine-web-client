@@ -1,0 +1,103 @@
+.container {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    box-shadow: 0rem 0rem 0.5rem 0.05rem var(--theme-primary-shadow);
+    background-color: var(--theme-primary-bg);
+}
+
+.header {
+    height: 5rem;
+    max-width: calc(138rem + 12rem); // + padding
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5rem;
+    gap: 3rem;
+}
+
+.header__navigation,
+.header__right {
+    width: 25rem;
+}
+
+.header__navigation {
+    display: flex;
+    gap: 4rem;
+
+    &__item,
+    &__item__active {
+        height: 2.5rem;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        font-weight: 500;
+        color: var(--theme-primary-color);
+
+        &::after {
+            content: "";
+            display: block;
+            width: 130%;
+            height: 2.5rem;
+            border-bottom: 0.2rem solid var(--theme-primary-bg);
+            transition: 0.3s;
+        }
+    }
+
+    &__item {
+        &:hover {
+            &::after {
+                border-bottom: 0.2rem solid var(--theme-primary-color);
+            }
+        }
+    }
+
+    &__item__active {
+        &::after {
+            border-bottom: 0.2rem solid var(--theme-primary-color);
+        }
+    }
+}
+
+.header__center {
+    flex-grow: 1;
+
+    &__title {
+        text-align: center;
+        font-size: 1.8rem;
+        color: var(--theme-primary-color);
+    }
+}
+
+.header__right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 4rem;
+}
+
+.header__user {
+    position: relative;
+
+    &__info {
+        height: 5rem;
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        cursor: pointer;
+    }
+
+    &__avatar {
+        min-width: 3.5rem;
+        max-width: 3.5rem;
+        height: 3.5rem;
+        background-color: #cccccc;
+        border-radius: 50%;
+    }
+
+    &__nickname {
+        font-weight: 500;
+        color: var(--theme-primary-color);
+    }
+}

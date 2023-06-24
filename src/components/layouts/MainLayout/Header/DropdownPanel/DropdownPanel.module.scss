@@ -1,0 +1,70 @@
+.panel {
+    width: 32rem;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    color: var(--theme-primary-color);
+    background-color: var(--theme-primary-bg);
+    box-shadow: 0px 0.4rem 0.8rem 0.2rem var(--theme-primary-shadow);
+    border-radius: 0 0 2rem 2rem;
+}
+
+.panel__notifications {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    &__title {
+        font-weight: 700;
+    }
+
+    &__empty {
+        text-align: center;
+        padding: 0.8rem 0;
+        border: 0.1rem solid var(--theme-primary-border);
+        border-radius: 2rem;
+    }
+}
+
+.panel__menu {
+    margin-top: 2rem;
+
+    &__item {
+        width: 10rem;
+        display: grid;
+        grid-template-columns: 2rem 1fr;
+        gap: 2rem;
+    }
+
+    &__item__icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+.panel__user {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    cursor: pointer;
+
+    &__avatar {
+        min-width: 6rem;
+        max-width: 6rem;
+        height: 6rem;
+        background-color: #cccccc;
+        border-radius: 50%;
+    }
+
+    &__nickname {
+        font-weight: 500;
+    }
+
+    &__name {
+        font-size: 1.4rem;
+        color: var(--theme-primary-link);
+    }
+}
