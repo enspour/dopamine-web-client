@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { memo, useState } from "react";
 
 import Pagination from "@components/ui/navigation/Pagination/Pagination";
 
@@ -16,4 +16,4 @@ const SearchModalPagination = () => {
     );
 };
 
-export default SearchModalPagination;
+export default memo(SearchModalPagination);

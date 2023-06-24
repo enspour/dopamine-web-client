@@ -1,4 +1,4 @@
-import { CSSProperties, FC } from "react";
+import { CSSProperties, FC, memo } from "react";
 
 import type { ThemePalette } from "@services/Theme.service";
 
@@ -23,4 +23,4 @@ const getStyle = (palette: ThemePalette): CSSProperties => ({
     color: getThemePropertyValue("color", palette),
 });
 
-export default PaginationDots;
+export default memo(PaginationDots);

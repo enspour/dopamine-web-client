@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { memo, useRef, useState } from "react";
 
 import Button from "@components/ui/catalog/Button/Button";
 import Dropdown from "@components/ui/catalog/Dropdown/Dropdown";
@@ -52,4 +52,4 @@ const SearchModalFilters = () => {
     );
 };
 
-export default SearchModalFilters;
+export default memo(SearchModalFilters);

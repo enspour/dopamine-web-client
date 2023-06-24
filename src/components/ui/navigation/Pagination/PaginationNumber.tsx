@@ -1,4 +1,4 @@
-import { CSSProperties, FC, useRef } from "react";
+import { CSSProperties, FC, memo, useRef } from "react";
 
 import { ThemePalette } from "@services/Theme.service";
 
@@ -58,4 +58,4 @@ const getStyle = (
     }`,
 });
 
-export default PaginationNumber;
+export default memo(PaginationNumber);

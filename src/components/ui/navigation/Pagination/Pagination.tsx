@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, memo } from "react";
 
 import Icon from "@components/ui/catalog/Icon/Icon";
 import PaginationDots from "./PaginationDots";
@@ -187,4 +187,4 @@ const Pagination: FC<PaginationProps> = ({
     );
 };
 
-export default Pagination;
+export default memo(Pagination);
