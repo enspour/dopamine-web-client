@@ -1,0 +1,36 @@
+.pagination {
+    display: flex;
+    gap: 0.3rem;
+
+    &__number {
+        width: 3.2rem;
+        height: 3.2rem;
+        font-size: 1.2rem;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 2rem;
+        transition: 0.3s;
+        user-select: none;
+        cursor: pointer;
+    }
+
+    &__dots {
+        width: 3.2rem;
+        height: 3.2rem;
+        line-height: 2.2rem;
+        font-weight: 600;
+        display: flex;
+        justify-content: center;
+        user-select: none;
+    }
+
+    &__control {
+        width: 3.2rem;
+        height: 3.2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}

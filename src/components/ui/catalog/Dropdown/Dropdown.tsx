@@ -1,7 +1,5 @@
 import { CSSProperties, FC, ReactNode, memo } from "react";
 
-import type { ThemePalette } from "@services/Theme.service";
-
 import styles from "./Dropdown.module.scss";
 
 type DropdownLocation = "right" | "left";
@@ -19,7 +17,6 @@ interface DropdownProps {
     isOpen: boolean;
     location?: DropdownLocation;
     style?: DropdownStyle;
-    palette?: ThemePalette;
 }
 
 const Dropdown: FC<DropdownProps> = ({
@@ -27,17 +24,13 @@ const Dropdown: FC<DropdownProps> = ({
     isOpen,
     location = "left",
     style = initialStyle,
-    palette = "primary",
 }) => {
     if (!isOpen) {
         return null;
     }
 
     return (
-        <div
-            className={styles.dropdown}
-            style={getStyle(style, location, palette)}
-        >
+        <div className={styles.dropdown} style={getStyle(style, location)}>
             {children}
         </div>
     );
@@ -45,8 +38,7 @@ const Dropdown: FC<DropdownProps> = ({
 
 const getStyle = (
     style: DropdownStyle,
-    direction: DropdownLocation,
-    palette: ThemePalette
+    direction: DropdownLocation
 ): CSSProperties => {
     const properties = Object.assign({}, initialStyle, style);
 

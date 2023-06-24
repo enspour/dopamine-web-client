@@ -1,6 +1,7 @@
 {
     "--theme-primary-color": "#FFFFFF",
     "--theme-primary-color-hover": "#FFFFFF",
+    "--theme-primary-placeholder": "#D0D0D0",
     "--theme-primary-bg": "#222222",
     "--theme-primary-bg-hover": "#404040",
     "--theme-primary-icon": "#FFFFFF",
@@ -8,18 +9,19 @@
     "--theme-primary-border": "#B9B9B9",
     "--theme-primary-border-hover": "#d9d9d9",
     "--theme-primary-border-focus": "#FFFFFF44",
+    "--theme-primary-loader": "#FFFFFF",
     "--theme-primary-shadow": "#0000000d",
     "--theme-primary-scroll-thumb": "#EEEEEE",
     "--theme-primary-scroll-thumb-hover": "#EEEEEE",
-    "--theme-primary-placeholder": "#D0D0D0",
     "--theme-primary-switcher-active": "#FFFFFF",
     "--theme-primary-switcher-active-inner": "#353535",
     "--theme-primary-switcher-disabled-bg": "#f6f8ff",
     "--theme-primary-switcher-disabled-bg-inner": "#e1e6f9",
-    "--theme-primary-loader": "#FFFFFF",
     "--theme-primary-code-bg-focus": "#666666",
     "--theme-primary-code-border": "#E2E2E2",
     "--theme-primary-code-border-focus": "#EEEEEE",
+    "--theme-primary-pagination-color-active": "#000000",
+    "--theme-primary-pagination-bg-active": "#FFFFFF",
 
     "--theme-secondary-bg": "#404040"
 }
