@@ -26,7 +26,6 @@ const initialStyle: ModalStyle = {
 
 interface ModalProps {
     children: ReactNode | ReactNode[];
-
     isOpen: boolean;
     close: () => void;
     style?: ModalStyle;
@@ -58,7 +57,7 @@ const Modal: FC<ModalProps> = ({
 };
 
 const getStyle = (style: ModalStyle): CSSProperties => ({
-    ...style,
+    ...Object.assign({}, initialStyle, style),
 });
 
 export default memo(Modal);

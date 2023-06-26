@@ -16,8 +16,6 @@ import {
     selectIsOpenSearchModal,
 } from "@redux/slices/modals.slice";
 
-import styles from "./SearchModal.module.scss";
-
 const SearchModal = () => {
     const dispatch = useAppDispatch();
 
@@ -38,12 +36,10 @@ const SearchModal = () => {
                 maxHeight: "70rem",
             }}
         >
-            <Box>
-                <div className={styles.search}>
-                    <SearchModalInput />
-                    <SearchModalContent />
-                    <SearchModalPagination />
-                </div>
+            <Box style={{ flexDirection: "column" }}>
+                <SearchModalInput />
+                <SearchModalContent />
+                <SearchModalPagination />
             </Box>
         </Modal>
     );

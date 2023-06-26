@@ -40,11 +40,12 @@ const getStyle = (
     style: DropdownStyle,
     direction: DropdownLocation
 ): CSSProperties => {
-    const properties = Object.assign({}, initialStyle, style);
+    const { gap, ...properties } = Object.assign({}, initialStyle, style);
 
     return {
+        ...properties,
         ...(direction === "left" ? { left: 0 } : { right: 0 }),
-        bottom: `-${properties.gap}`,
+        bottom: `-${gap}`,
     };
 };
 
