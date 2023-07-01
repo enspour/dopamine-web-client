@@ -12,7 +12,7 @@ interface CodeProps {
     palette?: ThemePalette;
 }
 
-const Code: FC<CodeProps> = ({ code, setCode, palette = "primary" }) => {
+const Code: FC<CodeProps> = ({ code, setCode, palette = "code" }) => {
     const codeRef = useRef<HTMLDivElement>(null);
 
     const length = code.length;
@@ -54,12 +54,12 @@ const Code: FC<CodeProps> = ({ code, setCode, palette = "primary" }) => {
         if (target) {
             target.style.setProperty(
                 "--bg-focus",
-                getThemePropertyValue("code-bg-focus", palette)
+                getThemePropertyValue("bg-focus", palette)
             );
 
             target.style.setProperty(
                 "--border-focus",
-                getThemePropertyValue("code-border-focus", palette)
+                getThemePropertyValue("border-focus", palette)
             );
         }
     }, []); //eslint-disable-line
@@ -89,7 +89,7 @@ const getStyle = (palette: ThemePalette): CSSProperties => ({
 });
 
 const getDigitStyle = (palette: ThemePalette): CSSProperties => ({
-    border: `0.1rem solid ${getThemePropertyValue("code-border", palette)}`,
+    border: `0.1rem solid ${getThemePropertyValue("border", palette)}`,
 });
 
 export default memo(Code);

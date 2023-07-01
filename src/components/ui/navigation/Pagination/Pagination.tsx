@@ -22,7 +22,7 @@ const Pagination: FC<PaginationProps> = ({
     total,
     page,
     setPage,
-    palette = "primary",
+    palette = "pagination",
 }) => {
     const prev = () => {
         if (page - 1 > 0) {

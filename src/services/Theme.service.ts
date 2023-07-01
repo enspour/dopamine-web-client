@@ -5,7 +5,13 @@ import { Service } from ".";
 export const THEME_STORAGE_PATH = "--theme-name";
 
 export const THEMES_NAMES = ["light", "dark"] as const;
-export const THEME_PALETTES = ["primary", "secondary"] as const;
+export const THEME_PALETTES = [
+    "primary",
+    "secondary",
+    "switcher",
+    "code",
+    "pagination",
+] as const;
 
 export type ThemeName = (typeof THEMES_NAMES)[number];
 export type ThemePalette = (typeof THEME_PALETTES)[number];

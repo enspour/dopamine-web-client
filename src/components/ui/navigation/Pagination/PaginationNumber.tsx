@@ -44,11 +44,11 @@ const getStyle = (
 ): CSSProperties => ({
     backgroundColor:
         isActive || isHover
-            ? getThemePropertyValue("pagination-bg-active", palette)
+            ? getThemePropertyValue("bg-active", palette)
             : getThemePropertyValue("bg", palette),
     color:
         isActive || isHover
-            ? getThemePropertyValue("pagination-color-active", palette)
+            ? getThemePropertyValue("color-active", palette)
             : getThemePropertyValue("color", palette),
 
     border: `0.1rem solid ${

@@ -39,7 +39,7 @@ const TwoFactorStep: FC<TwoFactorFooterProps> = ({
 
             <div style={getColorStyle(palette)}>{credentials.email}</div>
 
-            <Code code={code} setCode={setCode} palette={palette} />
+            <Code code={code} setCode={setCode} />
 
             <div className={styles.step__hint}>
                 <span style={getColorStyle(palette)}>

@@ -5,14 +5,14 @@
 }
 
 .switcher {
-    --active: var(--theme-primary-switcher-active);
-    --active-inner: var(--theme-primary-switcher-active-inner);
-    --border: var(--theme-primary-border);
-    --border-hover: var(--theme-primary-border-hover);
-    --border-focus: var(--theme-primary-border-focus);
-    --background: var(--theme-primary-bg);
-    --disabled: var(--theme-primary-switcher-disabled);
-    --disabled-inner: var(--theme-primary-switcher-disabled-inner);
+    --active: var(--theme-switcher-active);
+    --active-inner: var(--theme-switcher-active-inner);
+    --border: var(--theme-switcher-border);
+    --border-hover: var(--theme-switcher-border-hover);
+    --border-focus: var(--theme-switcher-border-focus);
+    --background: var(--theme-switcher-bg);
+    --disabled: var(--theme-switcher-disabled);
+    --disabled-inner: var(--theme-switcher-disabled-inner);
 
     height: 2.1rem;
     width: 3.8rem;

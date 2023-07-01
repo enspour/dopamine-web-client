@@ -23,7 +23,7 @@ const Switcher: FC<SwitcherProps> = ({
     setValue,
     position = "right",
     disabled = false,
-    palette = "primary",
+    palette = "switcher",
 }) => {
     const switcherRef = useRef<HTMLInputElement>(null);
 
@@ -33,12 +33,12 @@ const Switcher: FC<SwitcherProps> = ({
         if (switcher) {
             switcher.style.setProperty(
                 "--active",
-                getThemePropertyValue("switcher-active", palette)
+                getThemePropertyValue("active", palette)
             );
 
             switcher.style.setProperty(
                 "--active-inner",
-                getThemePropertyValue("switcher-active-inner", palette)
+                getThemePropertyValue("active-inner", palette)
             );
 
             switcher.style.setProperty(
@@ -63,12 +63,12 @@ const Switcher: FC<SwitcherProps> = ({
 
             switcher.style.setProperty(
                 "--disabled",
-                getThemePropertyValue("switcher-disabled", palette)
+                getThemePropertyValue("disabled", palette)
             );
 
             switcher.style.setProperty(
                 "--disabled-inner",
-                getThemePropertyValue("switcher-disabled-inner", palette)
+                getThemePropertyValue("disabled-inner", palette)
             );
         }
     }, []); // eslint-disable-line
