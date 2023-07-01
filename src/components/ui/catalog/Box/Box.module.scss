@@ -6,7 +6,6 @@
 
     display: flex;
     border-radius: 2rem;
-    overflow: auto;
 
     @include custom-scroll(var(--thumb), var(--thumb-hover));
 

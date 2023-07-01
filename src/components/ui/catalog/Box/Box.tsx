@@ -24,9 +24,12 @@ interface BoxStyle {
     minWidth?: string;
 
     padding?: string;
+    margin?: string;
 
     flexDirection?: "column" | "row";
     gap?: string;
+
+    overflow: "auto" | "hidden";
 }
 
 const initialStyle: BoxStyle = {
@@ -39,9 +42,12 @@ const initialStyle: BoxStyle = {
     minWidth: "inherit",
 
     padding: "0rem",
+    margin: "0rem",
 
     flexDirection: "column",
     gap: "0rem",
+
+    overflow: "auto",
 };
 
 interface BoxProps {

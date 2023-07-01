@@ -35,7 +35,7 @@ const HorizontalMenu: FC<HorizontalMenuProps> = ({
 }) => {
     const [activeIndex, setActiveIndex] = useState(-1);
 
-    const getOnClick = (child: ReactElement, index: number) => {
+    const modifiedOnClick = (child: ReactElement, index: number) => {
         return (e: MouseEvent<HTMLElement>) => {
             setActiveIndex(index);
             child.props.onClick(e);
@@ -45,7 +45,7 @@ const HorizontalMenu: FC<HorizontalMenuProps> = ({
     const cloned = Children.map(children, (child, index) => {
         if (isValidElement(child)) {
             return cloneElement(child, {
-                onClick: getOnClick(child, index),
+                onClick: modifiedOnClick(child, index),
                 options: Object.assign({}, initialStyle, style),
                 isActive: activeIndex === index,
                 palette,

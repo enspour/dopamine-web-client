@@ -12,6 +12,7 @@ export interface CarouselMenuItemProps<T> {
     current: T;
     forward: (menu: T) => void;
     back: () => void;
+    palette: ThemePalette;
 }
 
 interface CarouselMenuItem<T> {
@@ -99,10 +100,15 @@ function CarouselMenu<T extends string>({
     }, [index]);
 
     return (
-        <div className={styles.menu} style={getStyle(style, palette)}>
+        <div className={styles.menu} style={getStyle(style)}>
             {Header && (
                 <div>
-                    <Header current={current} forward={forward} back={back} />
+                    <Header
+                        current={current}
+                        forward={forward}
+                        back={back}
+                        palette={palette}
+                    />
                 </div>
             )}
 
@@ -113,23 +119,26 @@ function CarouselMenu<T extends string>({
                         current={current}
                         forward={forward}
                         back={back}
+                        palette={palette}
                     />
                 ))}
             </EndlessCarousel>
 
             {Footer && (
                 <div>
-                    <Footer current={current} forward={forward} back={back} />
+                    <Footer
+                        current={current}
+                        forward={forward}
+                        back={back}
+                        palette={palette}
+                    />
                 </div>
             )}
         </div>
     );
 }
 
-const getStyle = (
-    style: CarouselMenuStyle,
-    palette: ThemePalette
-): CSSProperties => ({
+const getStyle = (style: CarouselMenuStyle): CSSProperties => ({
     ...Object.assign({}, initialStyle, style),
 });
 

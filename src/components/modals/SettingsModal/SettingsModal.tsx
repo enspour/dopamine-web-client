@@ -76,7 +76,7 @@ const SettingsModal = () => {
                 maxHeight: "65rem",
             }}
         >
-            <Box>
+            <Box style={{ overflow: "hidden" }}>
                 <CarouselMenu menus={menus} style={{ gap: "4rem" }} />;
             </Box>
         </Modal>
