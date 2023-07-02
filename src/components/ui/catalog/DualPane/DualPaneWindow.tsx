@@ -1,4 +1,4 @@
-import { CSSProperties, FC, ReactNode } from "react";
+import { CSSProperties, FC, ReactNode, memo } from "react";
 
 interface DualPaneWindowStyle {
     width: string;
@@ -18,4 +18,4 @@ const getStyle = (style: DualPaneWindowStyle): CSSProperties => ({
     ...style,
 });
 
-export default DualPaneWindow;
+export default memo(DualPaneWindow);

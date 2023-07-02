@@ -1,4 +1,4 @@
-import { CSSProperties, FC, MutableRefObject, useRef } from "react";
+import { CSSProperties, FC, MutableRefObject, memo, useRef } from "react";
 
 import { useIsHover } from "@hooks/client";
 
@@ -47,4 +47,4 @@ const getColor = (isHover: boolean, palette: ThemePalette): CSSProperties => ({
         : getThemePropertyValue("color", palette),
 });
 
-export default DualPaneResizer;
+export default memo(DualPaneResizer);

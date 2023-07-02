@@ -29,7 +29,7 @@ interface BoxStyle {
     flexDirection?: "column" | "row";
     gap?: string;
 
-    overflow: "auto" | "hidden";
+    overflow?: "auto" | "hidden";
 }
 
 const initialStyle: BoxStyle = {

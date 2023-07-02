@@ -1,6 +1,6 @@
 "use client";
 
-import { FC, MouseEvent, ReactNode, useRef, useState } from "react";
+import { FC, MouseEvent, ReactNode, memo, useRef, useState } from "react";
 
 import DualPaneResizer from "./DualPaneResizer";
 import DualPaneWindow from "./DualPaneWindow";
@@ -85,4 +85,4 @@ const DualPane: FC<DualPaneProps> = ({
     );
 };
 
-export default DualPane;
+export default memo(DualPane);

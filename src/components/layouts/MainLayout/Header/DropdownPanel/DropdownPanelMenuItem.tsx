@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, memo } from "react";
 
 import Icon, { type SvgProps } from "@components/ui/catalog/Icon/Icon";
 
@@ -24,4 +24,4 @@ const DropdownPanelMenuItem: FC<DropdownPanelMenuItemProps> = ({
     );
 };
 
-export default DropdownPanelMenuItem;
+export default memo(DropdownPanelMenuItem);
