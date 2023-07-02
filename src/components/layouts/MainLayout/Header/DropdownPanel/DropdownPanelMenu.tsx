@@ -1,9 +1,9 @@
 import { useRouter } from "next/navigation";
 import { FC, memo } from "react";
 
-import Icon from "@components/ui/catalog/Icon/Icon";
 import HorizontalMenu from "@components/ui/navigation/HorizontalMenu/HorizontalMenu";
 import HorizontalMenuButton from "@components/ui/navigation/HorizontalMenu/HorizontalMenuButton";
+import DropdownPanelMenuItem from "./DropdownPanelMenuItem";
 
 import { useAppDispatch } from "@redux/hooks";
 import { openSettingsModal } from "@redux/slices/modals.slice";
@@ -48,30 +48,15 @@ const DropdownPanelMenu: FC<DropdownPanelMenuProps> = ({ close }) => {
         <div className={styles.panel__menu}>
             <HorizontalMenu>
                 <HorizontalMenuButton onClick={openChannel}>
-                    <div className={styles.panel__menu__item}>
-                        <div className={styles.panel__menu__item__icon}>
-                            <Icon svg={ChannelIcon} />
-                        </div>
-
-                        <div>Channel</div>
-                    </div>
+                    <DropdownPanelMenuItem name="Channel" svg={ChannelIcon} />
                 </HorizontalMenuButton>
 
                 <HorizontalMenuButton onClick={openSettings}>
-                    <div className={styles.panel__menu__item}>
-                        <div className={styles.panel__menu__item__icon}>
-                            <Icon svg={SettingsIcon} />
-                        </div>
-
-                        <div>Settings</div>
-                    </div>
+                    <DropdownPanelMenuItem name="Settings" svg={SettingsIcon} />
                 </HorizontalMenuButton>
 
                 <HorizontalMenuButton onClick={logout}>
-                    <div className={styles.panel__menu__item}>
-                        <div className={styles.panel__menu__item__icon}></div>
-                        <div>Logout</div>
-                    </div>
+                    <DropdownPanelMenuItem name="Logout" svg={ChannelIcon} />
                 </HorizontalMenuButton>
             </HorizontalMenu>
         </div>

@@ -34,6 +34,7 @@
 
     "--theme-pagination-color": "#FFFFFF",
     "--theme-pagination-bg": "#222222",
+    "--theme-pagination-icon": "#FFFFFF",
     "--theme-pagination-border-hover": "#d9d9d9",
     "--theme-pagination-color-active": "#000000",
     "--theme-pagination-bg-active": "#FFFFFF"

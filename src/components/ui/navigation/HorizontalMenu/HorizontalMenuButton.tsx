@@ -1,6 +1,5 @@
 import {
     CSSProperties,
-    FC,
     MouseEvent,
     ReactNode,
     memo,
@@ -18,24 +17,30 @@ import { getThemePropertyValue } from "@utils";
 
 import styles from "./HorizontalMenu.module.scss";
 
-interface HorizontalMenuButtonProps {
+interface HorizontalMenuButtonProps<T extends string> {
     children: ReactNode | ReactNode[];
     onClick: (e: MouseEvent<HTMLElement>) => void;
+    name?: T;
 }
 
-interface HorizontalMenuButtonExtendedProps extends HorizontalMenuButtonProps {
-    style?: HorizontalMenuStyle;
+interface HorizontalMenuButtonExtendedProps<T extends string>
+    extends HorizontalMenuButtonProps<T> {
     isActive?: boolean;
+    style?: HorizontalMenuStyle;
     palette?: ThemePalette;
 }
 
-const HorizontalMenuButton: FC<HorizontalMenuButtonProps> = ({
-    children,
-    onClick,
-    style = initialStyle,
-    isActive = false,
-    palette = "primary",
-}: HorizontalMenuButtonExtendedProps) => {
+function HorizontalMenuButton<T extends string>(
+    props: HorizontalMenuButtonProps<T>
+) {
+    const {
+        children,
+        onClick,
+        isActive = false,
+        style = initialStyle,
+        palette = "primary",
+    } = props as HorizontalMenuButtonExtendedProps<T>;
+
     const buttonRef = useRef<HTMLButtonElement>(null);
 
     const isHover = useIsHover(buttonRef);
@@ -61,7 +66,7 @@ const HorizontalMenuButton: FC<HorizontalMenuButtonProps> = ({
             {children}
         </button>
     );
-};
+}
 
 const getStyle = (
     isHover: boolean,

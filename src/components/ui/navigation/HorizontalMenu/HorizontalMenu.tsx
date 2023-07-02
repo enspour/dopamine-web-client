@@ -1,14 +1,4 @@
-import {
-    Children,
-    FC,
-    MouseEvent,
-    ReactElement,
-    ReactNode,
-    cloneElement,
-    isValidElement,
-    memo,
-    useState,
-} from "react";
+import { Children, ReactNode, cloneElement, isValidElement, memo } from "react";
 
 import type { ThemePalette } from "@services/Theme.service";
 
@@ -22,32 +12,24 @@ export const initialStyle: HorizontalMenuStyle = {
     justifyContent: "center",
 };
 
-interface HorizontalMenuProps {
-    children: ReactNode[];
+interface HorizontalMenuProps<T extends string> {
+    children: ReactNode | ReactNode[];
+    currentMenu?: T;
     style?: HorizontalMenuStyle;
     palette?: ThemePalette;
 }
 
-const HorizontalMenu: FC<HorizontalMenuProps> = ({
+function HorizontalMenu<T extends string>({
     children,
+    currentMenu,
     style,
     palette = "primary",
-}) => {
-    const [activeIndex, setActiveIndex] = useState(-1);
-
-    const modifiedOnClick = (child: ReactElement, index: number) => {
-        return (e: MouseEvent<HTMLElement>) => {
-            setActiveIndex(index);
-            child.props.onClick(e);
-        };
-    };
-
-    const cloned = Children.map(children, (child, index) => {
+}: HorizontalMenuProps<T>) {
+    const cloned = Children.map(children, (child) => {
         if (isValidElement(child)) {
             return cloneElement(child, {
-                onClick: modifiedOnClick(child, index),
-                options: Object.assign({}, initialStyle, style),
-                isActive: activeIndex === index,
+                isActive: currentMenu && currentMenu === child.props.name,
+                style: Object.assign({}, initialStyle, style),
                 palette,
             } as any);
         }
@@ -56,6 +38,6 @@ const HorizontalMenu: FC<HorizontalMenuProps> = ({
     });
 
     return <div className={styles.menu}>{cloned}</div>;
-};
+}
 
 export default memo(HorizontalMenu);
