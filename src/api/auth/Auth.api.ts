@@ -8,7 +8,7 @@ import {
     SignupResendEmailDto,
 } from "@dto";
 
-export default class AuthApi {
+export class AuthApi {
     static async signup(data: SignupDto) {
         return await axios.post("/api/v1/auth/signup", data);
     }
@@ -26,6 +26,6 @@ export default class AuthApi {
     }
 
     static async logout() {
-        return await axios.post("/api/v1/auth/logout", {});
+        return await axios.post("/api/v1/auth/logout");
     }
 }
