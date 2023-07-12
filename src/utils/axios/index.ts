@@ -21,27 +21,31 @@ interface NetworkError {
 type Response<T> = SuccessResponse<T> | ErrorResponse | NetworkError;
 
 const axios = {
-    get: async <T>(
+    get: async <T = never>(
         url: string,
         config?: AxiosRequestConfig
     ): Promise<Response<T>> => {
         return await _axios.get<any, Response<T>>(url, config);
     },
 
-    post: async <T>(
+    post: async <T = never>(
         url: string,
-        data: any,
+        data: any = {},
         config?: AxiosRequestConfig
     ): Promise<Response<T>> => {
         return await _axios.post<any, Response<T>>(url, data, config);
     },
 
-    put: async <T>(url: string, data: any, config?: AxiosRequestConfig) => {
+    put: async <T = never>(
+        url: string,
+        data: any = {},
+        config?: AxiosRequestConfig
+    ) => {
         return await _axios.put<any, Response<T>>(url, data, config);
     },
 
-    delete: async <T>(url: string, config?: AxiosRequestConfig) => {
-        return await _axios.delete(url, config);
+    delete: async <T = never>(url: string, config?: AxiosRequestConfig) => {
+        return await _axios.delete<any, Response<T>>(url, config);
     },
 };
 
