@@ -11,6 +11,7 @@ import { openSettingsModal } from "@redux/slices/modals.slice";
 import { AuthApi } from "@api";
 
 import ChannelIcon from "@assets/icons/header/channel.svg";
+import LogoutIcon from "@assets/icons/header/logout.svg";
 import SettingsIcon from "@assets/icons/header/settings.svg";
 
 import styles from "./DropdownPanel.module.scss";
@@ -56,7 +57,7 @@ const DropdownPanelMenu: FC<DropdownPanelMenuProps> = ({ close }) => {
                 </HorizontalMenuButton>
 
                 <HorizontalMenuButton onClick={logout}>
-                    <DropdownPanelMenuItem name="Logout" svg={ChannelIcon} />
+                    <DropdownPanelMenuItem name="Logout" svg={LogoutIcon} />
                 </HorizontalMenuButton>
             </HorizontalMenu>
         </div>
