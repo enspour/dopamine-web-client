@@ -1,17 +1,8 @@
-import Genre from "./Genre.interface";
-import LoadingState from "./LoadingState.interface";
-import Sessions from "./Sessions.interface";
-import Song from "./Song.interface";
-import User from "./User.interface";
-import UserEmail from "./UserEmail.interface";
-import UserSecurity from "./UserSecurity.interface";
-
-export type {
-    Genre,
-    LoadingState,
-    Sessions,
-    Song,
-    User,
-    UserEmail,
-    UserSecurity,
-};
+export * from "./Following.interface";
+export * from "./Genre.interface";
+export * from "./LoadingState.interface";
+export * from "./Session.interface";
+export * from "./Song.interface";
+export * from "./User.interface";
+export * from "./UserEmail.interface";
+export * from "./UserSecurity.interface";

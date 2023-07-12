@@ -1,3 +1,1 @@
-type LoadingState = "idle" | "loading" | "done" | "error";
-
-export default LoadingState;
+export type LoadingState = "idle" | "loading" | "done" | "error";

@@ -1,11 +1,11 @@
-import Genre from "./Genre.interface";
-import User from "./User.interface";
+import { Genre } from "./Genre.interface";
+import { User } from "./User.interface";
 
-export default interface Song {
+export interface Song {
     id: number;
     name: string;
     link: string;
-    owner: Omit<User, "status" | "emails" | "security">;
+    owner: User;
     genre: Genre;
     image: string;
     url: string;

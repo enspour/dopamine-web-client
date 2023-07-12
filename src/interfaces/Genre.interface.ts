@@ -1,3 +1,1 @@
-type Genre = "Hip-hop" | "Rock" | "Pop";
-
-export default Genre;
+export type Genre = "Hip-hop" | "Rock" | "Pop";

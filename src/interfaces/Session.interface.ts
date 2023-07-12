@@ -1,4 +1,4 @@
-export default interface Sessions {
+export interface Session {
     id: string;
     user_agent: string;
     expired_at: Date;
