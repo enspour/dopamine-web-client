@@ -10,6 +10,6 @@ export interface Song {
     image: string;
     url: string;
     time: number;
-    created_at: Date;
-    modified_at: Date;
+    createdAt: Date;
+    modifiedAt: Date;
 }

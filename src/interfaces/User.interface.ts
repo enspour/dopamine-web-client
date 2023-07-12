@@ -4,6 +4,6 @@ export interface User {
     name: string;
     avatar: string;
     status: string;
-    created_at: Date;
-    modified_at: Date;
+    createdAt: Date;
+    modifiedAt: Date;
 }
