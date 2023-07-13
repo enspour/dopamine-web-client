@@ -29,7 +29,7 @@ const CredentialsFooter: FC<CredentialsFooterProps> = ({
         if (response.statusCode === 200) {
             const { security } = response.data;
 
-            if (security.TFA_by_email) {
+            if (security.TFAByEmail) {
                 next();
             } else {
                 router.push("/browse");
