@@ -14,11 +14,12 @@ export class AuthApi {
     }
 
     static async signupConfirmEmail(data: SignupConfirmEmailDto) {
-        return await axios.post("/api/v1/auth/signup/email/confirm", data);
+        return await axios.post("/api/v1/auth/signup/email-confirmation", data);
     }
 
     static async signupResendEmail(data: SignupResendEmailDto) {
-        return await axios.post("/api/v1/auth/signup/email/confirm", data);
+        const url = "/api/v1/auth/signup/resend-email-confirmation";
+        return await axios.post(url, data);
     }
 
     static async login(data: LoginDto) {

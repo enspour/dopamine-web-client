@@ -8,13 +8,13 @@ import {
 } from "@dto";
 
 export class PostsApi {
-    static async create(data: PostsCreateDto) {
-        return await axios.post<PostsGetOneResponseDto>("/api/v1/posts", data);
-    }
-
     static async getOne(id: string) {
         const url = `/api/v1/posts/${id}`;
         return await axios.get<PostsGetOneResponseDto>(url);
+    }
+
+    static async create(data: PostsCreateDto) {
+        return await axios.post<PostsGetOneResponseDto>("/api/v1/posts", data);
     }
 
     static async remove(id: string) {
