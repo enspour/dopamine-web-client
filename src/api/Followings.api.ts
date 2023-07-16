@@ -1,20 +1,22 @@
-import { axios } from "@utils";
+import { api } from "@utils";
+
+import { RequestConfig } from "@interfaces";
 
 import { FollowingsGetAllResponseDto } from "@dto";
 
 export class Followings {
-    static async getAll(userId: number) {
+    static async getAll(userId: number, config?: RequestConfig) {
         const url = `/api/v1/followings/${userId}`;
-        return await axios.get<FollowingsGetAllResponseDto>(url);
+        return await api.get<FollowingsGetAllResponseDto>(url, config);
     }
 
-    static async follow(userId: number) {
+    static async follow(userId: number, config?: RequestConfig) {
         const url = `/api/v1/followings/follow/${userId}`;
-        return await axios.get(url);
+        return await api.get(url, config);
     }
 
-    static async unfollow(userId: number) {
+    static async unfollow(userId: number, config?: RequestConfig) {
         const url = `/api/v1/followings/unfollow/${userId}`;
-        return await axios.get(url);
+        return await api.get(url, config);
     }
 }

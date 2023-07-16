@@ -1,4 +1,6 @@
-import { axios } from "@utils";
+import { api } from "@utils";
+
+import { RequestConfig } from "@interfaces";
 
 import {
     PostsCreateDto,
@@ -8,37 +10,41 @@ import {
 } from "@dto";
 
 export class PostsApi {
-    static async getOne(id: string) {
+    static async getOne(id: string, config?: RequestConfig) {
         const url = `/api/v1/posts/${id}`;
-        return await axios.get<PostsGetOneResponseDto>(url);
+        return await api.get<PostsGetOneResponseDto>(url, config);
     }
 
-    static async create(data: PostsCreateDto) {
-        return await axios.post<PostsGetOneResponseDto>("/api/v1/posts", data);
+    static async create(data: PostsCreateDto, config?: RequestConfig) {
+        const url = "/api/v1/posts";
+        return await api.post<PostsGetOneResponseDto>(url, data, config);
     }
 
-    static async remove(id: string) {
+    static async remove(id: string, config?: RequestConfig) {
         const url = `/api/v1/posts/${id}`;
-        return await axios.delete(url);
+        return await api.delete(url, config);
     }
 
-    static async updateText(data: PostsUpdateTextDto) {
+    static async updateText(data: PostsUpdateTextDto, config?: RequestConfig) {
         const url = "/api/v1/posts/text";
-        return await axios.put(url, data);
+        return await api.put(url, data, config);
     }
 
-    static async updateImages(data: PostsUpdateImagesDto) {
+    static async updateImages(
+        data: PostsUpdateImagesDto,
+        config?: RequestConfig
+    ) {
         const url = "/api/v1/posts/text";
-        return await axios.put(url, data);
+        return await api.put(url, data, config);
     }
 
-    static async like(id: string) {
+    static async like(id: string, config?: RequestConfig) {
         const url = `/api/v1/posts/like/${id}`;
-        return await axios.post(url);
+        return await api.post(url, {}, config);
     }
 
-    static async unlike(id: string) {
+    static async unlike(id: string, config?: RequestConfig) {
         const url = `/api/v1/posts/unlike/${id}`;
-        return await axios.post(url);
+        return await api.post(url, {}, config);
     }
 }

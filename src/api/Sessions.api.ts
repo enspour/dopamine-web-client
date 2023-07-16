@@ -1,17 +1,22 @@
-import { axios } from "@utils";
+import { api } from "@utils";
+
+import { RequestConfig } from "@interfaces";
 
 import { SessionsGetAllResponseDto } from "@dto";
 
 export class SessionsApi {
-    static async getAll() {
-        return await axios.get<SessionsGetAllResponseDto>("/api/v1/sessions");
+    static async getAll(config?: RequestConfig) {
+        const url = "/api/v1/sessions";
+        return await api.get<SessionsGetAllResponseDto>(url, config);
     }
 
-    static async remove(id: string) {
-        return await axios.delete(`/api/v1/sessions/${id}`);
+    static async remove(id: string, config?: RequestConfig) {
+        const url = `/api/v1/sessions/${id}`;
+        return await api.delete(url, config);
     }
 
-    static async refresh() {
-        return await axios.post("/api/v1/sessions/refresh");
+    static async refresh(config?: RequestConfig) {
+        const url = "/api/v1/sessions/refresh";
+        return await api.post(url, {}, config);
     }
 }

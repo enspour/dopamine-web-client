@@ -2,11 +2,11 @@ import { cookies } from "next/headers";
 
 import {
     THEME_STORAGE_PATH,
+    ThemeName,
     isThemeName,
-    type ThemeName,
 } from "@services/Theme.service";
 
-const useSavedThemeName = (): ThemeName => {
+export const useThemeName = (): ThemeName => {
     const cookieStore = cookies();
 
     const name = cookieStore.get(THEME_STORAGE_PATH)?.value;
@@ -17,5 +17,3 @@ const useSavedThemeName = (): ThemeName => {
 
     return "light";
 };
-
-export default useSavedThemeName;

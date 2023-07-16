@@ -1,36 +1,45 @@
+import { api } from "@utils";
+
+import { RequestConfig } from "@interfaces";
+
 import { UsersGetOneResponseDto } from "@dto";
-import { axios } from "@utils";
 
 export class UsersApi {
-    static async me() {
-        return await axios.get<UsersGetOneResponseDto>("/api/v1/users/me");
+    static async me(config?: RequestConfig) {
+        const url = "/api/v1/users/me";
+        return await api.get<UsersGetOneResponseDto>(url, config);
     }
 
-    static async getOne(id: number) {
-        return await axios.get<UsersGetOneResponseDto>(`/api/v1/users/${id}`);
+    static async getOne(id: number, config?: RequestConfig) {
+        const url = `/api/v1/users/${id}`;
+        return await api.get<UsersGetOneResponseDto>(url, config);
     }
 
-    static async updateName(name: string) {
-        return await axios.put(`/api/v1/users/name`, {
-            name,
-        });
+    static async updateName(name: string, config?: RequestConfig) {
+        const url = "/api/v1/users/name";
+        const data = { name };
+
+        return await api.put(url, data, config);
     }
 
-    static async updateNickname(nickname: string) {
-        return await axios.put(`/api/v1/users/nickname`, {
-            nickname,
-        });
+    static async updateNickname(nickname: string, config?: RequestConfig) {
+        const url = "/api/v1/users/nickname";
+        const data = { nickname };
+
+        return await api.put(url, data, config);
     }
 
-    static async updateAvatar(avatar: string) {
-        return await axios.put(`/api/v1/users/name`, {
-            avatar,
-        });
+    static async updateAvatar(avatar: string, config?: RequestConfig) {
+        const url = "/api/v1/users/name";
+        const data = { avatar };
+
+        return await api.put(url, data, config);
     }
 
-    static async updateStatus(status: string) {
-        return await axios.put(`/api/v1/users/status`, {
-            status,
-        });
+    static async updateStatus(status: string, config?: RequestConfig) {
+        const url = "/api/v1/users/status";
+        const data = { status };
+
+        return await api.put(url, data, config);
     }
 }

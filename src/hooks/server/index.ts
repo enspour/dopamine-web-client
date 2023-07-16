@@ -1,3 +1,2 @@
-import useSavedThemeName from "./useSavedThemeName";
-
-export { useSavedThemeName };
+export * from "./useRequestConfig";
+export * from "./useThemeName";

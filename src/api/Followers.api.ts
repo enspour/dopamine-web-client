@@ -1,10 +1,12 @@
-import { axios } from "@utils";
+import { api } from "@utils";
+
+import { RequestConfig } from "@interfaces";
 
 import { FollowersGetAllResponseDto } from "@dto";
 
 export class FollowersApi {
-    static async getAll(userId: number) {
+    static async getAll(userId: number, config?: RequestConfig) {
         const url = `/api/v1/followers/${userId}`;
-        return await axios.get<FollowersGetAllResponseDto>(url);
+        return await api.get<FollowersGetAllResponseDto>(url, config);
     }
 }

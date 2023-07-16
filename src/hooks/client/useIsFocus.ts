@@ -1,6 +1,6 @@
 import { RefObject, useEffect, useState } from "react";
 
-const useIsFocus = (ref: RefObject<HTMLElement>) => {
+export const useIsFocus = (ref: RefObject<HTMLElement>) => {
     const [isFocus, setIsFocus] = useState(false);
 
     const focus = () => setIsFocus(true);
@@ -22,5 +22,3 @@ const useIsFocus = (ref: RefObject<HTMLElement>) => {
 
     return isFocus;
 };
-
-export default useIsFocus;

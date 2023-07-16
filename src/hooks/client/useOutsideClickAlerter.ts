@@ -1,6 +1,6 @@
 import { RefObject, useEffect, useState } from "react";
 
-const useOutsideClickAlerter = (...refs: RefObject<HTMLElement>[]) => {
+export const useOutsideClickAlerter = (...refs: RefObject<HTMLElement>[]) => {
     const [isOpen, setIsOpen] = useState(false);
 
     const clickOutside = (e: MouseEvent) => {
@@ -20,5 +20,3 @@ const useOutsideClickAlerter = (...refs: RefObject<HTMLElement>[]) => {
 
     return [isOpen, setIsOpen] as const;
 };
-
-export default useOutsideClickAlerter;

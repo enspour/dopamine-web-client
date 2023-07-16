@@ -1,16 +1,16 @@
-import Cookie from "js-cookie";
+import cookies from "js-cookie";
 import { useState } from "react";
 
 import {
     THEME_STORAGE_PATH,
+    ThemeName,
     isThemeName,
-    type ThemeName,
 } from "@services/Theme.service";
 
 import services from "@services";
 
-const useTheme = () => {
-    const savedName = Cookie.get(THEME_STORAGE_PATH) || "light";
+export const useTheme = () => {
+    const savedName = cookies.get(THEME_STORAGE_PATH) || "light";
 
     const [name, setName] = useState<ThemeName>(
         isThemeName(savedName) ? savedName : "light"
@@ -26,5 +26,3 @@ const useTheme = () => {
         setTheme,
     };
 };
-
-export default useTheme;

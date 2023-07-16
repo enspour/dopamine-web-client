@@ -1,4 +1,4 @@
-import Cookie from "js-cookie";
+import cookies from "js-cookie";
 
 import { Service } from ".";
 
@@ -44,7 +44,7 @@ export class ThemeService implements Service {
     }
 
     private save(name: ThemeName) {
-        Cookie.set(THEME_STORAGE_PATH, name);
+        cookies.set(THEME_STORAGE_PATH, name);
     }
 }
 

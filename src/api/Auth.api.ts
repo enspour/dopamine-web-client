@@ -1,4 +1,6 @@
-import { axios } from "@utils";
+import { api } from "@utils";
+
+import { RequestConfig } from "@interfaces";
 
 import {
     LoginDto,
@@ -9,24 +11,34 @@ import {
 } from "@dto";
 
 export class AuthApi {
-    static async signup(data: SignupDto) {
-        return await axios.post("/api/v1/auth/signup", data);
+    static async signup(data: SignupDto, config?: RequestConfig) {
+        const url = "/api/v1/auth/signup";
+        return await api.post(url, data, config);
     }
 
-    static async signupConfirmEmail(data: SignupConfirmEmailDto) {
-        return await axios.post("/api/v1/auth/signup/email-confirmation", data);
+    static async signupConfirmEmail(
+        data: SignupConfirmEmailDto,
+        config?: RequestConfig
+    ) {
+        const url = "/api/v1/auth/signup/email-confirmation";
+        return await api.post(url, data, config);
     }
 
-    static async signupResendEmail(data: SignupResendEmailDto) {
+    static async signupResendEmail(
+        data: SignupResendEmailDto,
+        config?: RequestConfig
+    ) {
         const url = "/api/v1/auth/signup/resend-email-confirmation";
-        return await axios.post(url, data);
+        return await api.post(url, data, config);
     }
 
-    static async login(data: LoginDto) {
-        return await axios.post<LoginResponseDto>("/api/v1/auth/login", data);
+    static async login(data: LoginDto, config?: RequestConfig) {
+        const url = "/api/v1/auth/login";
+        return await api.post<LoginResponseDto>(url, data, config);
     }
 
-    static async logout() {
-        return await axios.post("/api/v1/auth/logout");
+    static async logout(config?: RequestConfig) {
+        const url = "/api/v1/auth/logout";
+        return await api.post(url, {}, config);
     }
 }

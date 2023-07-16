@@ -6,3 +6,7 @@ export * from "./Song.interface";
 export * from "./User.interface";
 export * from "./UserEmail.interface";
 export * from "./UserSecurity.interface";
+export * from "./api/ApiResponse.interface";
+export * from "./api/RequestConfig.interface";
+export * from "./api/RequestHeaders.interface";
+export * from "./api/StatusCode.interface";

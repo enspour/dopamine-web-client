@@ -1,9 +1,12 @@
-import { axios } from "@utils";
+import { api } from "@utils";
+
+import { RequestConfig } from "@interfaces";
 
 export class UsersSecurityApi {
-    static async updateTFAByEmail(value: boolean) {
-        return await axios.put("/api/v1/users/security/TFA-by-email", {
-            value,
-        });
+    static async updateTFAByEmail(value: boolean, config?: RequestConfig) {
+        const url = "/api/v1/users/security/TFA-by-email";
+        const data = { value };
+
+        return await api.put(url, data, config);
     }
 }
