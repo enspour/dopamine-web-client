@@ -3,7 +3,7 @@ import { ReactNode } from "react";
 import ClientLayout from "@components/layouts/ClientLayout/ClientLayout";
 import ServerLayout from "@components/layouts/ServerLayout/ServerLayout";
 
-import { useSavedThemeName } from "@hooks/server";
+import { useThemeName } from "@hooks/server";
 
 import { getThemeProperties } from "@services/Theme.service";
 
@@ -12,7 +12,7 @@ interface RootLayoutProps {
 }
 
 const RootLayout = async ({ children }: RootLayoutProps) => {
-    const name = useSavedThemeName();
+    const name = useThemeName();
     const themeProperties = await getThemeProperties(name);
 
     return (

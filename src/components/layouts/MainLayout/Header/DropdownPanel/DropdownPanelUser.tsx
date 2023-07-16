@@ -25,9 +25,11 @@ const DropdownPanelUser: FC<DropdownPanelUserProps> = ({ close }) => {
             <div className={styles.panel__user__avatar}></div>
 
             <div>
-                <div className={styles.panel__user__nickname}>Eminem</div>
+                <div className={styles.panel__user__nickname}>
+                    {user.nickname}
+                </div>
 
-                <div className={styles.panel__user__name}>@eminem</div>
+                <div className={styles.panel__user__name}>@{user.name}</div>
             </div>
         </div>
     );

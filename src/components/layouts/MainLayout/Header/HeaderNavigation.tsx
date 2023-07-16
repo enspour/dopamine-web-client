@@ -2,8 +2,8 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-
 import { memo } from "react";
+
 import styles from "./Header.module.scss";
 
 const navigation = [
