@@ -2,9 +2,19 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { memo } from "react";
+import { FC, memo } from "react";
 
 import styles from "./Header.module.scss";
+
+export interface Navigation {
+    id: string;
+    href: string;
+    text: string;
+}
+
+interface HeaderNavigation {
+    navigation: Navigation[];
+}
 
 const navigation = [
     {
@@ -24,7 +34,7 @@ const navigation = [
     },
 ];
 
-const HeaderNavigation = () => {
+const HeaderNavigation: FC<HeaderNavigation> = ({ navigation }) => {
     const pathname = usePathname();
 
     const isActive = (href: string) => {

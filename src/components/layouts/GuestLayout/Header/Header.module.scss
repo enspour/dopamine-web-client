@@ -1,0 +1,24 @@
+.container {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    box-shadow: 0rem 0rem 0.5rem 0.05rem var(--theme-primary-shadow);
+    background-color: var(--theme-primary-bg);
+}
+
+.header {
+    height: 5rem;
+    max-width: calc(108rem + 12rem); // + padding
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5rem;
+    gap: 3rem;
+}
+
+.header__logo {
+    text-align: center;
+    font-size: 1.8rem;
+    color: var(--theme-primary-color);
+}

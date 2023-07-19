@@ -17,7 +17,7 @@ const DropdownPanelUser: FC<DropdownPanelUserProps> = ({ close }) => {
 
     const openAccount = () => {
         close();
-        router.push(`/account/${user.id}`);
+        router.push(`/accounts/${user.id}`);
     };
 
     return (

@@ -1,15 +1,13 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../store";
 
-import { LoadingState, User } from "@interfaces";
+import { User } from "@interfaces";
 
 export interface UserState {
-    loading: LoadingState;
     user: Pick<User, "id" | "nickname" | "name" | "avatar">;
 }
 
 const initialState: UserState = {
-    loading: "loading",
     user: {
         id: 0,
         nickname: "",
@@ -24,14 +22,13 @@ export const userSlice = createSlice({
     reducers: {
         setUser: (state, action: PayloadAction<User>) => {
             state.user = action.payload;
-            state.loading = "done";
         },
     },
 });
 
 export const { setUser } = userSlice.actions;
 
-export const selectUser = (state: RootState) => state.userSlice.user;
-export const selectLoading = (state: RootState) => state.userSlice.loading;
+export const selectUser = (state: RootState): UserState["user"] =>
+    state.userSlice.user;
 
 export default userSlice.reducer;

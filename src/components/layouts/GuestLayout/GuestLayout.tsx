@@ -1,16 +1,15 @@
 import { FC, ReactNode, memo } from "react";
 
 import SearchModal from "@components/modals/SearchModal/SearchModal";
-import SettingsModal from "@components/modals/SettingsModal/SettingsModal";
 import Header from "./Header/Header";
 
-import styles from "./UserLayout.module.scss";
+import styles from "./GuestLayout.module.scss";
 
-interface UserLayoutProps {
+interface GuestLayoutProps {
     children: ReactNode;
 }
 
-const UserLayout: FC<UserLayoutProps> = ({ children }) => {
+const GuestLayout: FC<GuestLayoutProps> = ({ children }) => {
     return (
         <main className={styles.main}>
             <Header />
@@ -18,9 +17,8 @@ const UserLayout: FC<UserLayoutProps> = ({ children }) => {
             <div className={styles.content}>{children}</div>
 
             <SearchModal />
-            <SettingsModal />
         </main>
     );
 };
 
-export default memo(UserLayout);
+export default memo(GuestLayout);

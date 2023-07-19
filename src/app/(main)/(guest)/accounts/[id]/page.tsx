@@ -1,8 +1,8 @@
 interface PageProps {
-    params: { id: string };
+    params: { id: number };
 }
 
-const Page = ({ params }: PageProps) => {
+const Page = async ({ params }: PageProps) => {
     return <div>Account</div>;
 };
 
