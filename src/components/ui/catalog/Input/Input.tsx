@@ -1,3 +1,5 @@
+"use client";
+
 import { CSSProperties, FC, memo, useEffect, useRef } from "react";
 
 import Icon from "../Icon/Icon";

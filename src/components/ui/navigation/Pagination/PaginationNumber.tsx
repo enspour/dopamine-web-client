@@ -1,3 +1,5 @@
+"use client";
+
 import { CSSProperties, FC, memo, useRef } from "react";
 
 import { ThemePalette } from "@services/Theme.service";
@@ -21,7 +23,7 @@ const PaginationNumber: FC<PaginationNumberProps> = ({
     isActive = false,
     palette = "primary",
 }) => {
-    const numberRef = useRef(null);
+    const numberRef = useRef<HTMLDivElement>(null);
 
     const isHover = useIsHover(numberRef);
 

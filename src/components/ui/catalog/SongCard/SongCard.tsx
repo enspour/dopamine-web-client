@@ -1,3 +1,5 @@
+"use client";
+
 import { CSSProperties, FC, memo, useRef } from "react";
 
 import type { Song } from "@interfaces";
@@ -21,7 +23,7 @@ interface SongCardProps {
 }
 
 const SongCard: FC<SongCardProps> = ({ num, song, palette = "primary" }) => {
-    const cardRef = useRef(null);
+    const cardRef = useRef<HTMLDivElement>(null);
 
     const isHover = useIsHover(cardRef);
 

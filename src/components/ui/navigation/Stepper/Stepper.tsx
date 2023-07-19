@@ -1,3 +1,5 @@
+"use client";
+
 import { CSSProperties, FC, useState } from "react";
 
 import SimpleCarousel from "@components/ui/catalog/SimpleCarousel/SimpleCarousel";

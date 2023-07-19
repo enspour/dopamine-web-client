@@ -1,3 +1,5 @@
+"use client";
+
 import { CSSProperties, ChangeEvent, FC, memo, useEffect, useRef } from "react";
 
 import { ThemePalette } from "@services/Theme.service";

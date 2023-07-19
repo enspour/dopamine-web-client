@@ -12,7 +12,7 @@ import { selectUser } from "@redux/slices/user.slice";
 import styles from "./Header.module.scss";
 
 const HeaderUser = () => {
-    const userRef = useRef(null);
+    const userRef = useRef<HTMLDivElement>(null);
 
     const user = useAppSelector(selectUser);
 

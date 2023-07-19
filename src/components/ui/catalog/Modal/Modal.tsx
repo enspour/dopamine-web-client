@@ -1,3 +1,5 @@
+"use client";
+
 import { CSSProperties, FC, ReactNode, memo, useRef } from "react";
 
 import { useOutsideClick } from "@hooks/client";

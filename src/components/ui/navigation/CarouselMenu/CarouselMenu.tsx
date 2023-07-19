@@ -1,3 +1,5 @@
+"use client";
+
 import { CSSProperties, FC, useEffect, useRef, useState } from "react";
 
 import EndlessCarousel from "../../catalog/EndlessCarousel/EndlessCarousel";

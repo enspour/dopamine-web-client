@@ -1,3 +1,5 @@
+"use client";
+
 import { CSSProperties, FC, MutableRefObject, memo, useRef } from "react";
 
 import { useIsHover } from "@hooks/client";

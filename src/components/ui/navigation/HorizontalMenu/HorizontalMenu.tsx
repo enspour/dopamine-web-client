@@ -1,3 +1,5 @@
+"use client";
+
 import { Children, ReactNode, cloneElement, isValidElement, memo } from "react";
 
 import type { ThemePalette } from "@services/Theme.service";

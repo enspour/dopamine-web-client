@@ -1,3 +1,5 @@
+"use client";
+
 import { CSSProperties, FC, ReactNode, memo, useEffect, useRef } from "react";
 
 import styles from "./EndlessCarousel.module.scss";
