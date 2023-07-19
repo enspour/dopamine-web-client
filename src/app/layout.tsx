@@ -7,19 +7,19 @@ import { useThemeName } from "@hooks/server";
 
 import { getThemeProperties } from "@services/Theme.service";
 
-interface RootLayoutProps {
+interface LayoutProps {
     children: ReactNode;
 }
 
-const RootLayout = async ({ children }: RootLayoutProps) => {
+const Layout = async ({ children }: LayoutProps) => {
     const name = useThemeName();
-    const themeProperties = await getThemeProperties(name);
+    const properties = await getThemeProperties(name);
 
     return (
-        <ServerLayout themeProperties={themeProperties}>
+        <ServerLayout themeProperties={properties}>
             <ClientLayout>{children}</ClientLayout>
         </ServerLayout>
     );
 };
 
-export default RootLayout;
+export default Layout;
