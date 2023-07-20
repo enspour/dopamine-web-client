@@ -2,9 +2,7 @@ import { CSSProperties, FC, memo } from "react";
 
 import type { Song } from "@interfaces";
 
-import type { ThemePalette } from "@services/Theme.service";
-
-import { getThemePropertyValue } from "@utils";
+import { ThemePalette, getThemePropertyValue } from "@features/theme";
 
 import styles from "./SongCard.module.scss";
 

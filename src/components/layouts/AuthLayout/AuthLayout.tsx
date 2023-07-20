@@ -1,8 +1,6 @@
 import { CSSProperties, FC, ReactNode } from "react";
 
-import type { ThemePalette } from "@services/Theme.service";
-
-import { getThemePropertyValue } from "@utils";
+import { ThemePalette, getThemePropertyValue } from "@features/theme";
 
 import styles from "./AuthLayout.module.scss";
 

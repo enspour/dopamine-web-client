@@ -5,9 +5,7 @@ import Input from "@components/ui/catalog/Input/Input";
 import type { StepperStepProps } from "@components/ui/navigation/Stepper/Stepper";
 import type { ExtraProps } from "../../Signup";
 
-import type { ThemePalette } from "@services/Theme.service";
-
-import { getThemePropertyValue } from "@utils";
+import { ThemePalette, getThemePropertyValue } from "@features/theme";
 
 import styles from "./CredentialsStep.module.scss";
 

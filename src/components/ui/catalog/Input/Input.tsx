@@ -6,9 +6,7 @@ import Icon from "../Icon/Icon";
 
 import { useIsFocus, useIsHover } from "@hooks/client";
 
-import { getThemePropertyValue } from "@utils";
-
-import type { ThemePalette } from "@services/Theme.service";
+import { ThemePalette, getThemePropertyValue } from "@features/theme";
 
 import ClearIcon from "@assets/icons/input/clear.svg";
 

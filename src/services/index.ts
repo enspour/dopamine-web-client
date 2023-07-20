@@ -1,15 +1,11 @@
 import { ServicesManager } from "./ServicesManager";
 
-import { ThemeService } from "./Theme.service";
-
 export interface Service {
     initialize(services: Services): Promise<void>;
     destroy(): Promise<void>;
 }
 
-type ServicesType = {
-    theme: ThemeService;
-};
+type ServicesType = {};
 
 export class Services {
     constructor(private manager: ServicesManager<ServicesType>) {}
@@ -21,15 +17,9 @@ export class Services {
     async destroy() {
         await this.manager.destroy();
     }
-
-    get Theme() {
-        return this.manager.get("theme");
-    }
 }
 
 const manager = new ServicesManager<ServicesType>();
-
-manager.register("theme", new ThemeService());
 
 const services = new Services(manager);
 

@@ -4,9 +4,7 @@ import { CSSProperties, FC, memo } from "react";
 import type { StepperFooterProps } from "@components/ui/navigation/Stepper/Stepper";
 import type { ExtraProps } from "../../Signup";
 
-import { ThemePalette } from "@services/Theme.service";
-
-import { getThemePropertyValue } from "@utils";
+import { ThemePalette, getThemePropertyValue } from "@features/theme";
 
 import styles from "./SelectionStep.module.scss";
 

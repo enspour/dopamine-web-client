@@ -5,11 +5,9 @@ import Code from "@components/ui/catalog/Code/Code";
 import type { StepperStepProps } from "@components/ui/navigation/Stepper/Stepper";
 import type { ExtraProps } from "../../Login";
 
-import type { ThemePalette } from "@services/Theme.service";
+import { ThemePalette, getThemePropertyValue } from "@features/theme";
 
 import { TwoFactorAuthApi } from "@api";
-
-import { getThemePropertyValue } from "@utils";
 
 import styles from "./TwoFactorStep.module.scss";
 

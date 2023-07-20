@@ -1,10 +1,8 @@
 import { cookies } from "next/headers";
 
-import {
-    THEME_STORAGE_PATH,
-    ThemeName,
-    isThemeName,
-} from "@services/Theme.service";
+import { ThemeName, isThemeName } from "@features/theme/interfaces";
+
+import { THEME_STORAGE_PATH } from "@features/theme/constants";
 
 export const useThemeName = (): ThemeName => {
     const cookieStore = cookies();

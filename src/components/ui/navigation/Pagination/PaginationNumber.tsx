@@ -2,9 +2,7 @@
 
 import { CSSProperties, FC, memo, useRef } from "react";
 
-import { ThemePalette } from "@services/Theme.service";
-
-import { getThemePropertyValue } from "@utils";
+import { ThemePalette, getThemePropertyValue } from "@features/theme";
 
 import { useIsHover } from "@hooks/client";
 

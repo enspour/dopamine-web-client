@@ -13,9 +13,7 @@ import { HorizontalMenuStyle, initialStyle } from "./HorizontalMenu";
 
 import { useIsHover } from "@hooks/client";
 
-import type { ThemePalette } from "@services/Theme.service";
-
-import { getThemePropertyValue } from "@utils";
+import { ThemePalette, getThemePropertyValue } from "@features/theme";
 
 import styles from "./HorizontalMenu.module.scss";
 

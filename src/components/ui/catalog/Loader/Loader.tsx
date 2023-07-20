@@ -1,8 +1,6 @@
 import { CSSProperties, FC, memo } from "react";
 
-import type { ThemePalette } from "@services/Theme.service";
-
-import { getThemePropertyValue } from "@utils";
+import { ThemePalette, getThemePropertyValue } from "@features/theme";
 
 import styles from "./Loader.module.scss";
 

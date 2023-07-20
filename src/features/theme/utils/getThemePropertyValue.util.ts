@@ -1,4 +1,4 @@
-import type { ThemePalette } from "@services/Theme.service";
+import type { ThemePalette } from "../interfaces";
 
 export const getThemePropertyValue = (
     property: string,

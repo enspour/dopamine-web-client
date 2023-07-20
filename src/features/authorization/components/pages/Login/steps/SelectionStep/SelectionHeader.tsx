@@ -2,9 +2,7 @@ import { CSSProperties, FC, memo } from "react";
 
 import type { StepperHeaderProps } from "@components/ui/navigation/Stepper/Stepper";
 
-import type { ThemePalette } from "@services/Theme.service";
-
-import { getThemePropertyValue } from "@utils";
+import { ThemePalette, getThemePropertyValue } from "@features/theme";
 
 import styles from "./SelectionStep.module.scss";
 

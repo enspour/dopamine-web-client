@@ -4,9 +4,7 @@ import { CSSProperties, FC, MutableRefObject, memo, useRef } from "react";
 
 import { useIsHover } from "@hooks/client";
 
-import type { ThemePalette } from "@services/Theme.service";
-
-import { getThemePropertyValue } from "@utils";
+import { ThemePalette, getThemePropertyValue } from "@features/theme";
 
 import styles from "./DualPane.module.scss";
 

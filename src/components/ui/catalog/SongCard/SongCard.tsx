@@ -10,9 +10,7 @@ import SongCardInfo from "./SongCardInfo";
 
 import { useIsHover } from "@hooks/client";
 
-import { getThemePropertyValue } from "@utils";
-
-import type { ThemePalette } from "@services/Theme.service";
+import { ThemePalette, getThemePropertyValue } from "@features/theme";
 
 import styles from "./SongCard.module.scss";
 

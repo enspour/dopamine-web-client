@@ -2,9 +2,8 @@ import { memo, useEffect, useState } from "react";
 
 import SettingsTheme from "./SettingsTheme";
 
-import { useTheme } from "@hooks/client";
-
-import { getThemes, type Theme } from "@services/Theme.service";
+import { Theme, getThemes } from "@features/theme";
+import { useTheme } from "@features/theme/client";
 
 import styles from "./Settings.module.scss";
 
