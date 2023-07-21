@@ -1,7 +1,8 @@
 import { FC, memo } from "react";
 
-import { Menus } from "../../SettingsModal";
-import SettingsMenusItem from "./SettingsMenusItem";
+import SettingsMenuItem from "./SettingsMenuItem";
+
+import { SettingsMenuId } from "@interfaces";
 
 import GeneralIcon from "@assets/icons/settings/general.svg";
 import LanguagesIcon from "@assets/icons/settings/languages.svg";
@@ -12,64 +13,59 @@ import StorageIcon from "@assets/icons/settings/storage.svg";
 import styles from "./Settings.module.scss";
 
 interface SettingsMenusProps {
-    forward: (name: Menus) => void;
+    forward: (name: SettingsMenuId) => void;
 }
 
 const SettingsMenus: FC<SettingsMenusProps> = ({ forward }) => {
     const openGeneral = () => {
-        forward("General");
+        forward("general");
     };
 
     const openPermissions = () => {
-        forward("Permissions");
+        forward("permissions");
     };
 
     const openSecurity = () => {
-        forward("Security");
+        forward("security");
     };
 
     const openLanguages = () => {
-        forward("Languages");
+        forward("languages");
     };
 
     const openStorage = () => {
-        forward("Storage");
+        forward("storage");
     };
 
     return (
         <div className={styles.settings__menus}>
-            <SettingsMenusItem
+            <SettingsMenuItem
                 svg={GeneralIcon}
-                name="General"
-                description="View and update your information"
+                name="general"
                 onClick={openGeneral}
             />
 
-            <SettingsMenusItem
+            <SettingsMenuItem
                 svg={PermissionsIcon}
-                name="Permissions"
-                description="What stuff other users can see or do in your store"
+                name="permissions"
                 onClick={openPermissions}
             />
 
-            <SettingsMenusItem
+            <SettingsMenuItem
                 svg={SecurityIcon}
-                name="Security"
-                description="Manage your security"
+                name="security"
                 onClick={openSecurity}
             />
 
-            <SettingsMenusItem
+            <SettingsMenuItem
                 svg={LanguagesIcon}
-                name="Languages"
-                description="Choose the required language"
+                name="languages"
                 onClick={openLanguages}
             />
 
-            <SettingsMenusItem
+            <SettingsMenuItem
                 svg={StorageIcon}
-                name="Storage"
-                description="Manage you local storage"
+                name="storage"
                 onClick={openStorage}
             />
         </div>

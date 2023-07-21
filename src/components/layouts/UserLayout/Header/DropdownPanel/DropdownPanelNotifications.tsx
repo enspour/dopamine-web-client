@@ -1,5 +1,7 @@
 import { FC, memo } from "react";
 
+import { InterMessage } from "@features/internationalization/client";
+
 import styles from "./DropdownPanel.module.scss";
 
 interface DropdownPanelNotificationsProps {
@@ -10,11 +12,11 @@ const DropdownPanelNotifications: FC<DropdownPanelNotificationsProps> = () => {
     return (
         <div className={styles.panel__notifications}>
             <div className={styles.panel__notifications__title}>
-                Notifications:
+                <InterMessage id="header.dropdown.notifications.title" />
             </div>
 
             <div className={styles.panel__notifications__empty}>
-                You don't have notifications
+                <InterMessage id="header.dropdown.notifications.hint.empty" />
             </div>
         </div>
     );

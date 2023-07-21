@@ -18,8 +18,8 @@
 }
 
 .header__navigation,
-.header__right {
-    width: 25rem;
+.header__menu {
+    width: 100%;
 }
 
 .header__navigation {
@@ -38,7 +38,7 @@
         &::after {
             content: "";
             display: block;
-            width: 130%;
+            width: calc(100% + 1.5rem);
             height: 2.5rem;
             border-bottom: 0.2rem solid var(--theme-primary-bg);
             transition: 0.3s;
@@ -61,8 +61,6 @@
 }
 
 .header__center {
-    flex-grow: 1;
-
     &__title {
         text-align: center;
         font-size: 1.8rem;
@@ -70,7 +68,7 @@
     }
 }
 
-.header__right {
+.header__menu {
     display: flex;
     align-items: center;
     justify-content: flex-end;

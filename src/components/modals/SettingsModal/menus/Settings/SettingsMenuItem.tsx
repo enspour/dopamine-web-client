@@ -2,19 +2,21 @@ import { FC, memo } from "react";
 
 import Icon, { SvgProps } from "@components/ui/catalog/Icon/Icon";
 
+import { InterMessage } from "@features/internationalization/client";
+
+import { SettingsMenuId } from "@interfaces";
+
 import styles from "./Settings.module.scss";
 
-interface SettingsMenusItemProps {
+interface SettingsMenuItemProps {
     svg: FC<SvgProps>;
-    name: string;
-    description: string;
+    name: SettingsMenuId;
     onClick: () => void;
 }
 
-const SettingsMenusItem: FC<SettingsMenusItemProps> = ({
+const SettingsMenuItem: FC<SettingsMenuItemProps> = ({
     svg,
     name,
-    description,
     onClick,
 }) => {
     return (
@@ -23,15 +25,15 @@ const SettingsMenusItem: FC<SettingsMenusItemProps> = ({
                 <Icon svg={svg} />
 
                 <div className={styles.settings__menus__item__header__name}>
-                    {name}
+                    <InterMessage id={`settings.menu.${name}.name`} />
                 </div>
             </div>
 
             <div className={styles.settings__menus__item__description}>
-                {description}
+                <InterMessage id={`settings.menu.${name}.description`} />
             </div>
         </div>
     );
 };
 
-export default memo(SettingsMenusItem);
+export default memo(SettingsMenuItem);

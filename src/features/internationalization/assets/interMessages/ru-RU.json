@@ -1,0 +1,29 @@
+{
+    "header.nav.browse.name": "Обзор",
+    "header.nav.store.name": "Библиотека",
+    "header.nav.feed.name": "Новости",
+
+    "header.dropdown.menu.channel.name": "Канал",
+    "header.dropdown.menu.settings.name": "Настройки",
+    "header.dropdown.menu.logout.name": "Выйти",
+
+    "header.dropdown.notifications.title": "Уведомления:",
+    "header.dropdown.notifications.hint.empty": "Уведомлений нет",
+
+    "settings.menu.general.name": "Общие",
+    "settings.menu.general.description": "Обновляй информацию о себе",
+
+    "settings.menu.permissions.name": "Доступ",
+    "settings.menu.permissions.description": "Управляй доступом",
+
+    "settings.menu.security.name": "Безопасность",
+    "settings.menu.security.description": "Управляй своей безопасностью",
+
+    "settings.menu.languages.name": "Языки",
+    "settings.menu.languages.description": "Выбери нужный язык",
+
+    "settings.menu.storage.name": "Хранилище",
+    "settings.menu.storage.description": "Управляй локальным хранилищем",
+
+    "settings.menu.title": "Настройки"
+}

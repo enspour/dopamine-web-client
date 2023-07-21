@@ -1,27 +1,31 @@
 import { memo } from "react";
 
 import HeaderCenter from "./HeaderCenter";
-import HeaderNavigation, { Navigation } from "./HeaderNavigation";
+import HeaderNavigation from "./HeaderNavigation";
 import HeaderSearchControl from "./HeaderSearchControl";
 import HeaderUser from "./HeaderUser";
 
+import { HeaderNavigationId } from "@interfaces";
+
 import styles from "./Header.module.scss";
+
+export interface Navigation {
+    id: HeaderNavigationId;
+    href: string;
+}
 
 const navigation: Navigation[] = [
     {
         id: "browse",
         href: "/browse",
-        text: "Browse",
     },
     {
         id: "store",
         href: "/store",
-        text: "Store",
     },
     {
         id: "feed",
         href: "/feed",
-        text: "Feed",
     },
 ];
 
@@ -33,7 +37,7 @@ const Header = () => {
 
                 <HeaderCenter />
 
-                <div className={styles.header__right}>
+                <div className={styles.header__menu}>
                     <HeaderSearchControl />
                     <HeaderUser />
                 </div>

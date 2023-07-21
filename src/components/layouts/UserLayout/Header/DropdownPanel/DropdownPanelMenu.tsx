@@ -49,15 +49,15 @@ const DropdownPanelMenu: FC<DropdownPanelMenuProps> = ({ close }) => {
         <div className={styles.panel__menu}>
             <HorizontalMenu>
                 <HorizontalMenuButton onClick={openChannel}>
-                    <DropdownPanelMenuItem name="Channel" svg={ChannelIcon} />
+                    <DropdownPanelMenuItem id="channel" svg={ChannelIcon} />
                 </HorizontalMenuButton>
 
                 <HorizontalMenuButton onClick={openSettings}>
-                    <DropdownPanelMenuItem name="Settings" svg={SettingsIcon} />
+                    <DropdownPanelMenuItem id="settings" svg={SettingsIcon} />
                 </HorizontalMenuButton>
 
                 <HorizontalMenuButton onClick={logout}>
-                    <DropdownPanelMenuItem name="Logout" svg={LogoutIcon} />
+                    <DropdownPanelMenuItem id="logout" svg={LogoutIcon} />
                 </HorizontalMenuButton>
             </HorizontalMenu>
         </div>

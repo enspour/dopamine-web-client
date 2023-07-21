@@ -1,11 +1,10 @@
 import { FC, memo } from "react";
 
 import type { CarouselMenuItemProps } from "@components/ui/navigation/CarouselMenu/CarouselMenu";
+import type { Menu } from "../../SettingsModal";
 
-import type { Menus } from "../../SettingsModal";
-
-const Security: FC<CarouselMenuItemProps<Menus>> = ({ forward, back }) => (
-    <div></div>
-);
+const Security: FC<CarouselMenuItemProps<Menu>> = ({ forward, back }) => {
+    return <div></div>;
+};
 
 export default memo(Security);

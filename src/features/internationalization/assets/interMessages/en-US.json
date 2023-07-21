@@ -1,0 +1,30 @@
+{
+    "header.nav.browse.name": "Browse",
+    "header.nav.store.name": "Store",
+    "header.nav.feed.name": "Feed",
+
+    "header.dropdown.menu.channel.name": "Channel",
+    "header.dropdown.menu.settings.name": "Settings",
+    "header.dropdown.menu.logout.name": "Logout",
+
+    "header.dropdown.notifications.title": "Notifications:",
+    "header.dropdown.notifications.hint.empty": "You don't have notifications",
+
+    "settings.menu.general.name": "General",
+    "settings.menu.general.description": "View and update your information",
+
+    "settings.menu.permissions.name": "Permissions",
+    "settings.menu.permissions.description": "What stuff other users can see or do in your store",
+
+    "settings.menu.security.name": "Security",
+    "settings.menu.security.description": "Manage your security",
+
+    "settings.menu.languages.name": "Languages",
+    "settings.menu.languages.description": "Choose the required language",
+
+    "settings.menu.storage.name": "Storage",
+    "settings.menu.storage.description": "Manage you local storage",
+
+    "settings.menu.title": "Settings",
+    "settings.menu.themes.title": "Themes"
+}

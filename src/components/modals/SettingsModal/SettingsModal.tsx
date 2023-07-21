@@ -21,40 +21,36 @@ import {
     selectIsOpenSettingsModal,
 } from "@redux/slices/modals.slice";
 
-export type Menus =
-    | "Settings"
-    | "General"
-    | "Permissions"
-    | "Security"
-    | "Languages"
-    | "Storage";
+import { SettingsMenuId } from "@interfaces";
 
-const menus = {
-    Settings: {
+export type Menu = SettingsMenuId | "settings";
+
+const menu: Record<Menu, any> = {
+    settings: {
         header: SettingsModalHeader,
         component: Settings,
     },
-    General: {
+    general: {
         header: SettingsModalHeader,
         component: General,
     },
-    Permissions: {
+    permissions: {
         header: SettingsModalHeader,
         component: Permissions,
     },
-    Security: {
+    security: {
         header: SettingsModalHeader,
         component: Security,
     },
-    Languages: {
+    languages: {
         header: SettingsModalHeader,
         component: Languages,
     },
-    Storage: {
+    storage: {
         header: SettingsModalHeader,
         component: Storage,
     },
-};
+} as const;
 
 const SettingsModal = () => {
     const dispatch = useAppDispatch();
@@ -77,7 +73,7 @@ const SettingsModal = () => {
             }}
         >
             <Box style={{ overflow: "hidden" }}>
-                <CarouselMenu menus={menus} style={{ gap: "4rem" }} />;
+                <CarouselMenu menu={menu} style={{ gap: "4rem" }} />;
             </Box>
         </Modal>
     );

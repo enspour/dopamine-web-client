@@ -1,17 +1,23 @@
 "use client";
 
 import { FC, ReactNode, memo, useEffect } from "react";
-import { Provider } from "react-redux";
 
-import store from "@redux/store";
+import { Internationalization } from "@features/internationalization";
+import { useInternationalization } from "@features/internationalization/client";
 
 import services from "@services";
 
 interface ClientLayoutProps {
     children: ReactNode;
+    internationalization: Internationalization;
 }
 
-const ClientLayout: FC<ClientLayoutProps> = ({ children }) => {
+const ClientLayout: FC<ClientLayoutProps> = ({
+    children,
+    internationalization,
+}) => {
+    useInternationalization(internationalization);
+
     useEffect(() => {
         services.initialize();
 
@@ -20,7 +26,7 @@ const ClientLayout: FC<ClientLayoutProps> = ({ children }) => {
         };
     }, []);
 
-    return <Provider store={store}>{children}</Provider>;
+    return <>{children}</>;
 };
 
 export default memo(ClientLayout);

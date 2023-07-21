@@ -3,9 +3,11 @@ import { FC, memo } from "react";
 
 import Button from "@components/ui/catalog/Button/Button";
 import Icon from "@components/ui/catalog/Icon/Icon";
-import { CarouselMenuItemProps } from "@components/ui/navigation/CarouselMenu/CarouselMenu";
 
-import { Menus } from "./SettingsModal";
+import type { CarouselMenuItemProps } from "@components/ui/navigation/CarouselMenu/CarouselMenu";
+import type { Menu } from "./SettingsModal";
+
+import { InterMessage } from "@features/internationalization/client";
 
 import { AuthApi } from "@api";
 
@@ -13,7 +15,7 @@ import BackIcon from "@assets/icons/settings/back.svg";
 
 import styles from "./SettingsModal.module.scss";
 
-const SettingsModalHeader: FC<CarouselMenuItemProps<Menus>> = ({
+const SettingsModalHeader: FC<CarouselMenuItemProps<Menu>> = ({
     current,
     back,
 }) => {
@@ -29,15 +31,22 @@ const SettingsModalHeader: FC<CarouselMenuItemProps<Menus>> = ({
 
     return (
         <div className={styles.header}>
-            {current === "Settings" ? (
+            {current === "settings" ? (
                 <div className={styles.header__title}>
-                    <div>{current}</div>
+                    <div>
+                        <InterMessage id="settings.menu.title" />
+                    </div>
                 </div>
             ) : (
                 <Button onClick={back} width="min-content">
                     <div className={styles.header__btn}>
                         <Icon svg={BackIcon} />
-                        <div>{current}</div>
+
+                        <div>
+                            <InterMessage
+                                id={`settings.menu.${current}.name`}
+                            />
+                        </div>
                     </div>
                 </Button>
             )}

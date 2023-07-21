@@ -4,7 +4,7 @@ import { CSSProperties, FC, useEffect, useRef, useState } from "react";
 
 import EndlessCarousel from "../../catalog/EndlessCarousel/EndlessCarousel";
 
-import { ThemePalette } from "@services/Theme.service";
+import { ThemePalette } from "@features/theme";
 
 import { typedMemo } from "@utils";
 
@@ -32,7 +32,7 @@ const initialStyle: CarouselMenuStyle = {
 };
 
 interface CarouselMenuProps<T extends string> {
-    menus: Record<T, CarouselMenuItem<T>>;
+    menu: Record<T, CarouselMenuItem<T>>;
     style?: CarouselMenuStyle;
     delay?: number;
     palette?: ThemePalette;
@@ -49,14 +49,14 @@ function Empty<T extends string>(_: CarouselMenuItemProps<T>) {
 }
 
 function CarouselMenu<T extends string>({
-    menus,
+    menu,
     style = initialStyle,
     delay = 300,
     palette = "primary",
 }: CarouselMenuProps<T>) {
     const history = useRef<T[]>([]);
 
-    const names = Object.keys(menus) as T[];
+    const names = Object.keys(menu) as T[];
 
     const [current, setCurrent] = useState<T>(names[0]);
 
@@ -64,8 +64,8 @@ function CarouselMenu<T extends string>({
 
     const [slides, setSlides] = useState<Slides<T>>([Empty, Empty, Empty]);
 
-    const Header = menus[current]?.header;
-    const Footer = menus[current]?.footer;
+    const Header = menu[current]?.header;
+    const Footer = menu[current]?.footer;
 
     const forward = (menu: T) => {
         history.current.push(current);
@@ -87,15 +87,15 @@ function CarouselMenu<T extends string>({
         const realIndex = index - 1;
 
         if (0 <= realIndex && realIndex <= slides.length - 1) {
-            items[realIndex] = menus[current].component;
+            items[realIndex] = menu[current].component;
         }
 
         if (realIndex < 0) {
-            items[slides.length - 1] = menus[current].component;
+            items[slides.length - 1] = menu[current].component;
         }
 
         if (realIndex > slides.length - 1) {
-            items[0] = menus[current].component;
+            items[0] = menu[current].component;
         }
 
         setSlides(items);

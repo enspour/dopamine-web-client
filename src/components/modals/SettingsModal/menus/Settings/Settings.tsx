@@ -1,15 +1,14 @@
 import { FC, memo } from "react";
 
-import { CarouselMenuItemProps } from "@components/ui/navigation/CarouselMenu/CarouselMenu";
-
-import SettingsMenus from "./SettingsMenus";
+import SettingsMenus from "./SettingsMenu";
 import SettingsThemes from "./SettingsThemes";
 
-import type { Menus } from "../../SettingsModal";
+import type { CarouselMenuItemProps } from "@components/ui/navigation/CarouselMenu/CarouselMenu";
+import type { Menu } from "../../SettingsModal";
 
 import styles from "./Settings.module.scss";
 
-const Settings: FC<CarouselMenuItemProps<Menus>> = ({ forward, back }) => {
+const Settings: FC<CarouselMenuItemProps<Menu>> = ({ forward, back }) => {
     return (
         <div className={styles.settings}>
             <SettingsMenus forward={forward} />

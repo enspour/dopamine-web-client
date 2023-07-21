@@ -5,6 +5,8 @@ import SettingsTheme from "./SettingsTheme";
 import { Theme, getThemes } from "@features/theme";
 import { useTheme } from "@features/theme/client";
 
+import { InterMessage } from "@features/internationalization/client";
+
 import styles from "./Settings.module.scss";
 
 const SettingsThemes = () => {
@@ -18,7 +20,9 @@ const SettingsThemes = () => {
 
     return (
         <div className={styles.settings__themes}>
-            <div className={styles.settings__themes__title}>Themes</div>
+            <div className={styles.settings__themes__title}>
+                <InterMessage id="settings.menu.themes.title" />
+            </div>
 
             <div className={styles.settings__themes__items}>
                 {themes.map((theme) => (
