@@ -1,1 +1,1 @@
-export * from "./ThemeStoragePath.constant";
+export const THEME_COOKIE_PATH = "--theme-name";

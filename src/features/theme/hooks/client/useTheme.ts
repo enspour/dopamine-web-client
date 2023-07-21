@@ -1,14 +1,14 @@
 import cookies from "js-cookie";
 import { useState } from "react";
 
-import { THEME_STORAGE_PATH } from "@features/theme/constants";
+import { THEME_COOKIE_PATH } from "@features/theme/constants";
 
 import { ThemeName, isThemeName } from "@features/theme/interfaces";
 
 import { getThemeProperties } from "@features/theme/utils";
 
 export const useTheme = () => {
-    const savedName = cookies.get(THEME_STORAGE_PATH) || "light";
+    const savedName = cookies.get(THEME_COOKIE_PATH) || "light";
 
     const [name, setName] = useState<ThemeName>(
         isThemeName(savedName) ? savedName : "light"
@@ -24,7 +24,7 @@ export const useTheme = () => {
             );
         }
 
-        cookies.set(THEME_STORAGE_PATH, name);
+        cookies.set(THEME_COOKIE_PATH, name);
     };
 
     const setTheme = async (name: ThemeName) => {
