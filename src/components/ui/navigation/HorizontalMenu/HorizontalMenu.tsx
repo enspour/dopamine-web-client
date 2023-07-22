@@ -2,7 +2,7 @@
 
 import { Children, ReactNode, cloneElement, isValidElement, memo } from "react";
 
-import type { ThemePalette } from "@services/Theme.service";
+import { type ThemePalette } from "@features/theme";
 
 import styles from "./HorizontalMenu.module.scss";
 

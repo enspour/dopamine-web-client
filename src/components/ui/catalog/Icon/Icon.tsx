@@ -1,6 +1,6 @@
 import { CSSProperties, FC, MouseEvent, memo } from "react";
 
-import { ThemePalette, getThemePropertyValue } from "@features/theme";
+import { getThemePropertyValue, type ThemePalette } from "@features/theme";
 
 export interface SvgProps {
     fill: string;

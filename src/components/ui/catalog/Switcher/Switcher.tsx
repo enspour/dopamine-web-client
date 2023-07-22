@@ -2,7 +2,7 @@
 
 import { CSSProperties, FC, memo, useEffect, useRef } from "react";
 
-import { ThemePalette, getThemePropertyValue } from "@features/theme";
+import { getThemePropertyValue, type ThemePalette } from "@features/theme";
 
 import styles from "./Switcher.module.scss";
 

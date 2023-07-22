@@ -1,3 +1,5 @@
+"use client";
+
 import { memo, useState } from "react";
 
 import Pagination from "@components/ui/navigation/Pagination/Pagination";

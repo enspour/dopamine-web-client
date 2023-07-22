@@ -3,9 +3,11 @@ import { useState } from "react";
 
 import { THEME_COOKIE_PATH } from "@features/theme/constants";
 
-import { ThemeName, isThemeName } from "@features/theme/interfaces";
-
-import { getThemeProperties } from "@features/theme/utils";
+import {
+    getThemeProperties,
+    isThemeName,
+    type ThemeName,
+} from "@features/theme";
 
 export const useTheme = () => {
     const savedName = cookies.get(THEME_COOKIE_PATH) || "light";

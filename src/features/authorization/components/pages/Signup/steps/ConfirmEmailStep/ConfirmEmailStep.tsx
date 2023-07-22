@@ -1,11 +1,11 @@
 import { CSSProperties, FC, memo } from "react";
 
 import Code from "@components/ui/catalog/Code/Code";
-import type { StepperStepProps } from "@components/ui/navigation/Stepper/Stepper";
 
-import type { ExtraProps } from "../../Signup";
+import { type StepperStepProps } from "@components/ui/navigation/Stepper/Stepper";
+import { type ExtraProps } from "../../Signup";
 
-import { ThemePalette, getThemePropertyValue } from "@features/theme";
+import { getThemePropertyValue, type ThemePalette } from "@features/theme";
 
 import styles from "./ConfirmEmailStep.module.scss";
 

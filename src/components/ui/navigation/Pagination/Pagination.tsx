@@ -4,7 +4,7 @@ import Icon from "@components/ui/catalog/Icon/Icon";
 import PaginationDots from "./PaginationDots";
 import PaginationNumber from "./PaginationNumber";
 
-import type { ThemePalette } from "@services/Theme.service";
+import { type ThemePalette } from "@features/theme";
 
 import NextIcon from "@assets/icons/pagination/next.svg";
 import PrevIcon from "@assets/icons/pagination/prev.svg";

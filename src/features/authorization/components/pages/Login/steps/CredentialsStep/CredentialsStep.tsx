@@ -6,7 +6,7 @@ import Switcher from "@components/ui/catalog/Switcher/Switcher";
 import type { StepperStepProps } from "@components/ui/navigation/Stepper/Stepper";
 import type { ExtraProps } from "../../Login";
 
-import { ThemePalette, getThemePropertyValue } from "@features/theme";
+import { getThemePropertyValue, type ThemePalette } from "@features/theme";
 
 import styles from "./CredentialsStep.module.scss";
 

@@ -1,4 +1,4 @@
-import { CSSProperties, ReactNode } from "react";
+import { CSSProperties, ReactNode, memo } from "react";
 
 import "@styles/globals.scss";
 import "@styles/reset.css";
@@ -28,4 +28,4 @@ const getStyle = (properties: any): CSSProperties =>
         ...properties,
     } as CSSProperties);
 
-export default ServerLayout;
+export default memo(ServerLayout);

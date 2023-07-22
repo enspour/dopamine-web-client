@@ -1,10 +1,10 @@
 import Link from "next/link";
 import { CSSProperties, FC, memo } from "react";
 
-import type { StepperFooterProps } from "@components/ui/navigation/Stepper/Stepper";
-import type { ExtraProps } from "../../Signup";
+import { type StepperFooterProps } from "@components/ui/navigation/Stepper/Stepper";
+import { type ExtraProps } from "../../Signup";
 
-import { ThemePalette, getThemePropertyValue } from "@features/theme";
+import { getThemePropertyValue, type ThemePalette } from "@features/theme";
 
 import styles from "./SelectionStep.module.scss";
 

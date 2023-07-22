@@ -2,10 +2,10 @@ import { CSSProperties, FC, memo } from "react";
 
 import Input from "@components/ui/catalog/Input/Input";
 
-import type { StepperStepProps } from "@components/ui/navigation/Stepper/Stepper";
-import type { ExtraProps } from "../../Signup";
+import { type StepperStepProps } from "@components/ui/navigation/Stepper/Stepper";
+import { type ExtraProps } from "../../Signup";
 
-import { ThemePalette, getThemePropertyValue } from "@features/theme";
+import { getThemePropertyValue, type ThemePalette } from "@features/theme";
 
 import styles from "./PasswordStep.module.scss";
 

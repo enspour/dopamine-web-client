@@ -4,7 +4,7 @@ import { CSSProperties, FC, useEffect, useRef, useState } from "react";
 
 import EndlessCarousel from "../../catalog/EndlessCarousel/EndlessCarousel";
 
-import { ThemePalette } from "@features/theme";
+import { type ThemePalette } from "@features/theme";
 
 import { typedMemo } from "@utils";
 

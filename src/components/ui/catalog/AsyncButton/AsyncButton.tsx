@@ -5,9 +5,9 @@ import { FC, MouseEvent, ReactNode, memo, useState } from "react";
 import Button from "../Button/Button";
 import Loader from "../Loader/Loader";
 
-import type { LoadingState } from "@interfaces";
+import { type ThemePalette } from "@features/theme";
 
-import type { ThemePalette } from "@services/Theme.service";
+import type { LoadingState } from "@interfaces";
 
 interface AsyncButtonProps {
     children: ReactNode | ReactNode[];

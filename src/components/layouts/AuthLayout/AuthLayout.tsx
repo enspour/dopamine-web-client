@@ -1,6 +1,6 @@
-import { CSSProperties, FC, ReactNode } from "react";
+import { CSSProperties, FC, memo, ReactNode } from "react";
 
-import { ThemePalette, getThemePropertyValue } from "@features/theme";
+import { getThemePropertyValue, type ThemePalette } from "@features/theme";
 
 import styles from "./AuthLayout.module.scss";
 
@@ -20,4 +20,4 @@ const getStyle = (palette: ThemePalette): CSSProperties => ({
     backgroundColor: getThemePropertyValue("bg", palette),
 });
 
-export default AuthLayout;
+export default memo(AuthLayout);

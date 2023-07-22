@@ -1,8 +1,10 @@
+"use client";
+
 import { memo, useEffect, useState } from "react";
 
 import SettingsTheme from "./SettingsTheme";
 
-import { Theme, getThemes } from "@features/theme";
+import { getThemes, type Theme } from "@features/theme";
 import { useTheme } from "@features/theme/client";
 
 import { InterMessage } from "@features/internationalization/client";

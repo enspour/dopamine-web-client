@@ -5,7 +5,7 @@ import { FC, MouseEvent, ReactNode, memo, useRef, useState } from "react";
 import DualPaneResizer from "./DualPaneResizer";
 import DualPaneWindow from "./DualPaneWindow";
 
-import type { ThemePalette } from "@services/Theme.service";
+import { type ThemePalette } from "@features/theme";
 
 import styles from "./DualPane.module.scss";
 

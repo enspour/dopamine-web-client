@@ -7,13 +7,17 @@ import StoreLayout from "@components/layouts/StoreLayout/StoreLayout";
 import { useInternationalization } from "@features/internationalization/server";
 import { useThemeProperties } from "@features/theme/server";
 
+import { typedMemo } from "@utils";
+
 interface LayoutProps {
     children: ReactNode;
 }
 
 const Layout = async ({ children }: LayoutProps) => {
-    const themeProperties = await useThemeProperties();
-    const internationalization = await useInternationalization();
+    const [themeProperties, internationalization] = await Promise.all([
+        useThemeProperties(),
+        useInternationalization(),
+    ]);
 
     return (
         <StoreLayout>
@@ -26,4 +30,4 @@ const Layout = async ({ children }: LayoutProps) => {
     );
 };
 
-export default Layout;
+export default typedMemo(Layout);

@@ -1,10 +1,10 @@
 import { FC, memo } from "react";
 
-import type { Song } from "@interfaces";
-
 import Icon from "../Icon/Icon";
 
-import type { ThemePalette } from "@services/Theme.service";
+import { type ThemePalette } from "@features/theme";
+
+import type { Song } from "@interfaces";
 
 import { toHHMMSS } from "@utils";
 

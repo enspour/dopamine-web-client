@@ -1,6 +1,6 @@
 import { FC, memo } from "react";
 
-import { Theme, ThemeName } from "@features/theme";
+import { type Theme, type ThemeName } from "@features/theme";
 
 import styles from "./Settings.module.scss";
 

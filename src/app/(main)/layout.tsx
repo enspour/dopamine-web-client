@@ -1,7 +1,7 @@
 "use client";
 
 import { usePathname, useRouter } from "next/navigation";
-import { ReactNode, useState } from "react";
+import { ReactNode, memo, useState } from "react";
 
 import GuestLayout from "@components/layouts/GuestLayout/GuestLayout";
 import UserLayout from "@components/layouts/UserLayout/UserLayout";
@@ -42,4 +42,4 @@ const Layout = ({ children }: LayoutProps) => {
     );
 };
 
-export default Layout;
+export default memo(Layout);

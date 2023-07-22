@@ -4,7 +4,7 @@ import { CSSProperties, FC, useState } from "react";
 
 import SimpleCarousel from "@components/ui/catalog/SimpleCarousel/SimpleCarousel";
 
-import type { ThemePalette } from "@services/Theme.service";
+import { type ThemePalette } from "@features/theme";
 
 import { typedMemo } from "@utils";
 

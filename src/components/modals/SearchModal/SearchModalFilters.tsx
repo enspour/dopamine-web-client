@@ -1,3 +1,5 @@
+"use client";
+
 import { memo, useRef, useState } from "react";
 
 import Button from "@components/ui/catalog/Button/Button";

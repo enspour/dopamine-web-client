@@ -1,8 +1,8 @@
 import { CSSProperties, FC, memo } from "react";
 
-import type { StepperHeaderProps } from "@components/ui/navigation/Stepper/Stepper";
+import { type StepperHeaderProps } from "@components/ui/navigation/Stepper/Stepper";
 
-import { ThemePalette, getThemePropertyValue } from "@features/theme";
+import { getThemePropertyValue, type ThemePalette } from "@features/theme";
 
 import styles from "./SelectionStep.module.scss";
 
