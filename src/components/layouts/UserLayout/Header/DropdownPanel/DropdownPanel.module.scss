@@ -1,6 +1,6 @@
 .panel {
     width: 32rem;
-    padding: 2rem;
+    padding: 2rem 0;
     display: flex;
     flex-direction: column;
     gap: 2rem;
@@ -11,6 +11,7 @@
 }
 
 .panel__notifications {
+    padding: 0 2rem;
     display: flex;
     flex-direction: column;
     gap: 2rem;
@@ -31,13 +32,13 @@
     margin-top: 2rem;
 
     &__item {
-        width: 10rem;
-        display: grid;
-        grid-template-columns: 2rem 1fr;
+        padding: 0 2rem;
+        display: flex;
         gap: 2rem;
     }
 
     &__item__icon {
+        width: 2rem;
         display: flex;
         align-items: center;
         justify-content: center;
