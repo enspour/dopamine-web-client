@@ -1,6 +1,13 @@
 "use client";
 
-import { Children, ReactNode, cloneElement, isValidElement, memo } from "react";
+import {
+    Children,
+    FC,
+    ReactNode,
+    cloneElement,
+    isValidElement,
+    memo,
+} from "react";
 
 import { type ThemePalette } from "@features/theme";
 
@@ -11,26 +18,26 @@ export interface HorizontalMenuStyle {
 }
 
 export const initialStyle: HorizontalMenuStyle = {
-    justifyContent: "center",
+    justifyContent: "flex-start",
 };
 
-interface HorizontalMenuProps<T extends string> {
+interface HorizontalMenuProps {
     children: ReactNode | ReactNode[];
-    currentMenu?: T;
+    currentId?: string;
     style?: HorizontalMenuStyle;
     palette?: ThemePalette;
 }
 
-function HorizontalMenu<T extends string>({
+const HorizontalMenu: FC<HorizontalMenuProps> = ({
     children,
-    currentMenu,
+    currentId,
     style,
     palette = "primary",
-}: HorizontalMenuProps<T>) {
+}) => {
     const cloned = Children.map(children, (child) => {
         if (isValidElement(child)) {
             return cloneElement(child, {
-                isActive: currentMenu && currentMenu === child.props.name,
+                isActive: currentId && currentId === child.props.id,
                 style: Object.assign({}, initialStyle, style),
                 palette,
             } as any);
@@ -40,6 +47,6 @@ function HorizontalMenu<T extends string>({
     });
 
     return <div className={styles.menu}>{cloned}</div>;
-}
+};
 
 export default memo(HorizontalMenu);

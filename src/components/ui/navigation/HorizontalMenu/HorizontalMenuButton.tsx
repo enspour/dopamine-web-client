@@ -2,6 +2,7 @@
 
 import {
     CSSProperties,
+    FC,
     MouseEvent,
     ReactNode,
     memo,
@@ -9,7 +10,7 @@ import {
     useRef,
 } from "react";
 
-import { HorizontalMenuStyle, initialStyle } from "./HorizontalMenu";
+import { HorizontalMenuStyle } from "./HorizontalMenu";
 
 import { useIsHover } from "@hooks/client";
 
@@ -17,33 +18,35 @@ import { getThemePropertyValue, type ThemePalette } from "@features/theme";
 
 import styles from "./HorizontalMenu.module.scss";
 
-interface HorizontalMenuButtonProps<T extends string> {
+interface HorizontalMenuButtonProps {
     children: ReactNode | ReactNode[];
-    onClick: (e: MouseEvent<HTMLElement>) => void;
-    name?: T;
+    id?: string;
+    onClick: (id: string, e: MouseEvent<HTMLElement>) => void;
 }
 
-interface HorizontalMenuButtonExtendedProps<T extends string>
-    extends HorizontalMenuButtonProps<T> {
-    isActive?: boolean;
-    style?: HorizontalMenuStyle;
-    palette?: ThemePalette;
+interface HorizontalMenuButtonExtendedProps extends HorizontalMenuButtonProps {
+    isActive: boolean;
+    style: HorizontalMenuStyle;
+    palette: ThemePalette;
 }
 
-function HorizontalMenuButton<T extends string>(
-    props: HorizontalMenuButtonProps<T>
-) {
+const HorizontalMenuButton: FC<HorizontalMenuButtonProps> = (props) => {
     const {
         children,
+        id = "",
         onClick,
-        isActive = false,
-        style = initialStyle,
-        palette = "primary",
-    } = props as HorizontalMenuButtonExtendedProps<T>;
+        isActive,
+        style,
+        palette,
+    } = props as HorizontalMenuButtonExtendedProps;
 
     const buttonRef = useRef<HTMLButtonElement>(null);
 
     const isHover = useIsHover(buttonRef);
+
+    const handleClick = (e: MouseEvent<HTMLElement>) => {
+        onClick(id, e);
+    };
 
     useEffect(() => {
         const button = buttonRef.current;
@@ -60,13 +63,13 @@ function HorizontalMenuButton<T extends string>(
         <button
             ref={buttonRef}
             className={styles.menu__button}
-            onClick={onClick}
+            onClick={handleClick}
             style={getStyle(isHover, isActive, style, palette)}
         >
             {children}
         </button>
     );
-}
+};
 
 const getStyle = (
     isHover: boolean,
@@ -85,7 +88,13 @@ const getStyle = (
             ? getThemePropertyValue("bg-hover", palette)
             : getThemePropertyValue("bg", palette),
 
-    border: `.1rem solid ${
+    borderTop: `.1rem solid ${
+        isHover || isActive
+            ? getThemePropertyValue("border-hover", palette)
+            : "transparent"
+    }`,
+
+    borderBottom: `.1rem solid ${
         isHover || isActive
             ? getThemePropertyValue("border-hover", palette)
             : "transparent"
