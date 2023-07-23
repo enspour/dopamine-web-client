@@ -1,6 +1,6 @@
 {
     "header.nav.browse.name": "Обзор",
-    "header.nav.store.name": "Библиотека",
+    "header.nav.store.name": "Мои",
     "header.nav.feed.name": "Новости",
 
     "header.dropdown.menu.channel.name": "Канал",
@@ -25,5 +25,7 @@
     "settings.menu.storage.name": "Хранилище",
     "settings.menu.storage.description": "Управляй локальным хранилищем",
 
-    "settings.menu.title": "Настройки"
+    "settings.menu.header.title": "Настройки",
+    "settings.menu.header.logout.title": "Выйти",
+    "settings.menu.themes.title": "Темы"
 }

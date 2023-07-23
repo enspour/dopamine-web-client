@@ -36,7 +36,7 @@ const SettingsModalHeader: FC<CarouselMenuItemProps<Menu>> = ({
             {current === "settings" ? (
                 <div className={styles.header__title}>
                     <div>
-                        <InterMessage id="settings.menu.title" />
+                        <InterMessage id="settings.menu.header.title" />
                     </div>
                 </div>
             ) : (
@@ -57,7 +57,7 @@ const SettingsModalHeader: FC<CarouselMenuItemProps<Menu>> = ({
                 <div className={styles.header__user__avatar}></div>
 
                 <Button width="13rem" onClick={logout}>
-                    Logout
+                    <InterMessage id="settings.menu.header.logout.title" />
                 </Button>
             </div>
         </div>

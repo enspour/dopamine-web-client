@@ -25,6 +25,7 @@
     "settings.menu.storage.name": "Storage",
     "settings.menu.storage.description": "Manage you local storage",
 
-    "settings.menu.title": "Settings",
+    "settings.menu.header.title": "Settings",
+    "settings.menu.header.logout.title": "Logout",
     "settings.menu.themes.title": "Themes"
 }

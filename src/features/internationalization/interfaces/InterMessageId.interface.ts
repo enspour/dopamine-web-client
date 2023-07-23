@@ -10,7 +10,8 @@ const settingsInterMessageIds = [
         (item) => `settings.menu.${item}.description` as const
     ),
 
-    "settings.menu.title",
+    "settings.menu.header.title",
+    "settings.menu.header.logout.title",
     "settings.menu.themes.title",
 ] as const;
 
