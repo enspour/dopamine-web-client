@@ -5,6 +5,7 @@ import { FC, memo } from "react";
 
 import Button from "@components/ui/catalog/Button/Button";
 import Icon from "@components/ui/catalog/Icon/Icon";
+import SettingsModalHeaderTitle from "./SettingsModalHeaderTitle";
 
 import type { CarouselMenuItemProps } from "@components/ui/navigation/CarouselMenu/CarouselMenu";
 import type { Menu } from "./SettingsModal";
@@ -34,21 +35,12 @@ const SettingsModalHeader: FC<CarouselMenuItemProps<Menu>> = ({
     return (
         <div className={styles.header}>
             {current === "settings" ? (
-                <div className={styles.header__title}>
-                    <div>
-                        <InterMessage id="settings.menu.header.title" />
-                    </div>
-                </div>
+                <SettingsModalHeaderTitle />
             ) : (
                 <Button onClick={back} width="min-content">
                     <div className={styles.header__btn}>
                         <Icon svg={BackIcon} />
-
-                        <div>
-                            <InterMessage
-                                id={`settings.menu.${current}.name`}
-                            />
-                        </div>
+                        <InterMessage id={`settings.menu.${current}.name`} />
                     </div>
                 </Button>
             )}

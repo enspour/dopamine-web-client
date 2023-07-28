@@ -6,19 +6,28 @@ import Icon from "@components/ui/catalog/Icon/Icon";
 
 import SearchModalFilters from "./SearchModalFilters";
 
+import { useAppDispatch } from "@redux/hooks";
+import { closeSearchModal } from "@redux/slices/modals.slice";
+
+import BackIcon from "@assets/icons/modal/back.svg";
 import ClearIcon from "@assets/icons/search/clear.svg";
-import SearchIcon from "@assets/icons/search/search.svg";
 
 import styles from "./SearchModal.module.scss";
 
 const SearchModalInput = () => {
     const [text, setText] = useState("");
 
+    const dispatch = useAppDispatch();
+
     const clear = () => setText("");
+
+    const close = () => {
+        dispatch(closeSearchModal());
+    };
 
     return (
         <div className={styles.search__input}>
-            <Icon svg={SearchIcon} />
+            <Icon svg={BackIcon} onClick={close} />
 
             <input
                 type="text"

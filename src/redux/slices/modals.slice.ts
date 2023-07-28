@@ -4,11 +4,13 @@ import { RootState } from "../store";
 interface ModalsState {
     isOpenSearchModal: boolean;
     isOpenSettingsModal: boolean;
+    isOpenMenuModal: boolean;
 }
 
 const initialState: ModalsState = {
     isOpenSearchModal: false,
     isOpenSettingsModal: false,
+    isOpenMenuModal: false,
 };
 
 export const modalsSlice = createSlice({
@@ -30,6 +32,14 @@ export const modalsSlice = createSlice({
         closeSettingsModal: (state) => {
             state.isOpenSettingsModal = false;
         },
+
+        openMenuModal: (state) => {
+            state.isOpenMenuModal = true;
+        },
+
+        closeMenuModal: (state) => {
+            state.isOpenMenuModal = false;
+        },
     },
 });
 
@@ -38,6 +48,8 @@ export const {
     closeSearchModal,
     openSettingsModal,
     closeSettingsModal,
+    openMenuModal,
+    closeMenuModal,
 } = modalsSlice.actions;
 
 export const selectIsOpenSearchModal = (state: RootState) =>
@@ -45,5 +57,8 @@ export const selectIsOpenSearchModal = (state: RootState) =>
 
 export const selectIsOpenSettingsModal = (state: RootState) =>
     state.modalsSlice.isOpenSettingsModal;
+
+export const selectIsOpenMenuModal = (state: RootState) =>
+    state.modalsSlice.isOpenMenuModal;
 
 export default modalsSlice.reducer;

@@ -9,14 +9,17 @@ import SearchModalContent from "./SearchModalContent";
 import SearchModalInput from "./SearchModalInput";
 import SearchModalPagination from "./SearchModalPagination";
 
-import { useAppDispatch, useAppSelector } from "@redux/hooks";
+import { useMediaQuery } from "@hooks/client";
 
+import { useAppDispatch, useAppSelector } from "@redux/hooks";
 import {
     closeSearchModal,
     selectIsOpenSearchModal,
 } from "@redux/slices/modals.slice";
 
 const SearchModal = () => {
+    const matches = useMediaQuery("(max-width: 768px)");
+
     const dispatch = useAppDispatch();
 
     const isOpen = useAppSelector(selectIsOpenSearchModal);
@@ -26,23 +29,27 @@ const SearchModal = () => {
     };
 
     return (
-        <Modal
-            isOpen={isOpen}
-            close={close}
-            style={{
-                width: "90%",
-                maxWidth: "90rem",
-                height: "90%",
-                maxHeight: "70rem",
-            }}
-        >
-            <Box style={{ flexDirection: "column" }}>
+        <Modal isOpen={isOpen} close={close} style={getModalStyles(matches)}>
+            <Box style={getBoxStyles(matches)}>
                 <SearchModalInput />
                 <SearchModalContent />
                 <SearchModalPagination />
             </Box>
         </Modal>
     );
+};
+
+const getModalStyles = (matches: boolean) => ({
+    width: matches ? "100%" : "90%",
+    maxWidth: matches ? "100%" : "90rem",
+    height: matches ? "100%" : "90%",
+    maxHeight: matches ? "100%" : "70rem",
+});
+
+const getBoxStyles = (matches: boolean) => {
+    return {
+        borderRadius: matches ? "0rem" : "2rem",
+    } as const;
 };
 
 export default memo(SearchModal);

@@ -15,6 +15,8 @@ import Security from "./menus/Security/Security";
 import Settings from "./menus/Settings/Settings";
 import Storage from "./menus/Storage/Storage";
 
+import { useMediaQuery } from "@hooks/client";
+
 import { useAppDispatch, useAppSelector } from "@redux/hooks";
 import {
     closeSettingsModal,
@@ -53,6 +55,8 @@ const menu: Record<Menu, any> = {
 } as const;
 
 const SettingsModal = () => {
+    const matches = useMediaQuery("(max-width: 768px)");
+
     const dispatch = useAppDispatch();
 
     const isOpen = useAppSelector(selectIsOpenSettingsModal);
@@ -62,21 +66,26 @@ const SettingsModal = () => {
     };
 
     return (
-        <Modal
-            isOpen={isOpen}
-            close={close}
-            style={{
-                width: "90%",
-                maxWidth: "90rem",
-                height: "90%",
-                maxHeight: "65rem",
-            }}
-        >
-            <Box style={{ overflow: "hidden" }}>
+        <Modal isOpen={isOpen} close={close} style={getModalStyles(matches)}>
+            <Box style={getBoxStyles(matches)}>
                 <CarouselMenu menu={menu} style={{ gap: "4rem" }} />;
             </Box>
         </Modal>
     );
+};
+
+const getModalStyles = (matches: boolean) => ({
+    width: matches ? "100%" : "90%",
+    maxWidth: matches ? "100%" : "90rem",
+    height: matches ? "100%" : "90%",
+    maxHeight: matches ? "100%" : "65rem",
+});
+
+const getBoxStyles = (matches: boolean) => {
+    return {
+        overflow: "hidden",
+        borderRadius: matches ? "0rem" : "2rem",
+    } as const;
 };
 
 export default memo(SettingsModal);
