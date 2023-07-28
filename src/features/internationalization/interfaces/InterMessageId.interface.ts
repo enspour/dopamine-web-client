@@ -1,8 +1,12 @@
 import {
     headerDropdownMenuIds,
-    headerNavigationIds,
+    navigation,
     settingsMenuIds,
 } from "@interfaces";
+
+const navigationInterMessageIds = [
+    ...navigation.map((item) => `nav.${item}.name` as const),
+] as const;
 
 const settingsInterMessageIds = [
     ...settingsMenuIds.map((item) => `settings.menu.${item}.name` as const),
@@ -16,7 +20,6 @@ const settingsInterMessageIds = [
 ] as const;
 
 const headerInterMessageIds = [
-    ...headerNavigationIds.map((item) => `header.nav.${item}.name` as const),
     ...headerDropdownMenuIds.map(
         (item) => `header.dropdown.menu.${item}.name` as const
     ),
@@ -26,6 +29,7 @@ const headerInterMessageIds = [
 ] as const;
 
 export const interMessageIds = [
+    ...navigationInterMessageIds,
     ...settingsInterMessageIds,
     ...headerInterMessageIds,
 ] as const;

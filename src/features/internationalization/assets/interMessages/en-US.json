@@ -1,7 +1,7 @@
 {
-    "header.nav.browse.name": "Browse",
-    "header.nav.store.name": "Store",
-    "header.nav.feed.name": "Feed",
+    "nav.browse.name": "Browse",
+    "nav.store.name": "Store",
+    "nav.feed.name": "Feed",
 
     "header.dropdown.menu.channel.name": "Channel",
     "header.dropdown.menu.settings.name": "Settings",

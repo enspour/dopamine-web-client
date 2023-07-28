@@ -2,6 +2,10 @@
 
 import { FC, ReactNode, memo, useEffect } from "react";
 
+import MenuModal from "@components/modals/MenuModal/MenuModal";
+import SearchModal from "@components/modals/SearchModal/SearchModal";
+import SettingsModal from "@components/modals/SettingsModal/SettingsModal";
+
 import { Internationalization } from "@features/internationalization";
 import { useInternationalization } from "@features/internationalization/client";
 
@@ -26,7 +30,15 @@ const ClientLayout: FC<ClientLayoutProps> = ({
         };
     }, []);
 
-    return <>{children}</>;
+    return (
+        <>
+            {children}
+
+            <MenuModal />
+            <SearchModal />
+            <SettingsModal />
+        </>
+    );
 };
 
 export default memo(ClientLayout);

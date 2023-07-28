@@ -4,17 +4,13 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { FC, memo } from "react";
 
-import { Navigation } from "./Header";
-
 import { InterMessage } from "@features/internationalization/client";
+
+import { navigation } from "@interfaces";
 
 import styles from "./Header.module.scss";
 
-interface HeaderNavigationProps {
-    navigation: Navigation[];
-}
-
-const HeaderNavigation: FC<HeaderNavigationProps> = ({ navigation }) => {
+const HeaderNavigation: FC = () => {
     const pathname = usePathname();
 
     const isActive = (href: string) => {
@@ -33,7 +29,7 @@ const HeaderNavigation: FC<HeaderNavigationProps> = ({ navigation }) => {
                             : styles.header__navigation__item
                     }
                 >
-                    <InterMessage id={`header.nav.${nav.id}.name`} />
+                    <InterMessage id={`nav.${nav.id}.name`} />
                 </Link>
             ))}
         </div>

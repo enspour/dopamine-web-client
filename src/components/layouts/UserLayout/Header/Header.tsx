@@ -1,39 +1,23 @@
 import { memo } from "react";
 
+import MediaQuery from "@components/others/MediaQuery";
+
 import HeaderCenter from "./HeaderCenter";
+import HeaderHamburger from "./HeaderHamburger";
 import HeaderNavigation from "./HeaderNavigation";
 import HeaderSearchControl from "./HeaderSearchControl";
 import HeaderUser from "./HeaderUser";
 
-import { HeaderNavigationId } from "@interfaces";
-
 import styles from "./Header.module.scss";
-
-export interface Navigation {
-    id: HeaderNavigationId;
-    href: string;
-}
-
-const navigation: Navigation[] = [
-    {
-        id: "browse",
-        href: "/browse",
-    },
-    {
-        id: "store",
-        href: "/store",
-    },
-    {
-        id: "feed",
-        href: "/feed",
-    },
-];
 
 const Header = () => {
     return (
         <div className={styles.container}>
             <header className={styles.header}>
-                <HeaderNavigation navigation={navigation} />
+                <MediaQuery media="(min-width: 768px)">
+                    <HeaderNavigation />
+                    <HeaderHamburger />
+                </MediaQuery>
 
                 <HeaderCenter />
 

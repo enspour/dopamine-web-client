@@ -26,6 +26,8 @@ interface BoxStyle {
     padding?: string;
     margin?: string;
 
+    borderRadius?: string;
+
     flexDirection?: "column" | "row";
     gap?: string;
 
@@ -43,6 +45,8 @@ const initialStyle: BoxStyle = {
 
     padding: "0rem",
     margin: "0rem",
+
+    borderRadius: "2rem",
 
     flexDirection: "column",
     gap: "0rem",

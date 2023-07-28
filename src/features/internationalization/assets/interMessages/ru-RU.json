@@ -1,7 +1,7 @@
 {
-    "header.nav.browse.name": "Обзор",
-    "header.nav.store.name": "Мои",
-    "header.nav.feed.name": "Новости",
+    "nav.browse.name": "Обзор",
+    "nav.store.name": "Мои",
+    "nav.feed.name": "Новости",
 
     "header.dropdown.menu.channel.name": "Канал",
     "header.dropdown.menu.settings.name": "Настройки",
