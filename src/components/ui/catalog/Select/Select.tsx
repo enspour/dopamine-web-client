@@ -4,6 +4,7 @@ import {
     ReactNode,
     cloneElement,
     isValidElement,
+    memo,
     useEffect,
     useRef,
 } from "react";
@@ -59,4 +60,4 @@ const Select: FC<SelectProps> = ({
     );
 };
 
-export default Select;
+export default memo(Select);

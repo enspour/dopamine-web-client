@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { CSSProperties, FC, MouseEvent } from "react";
+import { CSSProperties, FC, memo, MouseEvent } from "react";
 
 import Icon from "../Icon/Icon";
 
@@ -60,4 +60,4 @@ const getLinkStyles = (palette: ThemePalette): CSSProperties => ({
     color: getThemePropertyValue("link", palette),
 });
 
-export default PostHeader;
+export default memo(PostHeader);

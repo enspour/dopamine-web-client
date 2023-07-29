@@ -1,4 +1,4 @@
-import { CSSProperties, FC } from "react";
+import { CSSProperties, FC, memo } from "react";
 
 import PostFooter from "./PostFooter";
 import PostHeader from "./PostHeader";
@@ -36,4 +36,4 @@ const getColorStyles = (palette: ThemePalette): CSSProperties => ({
     color: getThemePropertyValue("color", palette),
 });
 
-export default PostCard;
+export default memo(PostCard);

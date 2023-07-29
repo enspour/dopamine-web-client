@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, memo } from "react";
 
 import Icon from "../Icon/Icon";
 
@@ -24,4 +24,4 @@ const PostFooterComments: FC<PostFooterCommentsProps> = ({ post, palette }) => {
     );
 };
 
-export default PostFooterComments;
+export default memo(PostFooterComments);

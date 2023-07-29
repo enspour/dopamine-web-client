@@ -1,4 +1,4 @@
-import { CSSProperties, MouseEvent, ReactNode, useRef } from "react";
+import { CSSProperties, MouseEvent, ReactNode, memo, useRef } from "react";
 
 import { useIsHover } from "@hooks/client";
 
@@ -68,4 +68,4 @@ const getStyle = (
     }`,
 });
 
-export default SelectItem;
+export default memo(SelectItem);

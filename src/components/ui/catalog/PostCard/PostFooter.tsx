@@ -1,6 +1,6 @@
 "use client";
 
-import { CSSProperties, FC } from "react";
+import { CSSProperties, FC, memo } from "react";
 
 import PostFooterComments from "./PostFooterComments";
 import PostFooterLikes from "./PostFooterLikes";
@@ -36,4 +36,4 @@ const getColorStyles = (palette: ThemePalette): CSSProperties => ({
     color: getThemePropertyValue("color", palette),
 });
 
-export default PostFooter;
+export default memo(PostFooter);

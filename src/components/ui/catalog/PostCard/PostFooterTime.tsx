@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, memo } from "react";
 
 import { useAppSelector } from "@redux/hooks";
 import { selectLocate } from "@redux/slices/internationalization.slice";
@@ -21,4 +21,4 @@ const PostFooterTime: FC<PostFooterTimeProps> = ({ post }) => {
     );
 };
 
-export default PostFooterTime;
+export default memo(PostFooterTime);

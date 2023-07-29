@@ -1,5 +1,5 @@
-import { Following } from "@interfaces";
+import { Followings } from "@interfaces";
 
 export interface FollowingsGetAllResponseDto {
-    followings: Omit<Following, "follower">[];
+    followings: Followings;
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import { FC, MouseEvent, useState } from "react";
+import { FC, MouseEvent, memo, useState } from "react";
 
 import Icon from "../Icon/Icon";
 
@@ -61,4 +61,4 @@ const PostFooterLikes: FC<PostFooterLikesProps> = ({ post, palette }) => {
     );
 };
 
-export default PostFooterLikes;
+export default memo(PostFooterLikes);

@@ -1,4 +1,4 @@
-import { Post } from "@/interfaces/Post.interface";
+import { Post } from "@interfaces";
 
 export interface PostsCreateDto {
     text?: string;

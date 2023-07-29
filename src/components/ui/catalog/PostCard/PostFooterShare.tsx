@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, memo } from "react";
 
 import Icon from "../Icon/Icon";
 
@@ -23,4 +23,4 @@ const PostFooterShare: FC<PostFooterShareProps> = ({ post, palette }) => {
     );
 };
 
-export default PostFooterShare;
+export default memo(PostFooterShare);
