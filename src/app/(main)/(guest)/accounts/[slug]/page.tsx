@@ -1,5 +1,5 @@
 interface PageProps {
-    params: { id: number };
+    params: { slug: number | string };
 }
 
 const Page = async ({ params }: PageProps) => {

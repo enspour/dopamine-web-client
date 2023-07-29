@@ -95,7 +95,7 @@ const Box: FC<BoxProps> = ({
 
 const getStyle = (style: BoxStyle, palette: ThemePalette): CSSProperties => ({
     ...Object.assign({}, initialStyle, style),
-    boxShadow: `0rem 0rem 1rem .4rem ${getThemePropertyValue(
+    boxShadow: `0rem 0rem .8rem .2rem ${getThemePropertyValue(
         "shadow",
         palette
     )}`,
