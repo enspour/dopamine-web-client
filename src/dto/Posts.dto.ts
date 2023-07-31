@@ -9,6 +9,10 @@ export interface PostsGetOneResponseDto {
     post: Post;
 }
 
+export interface PostsGetManyResponseDto {
+    posts: Post[];
+}
+
 export interface PostsUpdateTextDto {
     id: string;
     text: string;

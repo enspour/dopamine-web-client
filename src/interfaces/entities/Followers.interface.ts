@@ -1,3 +1,3 @@
-import { Following } from "./Following.interface";
+import { Follower } from "./Follower.interface";
 
-export type Followers = Omit<Following, "user">[];
+export type Followers = Follower[];

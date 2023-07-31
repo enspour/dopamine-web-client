@@ -13,8 +13,12 @@
     "--theme-primary-shadow": "#0000000d",
     "--theme-primary-scroll-thumb": "#000000",
     "--theme-primary-scroll-thumb-hover": "#000000",
+    "--theme-primary-skeleton-bg": "#d1d1d1",
+    "--theme-primary-skeleton-line-color": "#dadada",
 
     "--theme-secondary-bg": "#F0F0F0",
+    "--theme-secondary-skeleton-bg": "#d1d1d1",
+    "--theme-secondary-skeleton-line-color": "#dadada",
 
     "--theme-switcher-color": "#000000",
     "--theme-switcher-bg": "#FFFFFF",

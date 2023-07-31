@@ -26,16 +26,25 @@ export const useRequest = <TArgs extends any[], TResult = void>(
         return await request(...args, config);
     };
 
-    const run = async (...args: TArgs) => {
+    const run = async (...args: TArgs): Promise<ApiResponse<TResult>> => {
         setLoading("loading");
 
         waiter.current = exec(...args);
 
-        response.current = await waiter.current;
+        let resolver: (result: ApiResponse<TResult>) => void;
 
-        setLoading("done");
+        setTimeout(async () => {
+            response.current = await waiter.current;
 
-        return response.current;
+            if (response.current) {
+                resolver(response.current);
+                return setLoading("done");
+            }
+
+            return setLoading("error");
+        }, 0);
+
+        return new Promise((resolve) => (resolver = resolve));
     };
 
     const cancel = () => {

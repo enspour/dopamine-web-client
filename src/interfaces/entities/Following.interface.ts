@@ -1,8 +1,3 @@
-import { User } from "./User.interface";
+import { Subs } from "./Subs.interface";
 
-export interface Following {
-    user: User;
-    follower: User;
-    createdAt: Date;
-    modifiedAt: Date;
-}
+export type Following = Omit<Subs, "follower">;

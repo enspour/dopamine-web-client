@@ -4,6 +4,7 @@ import { RequestConfig } from "@interfaces";
 
 import {
     PostsCreateDto,
+    PostsGetManyResponseDto,
     PostsGetOneResponseDto,
     PostsUpdateImagesDto,
     PostsUpdateTextDto,
@@ -13,6 +14,16 @@ export class PostsApi {
     static async getOne(id: string, config?: RequestConfig) {
         const url = `/api/v1/posts/${id}`;
         return await api.get<PostsGetOneResponseDto>(url, config);
+    }
+
+    static async getManyByUserId(userId: number, config?: RequestConfig) {
+        const url = `/api/v1/posts/by-user-ids/${userId}`;
+        return await api.get<PostsGetManyResponseDto>(url, config);
+    }
+
+    static async getManyByUserIds(userIds: number[], config?: RequestConfig) {
+        const url = `/api/v1/posts/by-user-ids/${userIds.join(",")}`;
+        return await api.get<PostsGetManyResponseDto>(url, config);
     }
 
     static async create(data: PostsCreateDto, config?: RequestConfig) {
