@@ -28,35 +28,40 @@ interface PostFooterLikesProps {
 const PostFooterLikes: FC<PostFooterLikesProps> = ({ post, palette }) => {
     const user = useAppSelector(selectUser);
 
-    const [isLiked, setIsLiked] = useState(post.likes.includes(user.id));
+    const [likes, setLikes] = useState(post.likes.length);
+
+    const [isLiked, setIsLiked] = useState(post.likes.includes(user.id)); // TODO
 
     const likeRequest = useRequest(PostsApi.like);
     const unlikeRequest = useRequest(PostsApi.unlike);
 
-    const toggle = async (e: MouseEvent<HTMLElement>) => {
+    const like = async (e: MouseEvent<HTMLElement>) => {
         e.stopPropagation();
 
-        let response;
-
-        if (isLiked) {
-            response = await unlikeRequest.run(post.id);
-        } else {
-            response = await likeRequest.run(post.id);
-        }
-
+        const response = await likeRequest.run(post.id);
         if (response.statusCode === 200) {
-            setIsLiked((prev) => !prev);
+            setLikes((prev) => prev + 1);
+            setIsLiked(true);
+        }
+    };
+
+    const unlike = async (e: MouseEvent<HTMLElement>) => {
+        e.stopPropagation();
+
+        const response = await unlikeRequest.run(post.id);
+        if (response.statusCode === 200) {
+            setLikes((prev) => prev - 1);
+            setIsLiked(false);
         }
     };
 
     return (
-        <div className={styles.post__footer__control}>
-            <Icon
-                svg={isLiked ? UnlikeIcon : LikeIcon}
-                onClick={toggle}
-                palette={palette}
-            />
-            <div>{post.likes.length}</div>
+        <div
+            className={styles.post__footer__control}
+            onClick={isLiked ? unlike : like}
+        >
+            <Icon svg={isLiked ? LikeIcon : UnlikeIcon} palette={palette} />
+            <div>{likes}</div>
         </div>
     );
 };

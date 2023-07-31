@@ -3,6 +3,7 @@
 import { useRouter } from "next/navigation";
 import { CSSProperties, FC, memo, MouseEvent } from "react";
 
+import SkeletonCircle from "@components/ui/skeletons/Skeleton/SkeletonCircle";
 import Icon from "../Icon/Icon";
 
 import { getThemePropertyValue, type ThemePalette } from "@features/theme";
@@ -30,7 +31,9 @@ const PostHeader: FC<PostHeaderProps> = ({ post, palette }) => {
     return (
         <div className={styles.post__header} style={getColorStyles(palette)}>
             <div className={styles.post__header__wrapper}>
-                <div className={styles.post__header__user__avatar} />
+                <div className={styles.post__header__user__avatar}>
+                    <SkeletonCircle style={{ diameter: "5rem" }} />
+                </div>
 
                 <div>
                     <div className={styles.post__header__user__nickname}>

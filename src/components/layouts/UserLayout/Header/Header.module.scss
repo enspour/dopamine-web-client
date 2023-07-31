@@ -4,6 +4,7 @@
     width: 100%;
     box-shadow: 0rem 0rem 0.5rem 0.05rem var(--theme-primary-shadow);
     background-color: var(--theme-primary-bg);
+    z-index: 50;
 }
 
 .header {
@@ -88,12 +89,6 @@
     }
 
     &__avatar {
-        min-width: 3.5rem;
-        max-width: 3.5rem;
-        height: 3.5rem;
-        background-color: #cccccc;
-        border: 0.1rem solid var(--theme-primary-border);
-        border-radius: 50%;
     }
 
     &__nickname {

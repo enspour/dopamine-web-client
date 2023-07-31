@@ -16,6 +16,7 @@ import { AuthApi } from "@api";
 
 import BackIcon from "@assets/icons/settings/back.svg";
 
+import SkeletonCircle from "@components/ui/skeletons/Skeleton/SkeletonCircle";
 import styles from "./SettingsModal.module.scss";
 
 const SettingsModalHeader: FC<CarouselMenuItemProps<Menu>> = ({
@@ -46,7 +47,9 @@ const SettingsModalHeader: FC<CarouselMenuItemProps<Menu>> = ({
             )}
 
             <div className={styles.header__user}>
-                <div className={styles.header__user__avatar}></div>
+                <div className={styles.header__user__avatar}>
+                    <SkeletonCircle style={{ diameter: "5rem" }} />
+                </div>
 
                 <Button width="13rem" onClick={logout}>
                     <InterMessage id="settings.menu.header.logout.title" />

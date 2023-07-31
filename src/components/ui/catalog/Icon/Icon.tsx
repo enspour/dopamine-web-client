@@ -6,17 +6,24 @@ export interface SvgProps {
     fill: string;
 }
 
+interface IconStyle {
+    color?: string;
+    cursor?: "pointer" | "auto";
+}
+
+const initialStyle: IconStyle = {};
+
 interface IconProps {
     svg: FC<SvgProps>;
     onClick?: (e: MouseEvent<HTMLElement>) => void;
-    color?: string;
+    style?: IconStyle;
     palette?: ThemePalette;
 }
 
 const Icon: FC<IconProps> = ({
     svg: Svg,
     onClick,
-    color,
+    style = initialStyle,
     palette = "primary",
 }) => {
     const clickHandler = (e: MouseEvent<HTMLElement>) => {
@@ -24,18 +31,19 @@ const Icon: FC<IconProps> = ({
     };
 
     return (
-        <div
-            style={getStyle(onClick ? "pointer" : "auto")}
-            onClick={clickHandler}
-        >
-            <Svg fill={color || getThemePropertyValue("icon", palette)} />
+        <div style={getStyle(style)} onClick={clickHandler}>
+            <Svg fill={style.color || getThemePropertyValue("icon", palette)} />
         </div>
     );
 };
 
-const getStyle = (cursor: "pointer" | "auto"): CSSProperties => ({
-    display: "contents",
-    cursor,
-});
+const getStyle = (style: IconStyle): CSSProperties => {
+    const { color, ...styles } = Object.assign({}, initialStyle, style);
+
+    return {
+        display: "contents",
+        ...styles,
+    };
+};
 
 export default memo(Icon);

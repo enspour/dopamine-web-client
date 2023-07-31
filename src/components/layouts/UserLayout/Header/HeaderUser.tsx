@@ -2,6 +2,7 @@
 
 import { memo, useRef } from "react";
 
+import SkeletonCircle from "@components/ui/skeletons/Skeleton/SkeletonCircle";
 import DropdownPanel from "./DropdownPanel/DropdownPanel";
 
 import { useOutsideClickAlerter } from "@hooks/client";
@@ -29,7 +30,10 @@ const HeaderUser = () => {
     return (
         <div ref={userRef} className={styles.header__user}>
             <div className={styles.header__user__info} onClick={toggle}>
-                <div className={styles.header__user__avatar}></div>
+                <div className={styles.header__user__avatar}>
+                    <SkeletonCircle style={{ diameter: "3.5rem" }} />
+                </div>
+
                 <div className={styles.header__user__nickname}>
                     {user.nickname}
                 </div>

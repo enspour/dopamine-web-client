@@ -1,6 +1,8 @@
 import { useRouter } from "next/navigation";
 import { FC, memo } from "react";
 
+import SkeletonCircle from "@components/ui/skeletons/Skeleton/SkeletonCircle";
+
 import { useAppSelector } from "@redux/hooks";
 import { selectUser } from "@redux/slices/user.slice";
 
@@ -22,7 +24,9 @@ const DropdownPanelUser: FC<DropdownPanelUserProps> = ({ close }) => {
 
     return (
         <div className={styles.panel__user} onClick={openAccount}>
-            <div className={styles.panel__user__avatar}></div>
+            <div className={styles.panel__user__avatar}>
+                <SkeletonCircle style={{ diameter: "6rem" }} />
+            </div>
 
             <div>
                 <div className={styles.panel__user__nickname}>
