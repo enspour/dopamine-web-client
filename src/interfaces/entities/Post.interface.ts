@@ -1,4 +1,4 @@
-import { User } from "./User.interface";
+import { User } from "@features/users";
 
 export interface Post {
     id: string;

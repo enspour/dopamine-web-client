@@ -3,8 +3,7 @@ import { FC, memo } from "react";
 
 import SkeletonCircle from "@components/ui/skeletons/Skeleton/SkeletonCircle";
 
-import { useAppSelector } from "@redux/hooks";
-import { selectUser } from "@redux/slices/user.slice";
+import { useUser } from "@features/users/client";
 
 import styles from "./DropdownPanel.module.scss";
 
@@ -15,7 +14,7 @@ interface DropdownPanelUserProps {
 const DropdownPanelUser: FC<DropdownPanelUserProps> = ({ close }) => {
     const router = useRouter();
 
-    const user = useAppSelector(selectUser);
+    const { user } = useUser();
 
     const openAccount = () => {
         close();

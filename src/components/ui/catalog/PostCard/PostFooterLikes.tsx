@@ -8,8 +8,7 @@ import { useRequest } from "@hooks/client";
 
 import { type ThemePalette } from "@features/theme";
 
-import { useAppSelector } from "@redux/hooks";
-import { selectUser } from "@redux/slices/user.slice";
+import { useUser } from "@features/users/client";
 
 import { PostsApi } from "@api";
 
@@ -26,7 +25,7 @@ interface PostFooterLikesProps {
 }
 
 const PostFooterLikes: FC<PostFooterLikesProps> = ({ post, palette }) => {
-    const user = useAppSelector(selectUser);
+    const { user } = useUser();
 
     const [likes, setLikes] = useState(post.likes.length);
 

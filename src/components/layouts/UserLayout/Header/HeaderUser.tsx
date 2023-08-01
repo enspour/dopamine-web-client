@@ -7,15 +7,14 @@ import DropdownPanel from "./DropdownPanel/DropdownPanel";
 
 import { useOutsideClickAlerter } from "@hooks/client";
 
-import { useAppSelector } from "@redux/hooks";
-import { selectUser } from "@redux/slices/user.slice";
+import { useUser } from "@features/users/client";
 
 import styles from "./Header.module.scss";
 
 const HeaderUser = () => {
     const userRef = useRef<HTMLDivElement>(null);
 
-    const user = useAppSelector(selectUser);
+    const { user } = useUser();
 
     const [isOpen, setIsOpen] = useOutsideClickAlerter(userRef);
 

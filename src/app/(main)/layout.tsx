@@ -1,44 +1,28 @@
 "use client";
 
-import { usePathname, useRouter } from "next/navigation";
-import { ReactNode, memo, useState } from "react";
+import { ReactNode, memo } from "react";
 
 import GuestLayout from "@components/layouts/GuestLayout/GuestLayout";
+import LoaderLayout from "@components/layouts/LoaderLayout/LoaderLayout";
 import UserLayout from "@components/layouts/UserLayout/UserLayout";
-import UserLoaderLayout from "@components/layouts/UserLoaderLayout/UserLoaderLayout";
 
-const privatePathnames = ["/feed", "/store"];
+import { useUserInitializer } from "@features/users/client";
 
 interface LayoutProps {
     children: ReactNode;
 }
 
 const Layout = ({ children }: LayoutProps) => {
-    const pathname = usePathname();
-    const router = useRouter();
-
-    const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
-
-    const callback = (success: boolean, done: () => void): void => {
-        if (success) {
-            setIsAuthenticated(true);
-        } else {
-            if (privatePathnames.includes(pathname)) {
-                return router.push("/login");
-            }
-        }
-
-        done();
-    };
+    const { loader, isAuthenticated } = useUserInitializer();
 
     return (
-        <UserLoaderLayout callback={callback}>
+        <LoaderLayout loader={loader}>
             {isAuthenticated ? (
                 <UserLayout>{children}</UserLayout>
             ) : (
                 <GuestLayout>{children}</GuestLayout>
             )}
-        </UserLoaderLayout>
+        </LoaderLayout>
     );
 };
 

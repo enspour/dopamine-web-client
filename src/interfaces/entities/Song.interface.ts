@@ -1,5 +1,5 @@
+import { User } from "@features/users";
 import { Genre } from "./Genre.interface";
-import { User } from "./User.interface";
 
 export interface Song {
     id: number;

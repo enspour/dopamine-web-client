@@ -3,21 +3,21 @@ import { api } from "@utils";
 import { RequestConfig } from "@interfaces";
 
 import {
-    EmailsAddDto,
-    EmailsAddResponseDto,
-    EmailsConfirmDto,
-    EmailsGetAllResponseDto,
-} from "@dto";
+    UserEmailsAddDto,
+    UserEmailsAddResponseDto,
+    UserEmailsConfirmDto,
+    UserEmailsGetAllResponseDto,
+} from "./dto";
 
-export class UsersEmailsApi {
+export class UserEmailsApi {
     static async getAll(config?: RequestConfig) {
         const url = "/api/v1/users/emails";
-        return await api.get<EmailsGetAllResponseDto[]>(url, config);
+        return await api.get<UserEmailsGetAllResponseDto[]>(url, config);
     }
 
-    static async add(data: EmailsAddDto, config?: RequestConfig) {
+    static async add(data: UserEmailsAddDto, config?: RequestConfig) {
         const url = "/api/v1/users/emails";
-        return await api.post<EmailsAddResponseDto>(url, data, config);
+        return await api.post<UserEmailsAddResponseDto>(url, data, config);
     }
 
     static async remove(id: number, config?: RequestConfig) {
@@ -25,7 +25,7 @@ export class UsersEmailsApi {
         return await api.delete(url, config);
     }
 
-    static async confirm(data: EmailsConfirmDto, config?: RequestConfig) {
+    static async confirm(data: UserEmailsConfirmDto, config?: RequestConfig) {
         const url = `/api/v1/users/emails/confirm`;
         return await api.post(url, data, config);
     }

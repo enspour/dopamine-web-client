@@ -1,4 +1,3 @@
-export * from "./Auth/Auth.api";
-export * from "./Auth/dto";
-export * from "./TFA/TFA.api";
-export * from "./TFA/dto";
+export * from "./Auth.api";
+export * from "./TFA.api";
+export * from "./dto";

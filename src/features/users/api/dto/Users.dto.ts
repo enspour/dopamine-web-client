@@ -1,4 +1,4 @@
-import { User } from "@interfaces";
+import { User } from "@features/users";
 
 export interface UsersGetOneResponseDto {
     user: User;

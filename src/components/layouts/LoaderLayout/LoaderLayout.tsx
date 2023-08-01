@@ -1,6 +1,6 @@
 "use client";
 
-import { FC, ReactNode, memo, useEffect, useRef } from "react";
+import { FC, ReactNode, memo, useEffect, useRef, useState } from "react";
 
 import Loader from "@components/ui/catalog/Loader/Loader";
 
@@ -10,18 +10,25 @@ import styles from "./LoaderLayout.module.scss";
 
 interface LoaderLayoutProps {
     children: ReactNode;
-    loading: LoadingState;
-    loader: () => void;
+    loader: () => void | Promise<void>;
 }
 
-const LoaderLayout: FC<LoaderLayoutProps> = ({ children, loading, loader }) => {
+const LoaderLayout: FC<LoaderLayoutProps> = ({ children, loader }) => {
+    const [loading, setLoading] = useState<LoadingState>("loading");
+
     const initialized = useRef(false);
+
+    const run = async () => {
+        await loader();
+
+        setLoading("done");
+    };
 
     useEffect(() => {
         if (!initialized.current) {
             initialized.current = true;
 
-            loader();
+            run();
         }
     }, []);
 
