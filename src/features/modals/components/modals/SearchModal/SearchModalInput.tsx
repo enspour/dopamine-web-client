@@ -6,11 +6,11 @@ import Icon from "@components/ui/catalog/Icon/Icon";
 
 import SearchModalFilters from "./SearchModalFilters";
 
+import { closeSearchModal } from "@features/modals/redux/slices/modals.slice";
 import { useAppDispatch } from "@redux/hooks";
-import { closeSearchModal } from "@redux/slices/modals.slice";
 
-import BackIcon from "@assets/icons/modal/back.svg";
-import ClearIcon from "@assets/icons/search/clear.svg";
+import BackIcon from "@features/modals/assets/icons/back.svg";
+import ClearIcon from "@features/modals/assets/icons/clear.svg";
 
 import styles from "./SearchModal.module.scss";
 

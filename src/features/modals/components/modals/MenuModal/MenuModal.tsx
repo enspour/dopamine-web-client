@@ -3,29 +3,19 @@
 import { memo, useEffect } from "react";
 
 import Box from "@components/ui/catalog/Box/Box";
-import Modal from "@components/ui/catalog/Modal/Modal";
+import Modal from "@features/modals/components/ui/Modal/Modal";
 
 import MenuModalHeader from "./MenuModalHeader";
 import MenuModalNavigation from "./MenuModalNavigation";
 
 import { useMediaQuery } from "@hooks/client";
 
-import { useAppDispatch, useAppSelector } from "@redux/hooks";
-import {
-    closeMenuModal,
-    selectIsOpenMenuModal,
-} from "@redux/slices/modals.slice";
+import { useMenuModal } from "@features/modals/client";
 
 const MenuModal = () => {
     const matches = useMediaQuery("(max-width: 768px)");
 
-    const dispatch = useAppDispatch();
-
-    const isOpen = useAppSelector(selectIsOpenMenuModal);
-
-    const close = () => {
-        dispatch(closeMenuModal());
-    };
+    const { isOpen, close } = useMenuModal();
 
     useEffect(() => {
         !matches && close();

@@ -5,8 +5,7 @@ import HorizontalMenu from "@components/ui/navigation/HorizontalMenu/HorizontalM
 import HorizontalMenuButton from "@components/ui/navigation/HorizontalMenu/HorizontalMenuButton";
 import DropdownPanelMenuItem from "./DropdownPanelMenuItem";
 
-import { useAppDispatch } from "@redux/hooks";
-import { openSettingsModal } from "@redux/slices/modals.slice";
+import { useSettingsModal } from "@features/modals/client";
 
 import { AuthApi } from "@api";
 
@@ -23,7 +22,7 @@ interface DropdownPanelMenuProps {
 const DropdownPanelMenu: FC<DropdownPanelMenuProps> = ({ close }) => {
     const router = useRouter();
 
-    const dispatch = useAppDispatch();
+    const { open: openSettingsModal } = useSettingsModal();
 
     const openChannel = () => {
         close();
@@ -32,7 +31,7 @@ const DropdownPanelMenu: FC<DropdownPanelMenuProps> = ({ close }) => {
 
     const openSettings = () => {
         close();
-        dispatch(openSettingsModal());
+        openSettingsModal();
     };
 
     const logout = async () => {

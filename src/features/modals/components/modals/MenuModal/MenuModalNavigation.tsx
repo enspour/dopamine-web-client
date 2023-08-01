@@ -9,8 +9,8 @@ import { InterMessage } from "@features/internationalization/client";
 
 import { useCustomRouter } from "@hooks/client";
 
+import { closeMenuModal } from "@features/modals/redux/slices/modals.slice";
 import { useAppDispatch } from "@redux/hooks";
-import { closeMenuModal } from "@redux/slices/modals.slice";
 
 import { navigation } from "@interfaces";
 

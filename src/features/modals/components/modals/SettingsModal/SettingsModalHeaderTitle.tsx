@@ -4,10 +4,10 @@ import Icon from "@components/ui/catalog/Icon/Icon";
 
 import { InterMessage } from "@features/internationalization/client";
 
+import { closeSettingsModal } from "@features/modals/redux/slices/modals.slice";
 import { useAppDispatch } from "@redux/hooks";
-import { closeSettingsModal } from "@redux/slices/modals.slice";
 
-import BackIcon from "@assets/icons/modal/back.svg";
+import BackIcon from "@features/modals/assets/icons/back.svg";
 
 import styles from "./SettingsModal.module.scss";
 

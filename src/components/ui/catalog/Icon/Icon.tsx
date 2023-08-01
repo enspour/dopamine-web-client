@@ -11,7 +11,9 @@ interface IconStyle {
     cursor?: "pointer" | "auto";
 }
 
-const initialStyle: IconStyle = {};
+const initialStyle: IconStyle = {
+    cursor: "pointer",
+};
 
 interface IconProps {
     svg: FC<SvgProps>;

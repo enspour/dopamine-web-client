@@ -3,8 +3,8 @@
 import { memo } from "react";
 
 import Box from "@components/ui/catalog/Box/Box";
-import Modal from "@components/ui/catalog/Modal/Modal";
 import CarouselMenu from "@components/ui/navigation/CarouselMenu/CarouselMenu";
+import Modal from "@features/modals/components/ui/Modal/Modal";
 
 import SettingsModalHeader from "./SettingsModalHeader";
 
@@ -17,11 +17,7 @@ import Storage from "./menus/Storage/Storage";
 
 import { useMediaQuery } from "@hooks/client";
 
-import { useAppDispatch, useAppSelector } from "@redux/hooks";
-import {
-    closeSettingsModal,
-    selectIsOpenSettingsModal,
-} from "@redux/slices/modals.slice";
+import { useSettingsModal } from "@features/modals/client";
 
 import { SettingsMenuId } from "@interfaces";
 
@@ -57,13 +53,7 @@ const menu: Record<Menu, any> = {
 const SettingsModal = () => {
     const matches = useMediaQuery("(max-width: 768px)");
 
-    const dispatch = useAppDispatch();
-
-    const isOpen = useAppSelector(selectIsOpenSettingsModal);
-
-    const close = () => {
-        dispatch(closeSettingsModal());
-    };
+    const { isOpen, close } = useSettingsModal();
 
     return (
         <Modal isOpen={isOpen} close={close} style={getModalStyles(matches)}>

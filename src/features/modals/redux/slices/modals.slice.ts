@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { RootState } from "../store";
+
+import { RootState } from "@redux/store";
 
 interface ModalsState {
     isOpenSearchModal: boolean;
@@ -53,12 +54,12 @@ export const {
 } = modalsSlice.actions;
 
 export const selectIsOpenSearchModal = (state: RootState) =>
-    state.modalsSlice.isOpenSearchModal;
+    state.modals.isOpenSearchModal;
 
 export const selectIsOpenSettingsModal = (state: RootState) =>
-    state.modalsSlice.isOpenSettingsModal;
+    state.modals.isOpenSettingsModal;
 
 export const selectIsOpenMenuModal = (state: RootState) =>
-    state.modalsSlice.isOpenMenuModal;
+    state.modals.isOpenMenuModal;
 
-export default modalsSlice.reducer;
+export const modalsReducer = modalsSlice.reducer;

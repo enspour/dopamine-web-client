@@ -2,19 +2,14 @@ import { FC, memo } from "react";
 
 import Icon from "@components/ui/catalog/Icon/Icon";
 
-import { useAppDispatch } from "@redux/hooks";
-import { openMenuModal } from "@redux/slices/modals.slice";
+import { useMenuModal } from "@features/modals/client";
 
 import HamburgerMenuIcon from "@assets/icons/header/hamburger.svg";
 
 import styles from "./Header.module.scss";
 
 const HeaderHamburger: FC = () => {
-    const dispatch = useAppDispatch();
-
-    const open = () => {
-        dispatch(openMenuModal());
-    };
+    const { open } = useMenuModal();
 
     return (
         <div className={styles.header__hamburger}>
