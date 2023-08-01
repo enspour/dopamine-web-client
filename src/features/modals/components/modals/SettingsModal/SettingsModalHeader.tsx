@@ -5,6 +5,7 @@ import { FC, memo } from "react";
 
 import Button from "@components/ui/catalog/Button/Button";
 import Icon from "@components/ui/catalog/Icon/Icon";
+import SkeletonCircle from "@components/ui/skeletons/Skeleton/SkeletonCircle";
 import SettingsModalHeaderTitle from "./SettingsModalHeaderTitle";
 
 import type { CarouselMenuItemProps } from "@components/ui/navigation/CarouselMenu/CarouselMenu";
@@ -12,11 +13,10 @@ import type { Menu } from "./SettingsModal";
 
 import { InterMessage } from "@features/inter/client";
 
-import { AuthApi } from "@api";
+import { AuthApi } from "@features/authorization";
 
-import BackIcon from "@assets/icons/settings/back.svg";
+import BackIcon from "@features/modals/assets/icons/settings/back.svg";
 
-import SkeletonCircle from "@components/ui/skeletons/Skeleton/SkeletonCircle";
 import styles from "./SettingsModal.module.scss";
 
 const SettingsModalHeader: FC<CarouselMenuItemProps<Menu>> = ({

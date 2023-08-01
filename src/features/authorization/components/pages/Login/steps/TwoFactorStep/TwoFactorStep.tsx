@@ -7,7 +7,7 @@ import type { ExtraProps } from "../../Login";
 
 import { getThemePropertyValue, type ThemePalette } from "@features/theme";
 
-import { TwoFactorAuthApi } from "@api";
+import { TwoFactorAuthApi } from "@features/authorization";
 
 import styles from "./TwoFactorStep.module.scss";
 

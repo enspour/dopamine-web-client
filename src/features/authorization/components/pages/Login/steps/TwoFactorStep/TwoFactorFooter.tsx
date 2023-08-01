@@ -6,7 +6,7 @@ import AsyncButton from "@components/ui/catalog/AsyncButton/AsyncButton";
 import type { StepperFooterProps } from "@components/ui/navigation/Stepper/Stepper";
 import type { ExtraProps } from "../../Login";
 
-import { TwoFactorAuthApi } from "@api";
+import { TwoFactorAuthApi } from "@features/authorization";
 
 import styles from "./TwoFactorStep.module.scss";
 

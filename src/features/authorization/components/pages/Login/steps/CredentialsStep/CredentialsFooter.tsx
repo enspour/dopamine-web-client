@@ -6,7 +6,7 @@ import AsyncButton from "@components/ui/catalog/AsyncButton/AsyncButton";
 import type { StepperFooterProps } from "@components/ui/navigation/Stepper/Stepper";
 import type { ExtraProps } from "../../Login";
 
-import { AuthApi } from "@api";
+import { AuthApi } from "@features/authorization";
 
 import { validateEmail, validatePassword } from "@utils";
 

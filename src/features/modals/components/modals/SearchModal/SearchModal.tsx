@@ -3,7 +3,6 @@
 import { memo } from "react";
 
 import Box from "@components/ui/catalog/Box/Box";
-import Modal from "@features/modals/components/ui/Modal/Modal";
 
 import SearchModalContent from "./SearchModalContent";
 import SearchModalInput from "./SearchModalInput";
@@ -11,7 +10,7 @@ import SearchModalPagination from "./SearchModalPagination";
 
 import { useMediaQuery } from "@hooks/client";
 
-import { useSearchModal } from "@features/modals/client";
+import { Modal, useSearchModal } from "@features/modals/client";
 
 const SearchModal = () => {
     const matches = useMediaQuery("(max-width: 768px)");

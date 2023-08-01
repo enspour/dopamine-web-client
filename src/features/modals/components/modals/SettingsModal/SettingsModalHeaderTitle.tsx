@@ -6,7 +6,7 @@ import { InterMessage } from "@features/inter/client";
 
 import { useSettingsModal } from "@features/modals/client";
 
-import BackIcon from "@features/modals/assets/icons/back.svg";
+import BackIcon from "@features/modals/assets/icons/general/back.svg";
 
 import styles from "./SettingsModal.module.scss";
 

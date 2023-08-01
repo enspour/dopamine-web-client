@@ -7,7 +7,7 @@ import type { ExtraProps } from "../../Signup";
 
 import { validatePassword } from "@utils";
 
-import { AuthApi } from "@api";
+import { AuthApi } from "@features/authorization";
 
 import styles from "./PasswordStep.module.scss";
 

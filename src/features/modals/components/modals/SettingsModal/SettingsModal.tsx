@@ -4,7 +4,6 @@ import { memo } from "react";
 
 import Box from "@components/ui/catalog/Box/Box";
 import CarouselMenu from "@components/ui/navigation/CarouselMenu/CarouselMenu";
-import Modal from "@features/modals/components/ui/Modal/Modal";
 
 import SettingsModalHeader from "./SettingsModalHeader";
 
@@ -17,7 +16,7 @@ import Storage from "./menus/Storage/Storage";
 
 import { useMediaQuery } from "@hooks/client";
 
-import { useSettingsModal } from "@features/modals/client";
+import { Modal, useSettingsModal } from "@features/modals/client";
 
 import { SettingsMenuId } from "@interfaces";
 

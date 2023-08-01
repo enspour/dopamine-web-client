@@ -8,8 +8,8 @@ import SearchModalFilters from "./SearchModalFilters";
 
 import { useSearchModal } from "@features/modals/client";
 
-import BackIcon from "@features/modals/assets/icons/back.svg";
-import ClearIcon from "@features/modals/assets/icons/clear.svg";
+import BackIcon from "@features/modals/assets/icons/general/back.svg";
+import ClearIcon from "@features/modals/assets/icons/general/clear.svg";
 
 import styles from "./SearchModal.module.scss";
 

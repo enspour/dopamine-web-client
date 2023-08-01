@@ -3,14 +3,13 @@
 import { memo, useEffect } from "react";
 
 import Box from "@components/ui/catalog/Box/Box";
-import Modal from "@features/modals/components/ui/Modal/Modal";
 
 import MenuModalHeader from "./MenuModalHeader";
 import MenuModalNavigation from "./MenuModalNavigation";
 
 import { useMediaQuery } from "@hooks/client";
 
-import { useMenuModal } from "@features/modals/client";
+import { Modal, useMenuModal } from "@features/modals/client";
 
 const MenuModal = () => {
     const matches = useMediaQuery("(max-width: 768px)");

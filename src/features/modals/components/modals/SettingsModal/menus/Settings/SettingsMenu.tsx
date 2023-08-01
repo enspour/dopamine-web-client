@@ -4,11 +4,11 @@ import SettingsMenuItem from "./SettingsMenuItem";
 
 import { SettingsMenuId } from "@interfaces";
 
-import GeneralIcon from "@assets/icons/settings/general.svg";
-import LanguagesIcon from "@assets/icons/settings/languages.svg";
-import PermissionsIcon from "@assets/icons/settings/permissions.svg";
-import SecurityIcon from "@assets/icons/settings/security.svg";
-import StorageIcon from "@assets/icons/settings/storage.svg";
+import GeneralIcon from "@features/modals/assets/icons/settings/general.svg";
+import LanguagesIcon from "@features/modals/assets/icons/settings/languages.svg";
+import PermissionsIcon from "@features/modals/assets/icons/settings/permissions.svg";
+import SecurityIcon from "@features/modals/assets/icons/settings/security.svg";
+import StorageIcon from "@features/modals/assets/icons/settings/storage.svg";
 
 import styles from "./Settings.module.scss";
 

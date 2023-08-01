@@ -19,7 +19,7 @@ import ConfirmEmailStep from "./steps/ConfirmEmailStep/ConfirmEmailStep";
 import PasswordFooter from "./steps/PasswordStep/PasswordFooter";
 import PasswordStep from "./steps/PasswordStep/PasswordStep";
 
-import { SignupDto } from "@dto";
+import { SignupDto } from "@features/authorization";
 
 export interface ExtraProps {
     credentialsState: [SignupDto, Dispatch<SetStateAction<SignupDto>>];

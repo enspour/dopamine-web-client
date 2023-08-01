@@ -16,7 +16,7 @@ import CredentialsStep from "./steps/CredentialsStep/CredentialsStep";
 import TwoFactorFooter from "./steps/TwoFactorStep/TwoFactorFooter";
 import TwoFactorStep from "./steps/TwoFactorStep/TwoFactorStep";
 
-import { LoginDto } from "@dto";
+import { LoginDto } from "@features/authorization";
 
 export interface ExtraProps {
     credentialsState: [LoginDto, Dispatch<SetStateAction<LoginDto>>];

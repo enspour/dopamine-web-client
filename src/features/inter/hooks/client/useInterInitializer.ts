@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 
 import { Inter } from "@features/inter";
-import { setInter } from "@features/inter/redux";
+import { setInter } from "@features/inter/client";
 
 import { useAppDispatch } from "@redux/hooks";
 

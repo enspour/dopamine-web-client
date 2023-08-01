@@ -7,7 +7,7 @@ import DropdownPanelMenuItem from "./DropdownPanelMenuItem";
 
 import { useSettingsModal } from "@features/modals/client";
 
-import { AuthApi } from "@api";
+import { AuthApi } from "@features/authorization";
 
 import ChannelIcon from "@assets/icons/header/channel.svg";
 import LogoutIcon from "@assets/icons/header/logout.svg";

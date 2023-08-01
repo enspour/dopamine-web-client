@@ -6,7 +6,7 @@ import AsyncButton from "@components/ui/catalog/AsyncButton/AsyncButton";
 import type { StepperFooterProps } from "@components/ui/navigation/Stepper/Stepper";
 import type { ExtraProps } from "../../Signup";
 
-import { AuthApi } from "@api";
+import { AuthApi } from "@features/authorization";
 
 import styles from "./ConfirmEmailStep.module.scss";
 
