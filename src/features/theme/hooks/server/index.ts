@@ -1,2 +1,2 @@
-export * from "./useThemeName";
-export * from "./useThemeProperties";
+export * from "./useCookieThemeName";
+export * from "./useThemePropertiesLoader";

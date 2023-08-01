@@ -5,12 +5,11 @@ import { usePathname } from "next/navigation";
 import HorizontalMenu from "@components/ui/navigation/HorizontalMenu/HorizontalMenu";
 import HorizontalMenuButton from "@components/ui/navigation/HorizontalMenu/HorizontalMenuButton";
 
-import { InterMessage } from "@features/internationalization/client";
+import { InterMessage } from "@features/inter/client";
+
+import { useMenuModal } from "@features/modals/client";
 
 import { useCustomRouter } from "@hooks/client";
-
-import { closeMenuModal } from "@features/modals/redux/slices/modals.slice";
-import { useAppDispatch } from "@redux/hooks";
 
 import { navigation } from "@interfaces";
 
@@ -19,11 +18,11 @@ const MenuModalNavigation = () => {
 
     const router = useCustomRouter();
 
-    const dispatch = useAppDispatch();
+    const { close } = useMenuModal();
 
     const handleClick = async (id: string) => {
         await router.push(id);
-        dispatch(closeMenuModal());
+        close();
     };
 
     return (

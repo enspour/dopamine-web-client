@@ -1,12 +1,8 @@
 import { cookies } from "next/headers";
 
-import {
-    isLocate,
-    Locate,
-    LOCATE_COOKIE_PATH,
-} from "@features/internationalization";
+import { isLocate, Locate, LOCATE_COOKIE_PATH } from "@features/inter";
 
-export const useLocate = (): Locate => {
+export const useCookieLocate = (): Locate => {
     const cookiesStore = cookies();
 
     const locate = cookiesStore.get(LOCATE_COOKIE_PATH)?.value;

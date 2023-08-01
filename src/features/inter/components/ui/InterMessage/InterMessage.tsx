@@ -3,9 +3,9 @@
 import { FC } from "react";
 
 import { useAppSelector } from "@redux/hooks";
-import { selectInterMessages } from "@redux/slices/internationalization.slice";
 
-import { INTER_MESSAGES, InterMessageId } from "@features/internationalization";
+import { INTER_MESSAGES, InterMessageId } from "@features/inter";
+import { selectInterMessages } from "@features/inter/client";
 
 interface InterMessageProps {
     id: InterMessageId;

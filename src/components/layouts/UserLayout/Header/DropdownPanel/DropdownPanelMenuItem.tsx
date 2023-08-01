@@ -2,7 +2,7 @@ import { FC, memo } from "react";
 
 import Icon, { type SvgProps } from "@components/ui/catalog/Icon/Icon";
 
-import { InterMessage } from "@features/internationalization/client";
+import { InterMessage } from "@features/inter/client";
 
 import { HeaderDropdownMenuId } from "@interfaces";
 

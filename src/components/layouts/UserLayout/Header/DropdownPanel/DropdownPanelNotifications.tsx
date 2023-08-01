@@ -1,6 +1,6 @@
 import { FC, memo } from "react";
 
-import { InterMessage } from "@features/internationalization/client";
+import { InterMessage } from "@features/inter/client";
 
 import styles from "./DropdownPanel.module.scss";
 

@@ -1,15 +1,14 @@
-"use client";
-
 import cookies from "js-cookie";
 
 import { useAppDispatch, useAppSelector } from "@redux/hooks";
+
 import {
     selectLocate,
     setInterMessages,
     setLocate,
-} from "@redux/slices/internationalization.slice";
+} from "@features/inter/client";
 
-import { Locate, getInterMessages } from "@features/internationalization";
+import { Locate, getInterMessages } from "@features/inter";
 
 import { LOCATE_COOKIE_PATH } from "../../constants";
 

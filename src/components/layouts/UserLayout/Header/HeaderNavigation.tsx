@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { FC, memo } from "react";
 
-import { InterMessage } from "@features/internationalization/client";
+import { InterMessage } from "@features/inter/client";
 
 import { navigation } from "@interfaces";
 

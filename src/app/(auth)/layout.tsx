@@ -1,3 +1,3 @@
-import AuthLayout from "@components/layouts/AuthLayout/AuthLayout";
+import { AuthLayout } from "@features/authorization/server";
 
 export default AuthLayout;

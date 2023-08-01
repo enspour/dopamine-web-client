@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-import { Login } from "@features/authorization";
+import { Login } from "@features/authorization/client";
 
 export const metadata: Metadata = {
     title: "Dopamine | Login",

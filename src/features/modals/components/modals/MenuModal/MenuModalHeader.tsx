@@ -2,19 +2,14 @@
 
 import Icon from "@components/ui/catalog/Icon/Icon";
 
-import { closeMenuModal } from "@features/modals/redux/slices/modals.slice";
-import { useAppDispatch } from "@redux/hooks";
+import { useMenuModal } from "@features/modals/client";
 
 import BackIcon from "@features/modals/assets/icons/back.svg";
 
 import styles from "./MenuModal.module.scss";
 
 const MenuModalHeader = () => {
-    const dispatch = useAppDispatch();
-
-    const close = () => {
-        dispatch(closeMenuModal());
-    };
+    const { close } = useMenuModal();
 
     return (
         <div className={styles.menu__header} onClick={close}>

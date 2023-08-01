@@ -1,4 +1,4 @@
+export * from "./Inter.interface";
 export * from "./InterMessageId.interface";
 export * from "./InterMessages.interface";
-export * from "./Internationalization.interface";
-export * from "./Locates.interface";
+export * from "./Locate.interface";

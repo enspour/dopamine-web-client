@@ -7,7 +7,7 @@ import SettingsTheme from "./SettingsTheme";
 import { getThemes, type Theme } from "@features/theme";
 import { useTheme } from "@features/theme/client";
 
-import { InterMessage } from "@features/internationalization/client";
+import { InterMessage } from "@features/inter/client";
 
 import styles from "./Settings.module.scss";
 

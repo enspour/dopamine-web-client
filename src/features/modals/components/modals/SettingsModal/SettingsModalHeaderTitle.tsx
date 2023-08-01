@@ -2,21 +2,16 @@ import { memo } from "react";
 
 import Icon from "@components/ui/catalog/Icon/Icon";
 
-import { InterMessage } from "@features/internationalization/client";
+import { InterMessage } from "@features/inter/client";
 
-import { closeSettingsModal } from "@features/modals/redux/slices/modals.slice";
-import { useAppDispatch } from "@redux/hooks";
+import { useSettingsModal } from "@features/modals/client";
 
 import BackIcon from "@features/modals/assets/icons/back.svg";
 
 import styles from "./SettingsModal.module.scss";
 
 const SettingsModalHeaderTitle = () => {
-    const dispatch = useAppDispatch();
-
-    const close = () => {
-        dispatch(closeSettingsModal());
-    };
+    const { close } = useSettingsModal();
 
     return (
         <div className={styles.header__title} onClick={close}>

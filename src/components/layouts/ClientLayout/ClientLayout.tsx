@@ -1,34 +1,29 @@
 "use client";
 
-import { FC, ReactNode, memo, useEffect } from "react";
+import { FC, ReactNode } from "react";
 
-import { Internationalization } from "@features/internationalization";
-import { useInternationalization } from "@features/internationalization/client";
+import StoreLayout from "../StoreLayout/StoreLayout";
 
-import { ModalsLayouts } from "@features/modals/client";
+import { Inter } from "@features/inter";
+import { InterInitializer } from "@features/inter/client";
 
-import services from "@services";
+import { Modals } from "@features/modals/client";
 
 interface ClientLayoutProps {
     children: ReactNode;
-    internationalization: Internationalization;
+    inter: Inter;
 }
 
-const ClientLayout: FC<ClientLayoutProps> = ({
-    children,
-    internationalization,
-}) => {
-    useInternationalization(internationalization);
+const ClientLayout: FC<ClientLayoutProps> = ({ children, inter }) => {
+    return (
+        <StoreLayout>
+            {children}
 
-    useEffect(() => {
-        services.initialize();
+            <InterInitializer inter={inter} />
 
-        return () => {
-            services.destroy();
-        };
-    }, []);
-
-    return <ModalsLayouts>{children}</ModalsLayouts>;
+            <Modals />
+        </StoreLayout>
+    );
 };
 
-export default memo(ClientLayout);
+export default ClientLayout;

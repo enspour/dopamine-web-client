@@ -1,7 +1,7 @@
 import { InterMessages } from "./InterMessages.interface";
-import { Locate } from "./Locates.interface";
+import { Locate } from "./Locate.interface";
 
-export interface Internationalization {
+export interface Inter {
     locate: Locate;
     interMessages: InterMessages;
 }

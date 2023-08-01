@@ -8,8 +8,8 @@ import SelectItem from "@components/ui/catalog/Select/SelectItem";
 import type { CarouselMenuItemProps } from "@components/ui/navigation/CarouselMenu/CarouselMenu";
 import type { Menu } from "../../SettingsModal";
 
-import { isLocate } from "@features/internationalization";
-import { useLocate } from "@features/internationalization/client";
+import { isLocate } from "@features/inter";
+import { useLocate } from "@features/inter/client";
 
 import styles from "./Languages.module.scss";
 

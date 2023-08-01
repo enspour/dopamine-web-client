@@ -6,7 +6,7 @@ import {
     type ThemeName,
 } from "@features/theme";
 
-export const useThemeName = (): ThemeName => {
+export const useCookieThemeName = (): ThemeName => {
     const cookiesStore = cookies();
 
     const name = cookiesStore.get(THEME_COOKIE_PATH)?.value;

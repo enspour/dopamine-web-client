@@ -1,16 +1,17 @@
 import { configureStore } from "@reduxjs/toolkit";
 
-import { modalsReducer as modals } from "@features/modals/client";
 import followingsSlice from "./slices/followings.slice";
-import internationalizationSlice from "./slices/internationalization.slice";
 import userSlice from "./slices/user.slice";
+
+import { interReducer as inter } from "@features/inter/client";
+import { modalsReducer as modals } from "@features/modals/client";
 
 const store = configureStore({
     reducer: {
         followingsSlice,
-        internationalizationSlice,
-        modals,
         userSlice,
+        inter,
+        modals,
     },
 });
 

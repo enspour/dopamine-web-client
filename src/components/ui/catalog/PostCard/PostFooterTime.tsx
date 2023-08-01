@@ -1,9 +1,8 @@
 import { FC, memo } from "react";
 
-import { useAppSelector } from "@redux/hooks";
-import { selectLocate } from "@redux/slices/internationalization.slice";
-
 import { Post } from "@interfaces";
+
+import { useLocate } from "@features/inter/client";
 
 import styles from "./PostCard.module.scss";
 
@@ -12,7 +11,7 @@ interface PostFooterTimeProps {
 }
 
 const PostFooterTime: FC<PostFooterTimeProps> = ({ post }) => {
-    const locate = useAppSelector(selectLocate);
+    const [locate] = useLocate();
 
     return (
         <div className={styles.post__footer__time}>

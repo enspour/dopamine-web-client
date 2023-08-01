@@ -10,7 +10,7 @@ import SettingsModalHeaderTitle from "./SettingsModalHeaderTitle";
 import type { CarouselMenuItemProps } from "@components/ui/navigation/CarouselMenu/CarouselMenu";
 import type { Menu } from "./SettingsModal";
 
-import { InterMessage } from "@features/internationalization/client";
+import { InterMessage } from "@features/inter/client";
 
 import { AuthApi } from "@api";
 
