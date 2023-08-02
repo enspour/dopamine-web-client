@@ -14,7 +14,7 @@ import styles from "./Settings.module.scss";
 const SettingsThemes = () => {
     const [themes, setThemes] = useState<Theme[]>([]);
 
-    const { name, setTheme } = useTheme();
+    const [theme, setTheme] = useTheme();
 
     useEffect(() => {
         getThemes().then((themes) => setThemes(themes));
@@ -27,12 +27,12 @@ const SettingsThemes = () => {
             </div>
 
             <div className={styles.settings__themes__items}>
-                {themes.map((theme) => (
-                    <div key={theme.name}>
+                {themes.map((item) => (
+                    <div key={item.name}>
                         <SettingsTheme
-                            theme={theme}
+                            theme={item}
                             setTheme={setTheme}
-                            isActive={theme.name === name}
+                            isActive={item.name === theme}
                         />
                     </div>
                 ))}

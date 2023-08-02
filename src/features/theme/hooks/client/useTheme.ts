@@ -16,7 +16,7 @@ export const useTheme = () => {
         isThemeName(savedName) ? savedName : "light"
     );
 
-    const switchTheme = async (name: ThemeName) => {
+    const setTheme = async (name: ThemeName) => {
         const properties = await getThemeProperties(name);
 
         for (const property in properties) {
@@ -29,13 +29,10 @@ export const useTheme = () => {
         cookies.set(THEME_COOKIE_PATH, name);
     };
 
-    const setTheme = async (name: ThemeName) => {
-        await switchTheme(name);
+    const update = async (name: ThemeName) => {
+        await setTheme(name);
         setName(name);
     };
 
-    return {
-        name,
-        setTheme,
-    };
+    return [name, update] as const;
 };

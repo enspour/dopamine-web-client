@@ -1,9 +1,9 @@
 import { useAppDispatch, useAppSelector } from "@redux/hooks";
 
+import { UsersApi } from "@features/users";
 import { selectUser, setUser } from "@features/users/client";
 
 import { SessionsApi } from "@api";
-import { UsersApi } from "@features/users";
 
 export const useUser = () => {
     const user = useAppSelector(selectUser);
