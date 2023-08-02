@@ -6,18 +6,20 @@ import GuestLayout from "@components/layouts/GuestLayout/GuestLayout";
 import LoaderLayout from "@components/layouts/LoaderLayout/LoaderLayout";
 import UserLayout from "@components/layouts/UserLayout/UserLayout";
 
-import { useUserInitializer } from "@features/users/client";
+import { useUserLoader } from "@hooks/client";
 
 interface LayoutProps {
     children: ReactNode;
 }
 
 const Layout = ({ children }: LayoutProps) => {
-    const { loader, isAuthenticated } = useUserInitializer();
+    const userLoader = useUserLoader();
+
+    const loaders = [userLoader];
 
     return (
-        <LoaderLayout loader={loader}>
-            {isAuthenticated ? (
+        <LoaderLayout loaders={loaders}>
+            {userLoader.isAuthenticated ? (
                 <UserLayout>{children}</UserLayout>
             ) : (
                 <GuestLayout>{children}</GuestLayout>

@@ -8,18 +8,27 @@ import { LoadingState } from "@interfaces";
 
 import styles from "./LoaderLayout.module.scss";
 
-interface LoaderLayoutProps {
-    children: ReactNode;
-    loader: () => void | Promise<void>;
+export interface Loader {
+    run: () => void | Promise<void>;
+    message: string;
 }
 
-const LoaderLayout: FC<LoaderLayoutProps> = ({ children, loader }) => {
+interface LoaderLayoutProps {
+    children: ReactNode;
+    loaders: Loader[];
+}
+
+const LoaderLayout: FC<LoaderLayoutProps> = ({ children, loaders }) => {
+    const [message, setMessage] = useState("");
     const [loading, setLoading] = useState<LoadingState>("loading");
 
     const initialized = useRef(false);
 
     const run = async () => {
-        await loader();
+        for (const loader of loaders) {
+            setMessage(loader.message);
+            await loader.run();
+        }
 
         setLoading("done");
     };
@@ -35,6 +44,7 @@ const LoaderLayout: FC<LoaderLayoutProps> = ({ children, loader }) => {
     if (loading === "loading") {
         return (
             <div className={styles.loader}>
+                <div>{message}</div>
                 <Loader />
             </div>
         );
