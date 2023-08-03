@@ -1,3 +1,5 @@
+import { memo } from "react";
+
 import SkeletonBox from "../Skeleton/SkeletonBox";
 import SkeletonCircle from "../Skeleton/SkeletonCircle";
 
@@ -29,4 +31,4 @@ const PostCardSkeletonHeader = () => {
     );
 };
 
-export default PostCardSkeletonHeader;
+export default memo(PostCardSkeletonHeader);

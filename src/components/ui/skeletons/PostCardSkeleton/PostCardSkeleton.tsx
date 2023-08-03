@@ -1,4 +1,4 @@
-import { CSSProperties, FC } from "react";
+import { CSSProperties, FC, memo } from "react";
 
 import PostCardSkeletonHeader from "./PostCardSkeletonHeader";
 import PostCardSkeletonText from "./PostCardSkeletonText";
@@ -26,4 +26,4 @@ const getStyles = (palette: ThemePalette): CSSProperties => ({
     backgroundColor: getThemePropertyValue("bg", palette),
 });
 
-export default PostCardSkeleton;
+export default memo(PostCardSkeleton);

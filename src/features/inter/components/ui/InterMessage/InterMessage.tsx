@@ -1,6 +1,6 @@
 "use client";
 
-import { FC } from "react";
+import { FC, memo } from "react";
 
 import { useAppSelector } from "@redux/hooks";
 
@@ -16,4 +16,4 @@ const InterMessage: FC<InterMessageProps> = ({ id }) => {
     return <>{messages[id] || INTER_MESSAGES[id]}</>;
 };
 
-export default InterMessage;
+export default memo(InterMessage);

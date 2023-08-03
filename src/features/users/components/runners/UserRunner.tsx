@@ -1,5 +1,5 @@
 import { usePathname } from "next/navigation";
-import { useEffect, useRef } from "react";
+import { memo, useEffect, useRef } from "react";
 
 import { type Runner } from "@components/layouts/LoaderLayout/LoaderLayout";
 
@@ -40,4 +40,4 @@ const UserRunner: Runner = ({ done, setMessage }) => {
     return null;
 };
 
-export default UserRunner;
+export default memo(UserRunner);

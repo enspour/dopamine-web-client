@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { memo, useEffect, useRef } from "react";
 
 import { Runner } from "@components/layouts/LoaderLayout/LoaderLayout";
 
@@ -32,4 +32,4 @@ const FollowingsRunner: Runner = ({ done, setMessage }) => {
     return null;
 };
 
-export default FollowingsRunner;
+export default memo(FollowingsRunner);

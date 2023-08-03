@@ -1,3 +1,4 @@
+import { memo } from "react";
 import SkeletonBox from "../Skeleton/SkeletonBox";
 
 import styles from "./PostCardSkeleton.module.scss";
@@ -56,4 +57,4 @@ const PostCardSkeletonText = () => {
     );
 };
 
-export default PostCardSkeletonText;
+export default memo(PostCardSkeletonText);

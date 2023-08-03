@@ -1,6 +1,6 @@
 "use client";
 
-import { FC } from "react";
+import { FC, memo } from "react";
 
 import { Inter } from "@features/inter";
 import { useInterInitializer } from "@features/inter/client";
@@ -15,4 +15,4 @@ const InterInitializer: FC<InterProps> = ({ inter }) => {
     return null;
 };
 
-export default InterInitializer;
+export default memo(InterInitializer);

@@ -1,6 +1,6 @@
 "use client";
 
-import { FC, ReactNode } from "react";
+import { FC, ReactNode, memo } from "react";
 import { Provider } from "react-redux";
 
 import store from "@redux/store";
@@ -27,4 +27,4 @@ const ClientLayout: FC<ClientLayoutProps> = ({ children, inter }) => {
     );
 };
 
-export default ClientLayout;
+export default memo(ClientLayout);
