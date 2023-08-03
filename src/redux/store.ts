@@ -1,14 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
 
-import followingsSlice from "./slices/followings.slice";
-
 import { interReducer as inter } from "@features/inter/client";
 import { modalsReducer as modals } from "@features/modals/client";
-import { userReducer as user } from "@features/users/client";
+import { followingsReducer as followings, userReducer as user } from "@features/users/client";
 
 const store = configureStore({
     reducer: {
-        followingsSlice,
+        followings,
         user,
         inter,
         modals,

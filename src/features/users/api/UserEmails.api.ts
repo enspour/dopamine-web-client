@@ -7,7 +7,7 @@ import {
     UserEmailsAddResponseDto,
     UserEmailsConfirmDto,
     UserEmailsGetAllResponseDto,
-} from "./dto";
+} from "../dto";
 
 export class UserEmailsApi {
     static async getAll(config?: RequestConfig) {

@@ -2,7 +2,7 @@ import { api } from "@utils";
 
 import { RequestConfig } from "@interfaces";
 
-import { SessionsGetAllResponseDto } from "@dto";
+import { SessionsGetAllResponseDto } from "@features/authorization";
 
 export class SessionsApi {
     static async getAll(config?: RequestConfig) {

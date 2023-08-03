@@ -1,8 +1,9 @@
 "use client";
 
 import { FC, ReactNode } from "react";
+import { Provider } from "react-redux";
 
-import StoreLayout from "../StoreLayout/StoreLayout";
+import store from "@redux/store";
 
 import { Inter } from "@features/inter";
 import { InterInitializer } from "@features/inter/client";
@@ -16,13 +17,13 @@ interface ClientLayoutProps {
 
 const ClientLayout: FC<ClientLayoutProps> = ({ children, inter }) => {
     return (
-        <StoreLayout>
+        <Provider store={store}>
             {children}
 
             <InterInitializer inter={inter} />
 
             <Modals />
-        </StoreLayout>
+        </Provider>
     );
 };
 

@@ -1,41 +1,29 @@
 import { useAppDispatch, useAppSelector } from "@redux/hooks";
 
+import { useRequest } from "@hooks/client";
+
 import { UsersApi } from "@features/users";
 import { selectUser, setUser } from "@features/users/client";
-
-import { SessionsApi } from "@api";
 
 export const useUser = () => {
     const user = useAppSelector(selectUser);
 
     const dispatch = useAppDispatch();
 
-    const updateUser = async () => {
-        const response = await UsersApi.me();
+    const request = useRequest(UsersApi.me);
+
+    const update = async () => {
+        const response = await request.run();
 
         if (response.statusCode === 200) {
             const { user } = response.data;
             dispatch(setUser(user));
+
+            return true;
         }
 
-        return response.statusCode;
+        return false;
     };
 
-    const update = async () => {
-        const statusCode = await updateUser();
-
-        if (statusCode === 401) {
-            const { statusCode } = await SessionsApi.refresh();
-
-            if (statusCode === 200) {
-                return await updateUser();
-            }
-
-            return statusCode;
-        }
-
-        return statusCode;
-    };
-
-    return { user, update };
+    return { user, update, request };
 };

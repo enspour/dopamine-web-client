@@ -1,4 +1,4 @@
-import { UserEmail } from "@interfaces";
+import { UserEmail } from "@features/users";
 
 export interface UserEmailsAddDto {
     email: string;

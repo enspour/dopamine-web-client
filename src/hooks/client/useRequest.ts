@@ -1,5 +1,7 @@
 import { useRef, useState } from "react";
 
+import { SessionsApi } from "@features/authorization";
+
 import { ApiResponse, LoadingState, RequestConfig } from "@interfaces";
 
 export const useRequest = <TArgs extends any[], TResult = void>(
@@ -11,8 +13,7 @@ export const useRequest = <TArgs extends any[], TResult = void>(
 
     const abortController = useRef(new AbortController());
 
-    const waiter = useRef<Promise<ApiResponse<TResult>> | null>(null);
-    const response = useRef<ApiResponse<TResult> | null>(null);
+    const response = useRef<Promise<ApiResponse<TResult>> | null>(null);
 
     const exec = async (...args: TArgs) => {
         const controller = new AbortController();
@@ -26,25 +27,42 @@ export const useRequest = <TArgs extends any[], TResult = void>(
         return await request(...args, config);
     };
 
+    const runRequest = async (
+        resolver: (result: ApiResponse<TResult>) => void,
+        ...args: TArgs
+    ) => {
+        const result = await exec(...args);
+
+        const { statusCode } = result;
+
+        if (statusCode === 401) {
+            const { statusCode } = await SessionsApi.refresh();
+
+            if (statusCode === 200) {
+                const result = await exec(...args);
+                resolver(result);
+                return setLoading("done");
+            }
+        }
+
+        resolver(result);
+        return setLoading("done");
+    };
+
     const run = async (...args: TArgs): Promise<ApiResponse<TResult>> => {
         setLoading("loading");
 
-        waiter.current = exec(...args);
-
         let resolver: (result: ApiResponse<TResult>) => void;
 
-        setTimeout(async () => {
-            response.current = await waiter.current;
+        const waiter = new Promise<ApiResponse<TResult>>(
+            (resolve) => (resolver = resolve)
+        );
 
-            if (response.current) {
-                resolver(response.current);
-                return setLoading("done");
-            }
+        response.current = waiter;
 
-            return setLoading("error");
-        }, 0);
+        setTimeout(runRequest, 0, resolver!, ...args);
 
-        return new Promise((resolve) => (resolver = resolve));
+        return await response.current;
     };
 
     const cancel = () => {
@@ -54,7 +72,6 @@ export const useRequest = <TArgs extends any[], TResult = void>(
 
     return {
         response: response.current,
-        waiter: waiter.current,
         loading,
         run,
         cancel,
