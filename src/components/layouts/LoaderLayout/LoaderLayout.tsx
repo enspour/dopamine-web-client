@@ -1,6 +1,6 @@
 "use client";
 
-import { FC, ReactNode, memo, useEffect, useRef, useState } from "react";
+import { FC, ReactNode, memo, useState } from "react";
 
 import Loader from "@components/ui/catalog/Loader/Loader";
 
@@ -8,44 +8,42 @@ import { LoadingState } from "@interfaces";
 
 import styles from "./LoaderLayout.module.scss";
 
-export interface Loader {
-    run: () => void | Promise<void>;
-    message: string;
+export interface RunnerProps {
+    done: () => void;
+    setMessage: (message: string) => void;
 }
+
+export type Runner = FC<RunnerProps>;
 
 interface LoaderLayoutProps {
     children: ReactNode;
-    loaders: Loader[];
+    runners: Runner[];
 }
 
-const LoaderLayout: FC<LoaderLayoutProps> = ({ children, loaders }) => {
+const LoaderLayout: FC<LoaderLayoutProps> = ({ children, runners }) => {
     const [message, setMessage] = useState("");
     const [loading, setLoading] = useState<LoadingState>("loading");
 
-    const initialized = useRef(false);
+    const [index, setIndex] = useState(0);
 
-    const run = async () => {
-        for (const loader of loaders) {
-            setMessage(loader.message);
-            await loader.run();
+    const Runner = runners[index];
+
+    const done = () => {
+        if (index + 1 < runners.length) {
+            setIndex((prev) => prev + 1);
+        } else {
+            setLoading("done");
         }
-
-        setLoading("done");
     };
-
-    useEffect(() => {
-        if (!initialized.current) {
-            initialized.current = true;
-
-            run();
-        }
-    }, []);
 
     if (loading === "loading") {
         return (
             <div className={styles.loader}>
                 <div>{message}</div>
+
                 <Loader />
+
+                <Runner done={done} setMessage={setMessage} />
             </div>
         );
     }

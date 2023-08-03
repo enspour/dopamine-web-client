@@ -1,4 +1,3 @@
-export * from "./loaders/useUserLoader";
 export * from "./useCustomRouter";
 export * from "./useIsFocus";
 export * from "./useIsHover";
