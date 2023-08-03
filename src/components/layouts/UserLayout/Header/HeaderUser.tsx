@@ -2,7 +2,7 @@
 
 import { memo, useRef } from "react";
 
-import SkeletonCircle from "@components/ui/skeletons/Skeleton/SkeletonCircle";
+import SkeletonCircle from "@components/ui/catalog/Skeleton/SkeletonCircle";
 import DropdownPanel from "./DropdownPanel/DropdownPanel";
 
 import { useOutsideClickAlerter } from "@hooks/client";

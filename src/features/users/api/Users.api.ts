@@ -2,7 +2,7 @@ import { api } from "@utils";
 
 import { RequestConfig } from "@interfaces";
 
-import { UsersGetOneResponseDto } from "../dto";
+import { UsersGetOneResponseDto } from "@features/users";
 
 export class UsersApi {
     static async me(config?: RequestConfig) {

@@ -2,7 +2,7 @@ import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 import { RootState } from "@redux/store";
 
-import { Followings } from "@interfaces";
+import { Followings } from "@features/users";
 
 export interface FollowingsState {
     followings: Followings;

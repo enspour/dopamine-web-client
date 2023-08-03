@@ -6,7 +6,7 @@ import GuestLayout from "@components/layouts/GuestLayout/GuestLayout";
 import LoaderLayout from "@components/layouts/LoaderLayout/LoaderLayout";
 import UserLayout from "@components/layouts/UserLayout/UserLayout";
 
-import { useIsAuthenticated } from "@features/users/client";
+import { useIsAuthenticated } from "@features/authorization/client";
 
 import FollowingsRunner from "@features/users/components/runners/FollowingsRunner";
 import UserRunner from "@features/users/components/runners/UserRunner";

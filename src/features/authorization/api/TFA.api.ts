@@ -2,7 +2,10 @@ import { api } from "@utils";
 
 import { RequestConfig } from "@interfaces";
 
-import { TFAConfirmByEmailDto, TFAResendEmailDto } from "./dto";
+import {
+    TFAConfirmByEmailDto,
+    TFAResendEmailDto,
+} from "@features/authorization";
 
 export class TwoFactorAuthApi {
     static async confirmByEmail(

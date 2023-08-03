@@ -16,7 +16,8 @@ import Storage from "./menus/Storage/Storage";
 
 import { useMediaQuery } from "@hooks/client";
 
-import { Modal, useSettingsModal } from "@features/modals/client";
+import { Modal } from "@features/modals";
+import { useSettingsModal } from "@features/modals/client";
 
 import { SettingsMenuId } from "@interfaces";
 

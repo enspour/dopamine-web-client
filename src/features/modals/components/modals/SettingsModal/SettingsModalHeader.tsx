@@ -5,7 +5,7 @@ import { FC, memo } from "react";
 
 import Button from "@components/ui/catalog/Button/Button";
 import Icon from "@components/ui/catalog/Icon/Icon";
-import SkeletonCircle from "@components/ui/skeletons/Skeleton/SkeletonCircle";
+import SkeletonCircle from "@components/ui/catalog/Skeleton/SkeletonCircle";
 import SettingsModalHeaderTitle from "./SettingsModalHeaderTitle";
 
 import type { CarouselMenuItemProps } from "@components/ui/navigation/CarouselMenu/CarouselMenu";

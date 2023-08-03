@@ -10,7 +10,8 @@ import SearchModalPagination from "./SearchModalPagination";
 
 import { useMediaQuery } from "@hooks/client";
 
-import { Modal, useSearchModal } from "@features/modals/client";
+import { Modal } from "@features/modals";
+import { useSearchModal } from "@features/modals/client";
 
 const SearchModal = () => {
     const matches = useMediaQuery("(max-width: 768px)");

@@ -1,6 +1,3 @@
-export * from "./Genre.interface";
-export * from "./Post.interface";
-export * from "./Song.interface";
 export * from "./api/ApiResponse.interface";
 export * from "./api/LoadingState.interface";
 export * from "./api/RequestConfig.interface";

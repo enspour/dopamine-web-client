@@ -1,3 +1,3 @@
-import { AuthLayout } from "@features/authorization/server";
+import { AuthLayout } from "@features/authorization";
 
 export default AuthLayout;

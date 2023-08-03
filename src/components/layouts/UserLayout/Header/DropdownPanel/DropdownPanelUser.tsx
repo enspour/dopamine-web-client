@@ -1,7 +1,7 @@
 import { useRouter } from "next/navigation";
 import { FC, memo } from "react";
 
-import SkeletonCircle from "@components/ui/skeletons/Skeleton/SkeletonCircle";
+import SkeletonCircle from "@components/ui/catalog/Skeleton/SkeletonCircle";
 
 import { useUser } from "@features/users/client";
 

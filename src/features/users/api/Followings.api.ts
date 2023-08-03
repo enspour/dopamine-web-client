@@ -2,7 +2,7 @@ import { api } from "@utils";
 
 import { RequestConfig } from "@interfaces";
 
-import { FollowingsGetAllResponseDto } from "../dto";
+import { FollowingsGetAllResponseDto } from "@features/users";
 
 export class FollowingsApi {
     static async getAll(userId: number, config?: RequestConfig) {

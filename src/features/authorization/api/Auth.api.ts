@@ -8,7 +8,7 @@ import {
     SignupConfirmEmailDto,
     SignupDto,
     SignupResendEmailDto,
-} from "./dto";
+} from "@features/authorization";
 
 export class AuthApi {
     static async signup(data: SignupDto, config?: RequestConfig) {

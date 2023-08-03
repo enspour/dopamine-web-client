@@ -8,7 +8,7 @@ import store from "@redux/store";
 import { Inter } from "@features/inter";
 import { InterInitializer } from "@features/inter/client";
 
-import { Modals } from "@features/modals/client";
+import { Modals } from "@features/modals";
 
 interface ClientLayoutProps {
     children: ReactNode;
