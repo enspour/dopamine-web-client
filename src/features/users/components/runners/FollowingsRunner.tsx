@@ -2,14 +2,14 @@ import { memo, useEffect, useRef } from "react";
 
 import { Runner } from "@components/layouts/LoaderLayout/LoaderLayout";
 
-import { useFollowings, useUser } from "@features/users/client";
+import { useFollowingIds, useUser } from "@features/users/client";
 
 const FollowingsRunner: Runner = ({ done, setMessage }) => {
     const initialized = useRef(false);
 
     const { user } = useUser();
 
-    const { update } = useFollowings();
+    const { update } = useFollowingIds();
 
     const run = async (): Promise<void> => {
         if (user.id) {

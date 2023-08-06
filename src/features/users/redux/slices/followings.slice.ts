@@ -2,30 +2,27 @@ import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 import { RootState } from "@redux/store";
 
-import { Followings } from "@features/users";
-
 export interface FollowingsState {
-    followings: Followings;
+    ids: number[];
 }
 
 const initialState: FollowingsState = {
-    followings: [],
+    ids: [],
 };
 
 export const followingsSlice = createSlice({
     name: "followings",
     initialState,
     reducers: {
-        setFollowings: (state, action: PayloadAction<Followings>) => {
-            state.followings = action.payload;
+        setFollowingIds: (state, action: PayloadAction<number[]>) => {
+            state.ids = action.payload;
         },
     },
 });
 
-export const { setFollowings } = followingsSlice.actions;
+export const { setFollowingIds } = followingsSlice.actions;
 
-export const selectFollowings = (
-    state: RootState
-): FollowingsState["followings"] => state.followings.followings;
+export const selectFollowingIds = (state: RootState): FollowingsState["ids"] =>
+    state.followings.ids;
 
 export const followingsReducer = followingsSlice.reducer;
