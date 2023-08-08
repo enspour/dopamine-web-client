@@ -1,6 +1,6 @@
 import { useAppDispatch, useAppSelector } from "@redux/hooks";
 
-import { useRequest } from "@hooks/client";
+import { useRequest, useRequestLoading } from "@hooks/client";
 
 import { UsersApi } from "@features/users";
 import { selectUser, setUser } from "@features/users/client";
@@ -11,8 +11,9 @@ export const useUser = () => {
     const dispatch = useAppDispatch();
 
     const request = useRequest(UsersApi.me);
+    const loading = useRequestLoading(request, [user]);
 
-    const update = async () => {
+    const update = async (): Promise<boolean> => {
         const response = await request.run();
 
         if (response.statusCode === 200) {
@@ -25,5 +26,5 @@ export const useUser = () => {
         return false;
     };
 
-    return { user, update, request };
+    return { user, loading, update };
 };

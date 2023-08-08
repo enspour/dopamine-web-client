@@ -1,10 +1,12 @@
-import { useRequest } from "@hooks/client";
+import { useRequest, useRequestLoading } from "@hooks/client";
 import { useUser } from "./useUser";
 
 import { useAppDispatch, useAppSelector } from "@redux/hooks";
 
 import { FollowingsApi } from "@features/users";
 import { selectFollowingIds, setFollowingIds } from "@features/users/client";
+
+import { binarySearch } from "@utils";
 
 export const useFollowingIds = () => {
     const { user } = useUser();
@@ -14,8 +16,9 @@ export const useFollowingIds = () => {
     const dispatch = useAppDispatch();
 
     const request = useRequest(FollowingsApi.getAll);
+    const loading = useRequestLoading(request, [followingIds]);
 
-    const update = async () => {
+    const update = async (): Promise<boolean> => {
         const response = await request.run(user.id);
 
         if (response.statusCode === 200) {
@@ -31,5 +34,15 @@ export const useFollowingIds = () => {
         return false;
     };
 
-    return { followingIds, update, request };
+    const contains = (id: number): boolean => {
+        const index = binarySearch(id, followingIds);
+
+        if (index >= 0) {
+            return true;
+        }
+
+        return false;
+    };
+
+    return { followingIds, loading, update, contains };
 };

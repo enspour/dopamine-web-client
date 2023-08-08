@@ -5,3 +5,4 @@ export * from "./useMediaQuery";
 export * from "./useOutsideClick";
 export * from "./useOutsideClickAlerter";
 export * from "./useRequest";
+export * from "./useRequestLoading";

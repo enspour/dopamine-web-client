@@ -21,8 +21,13 @@ export class PostsApi {
         return await api.get<PostsGetManyResponseDto>(url, config);
     }
 
-    static async getManyByUserIds(userIds: number[], config?: RequestConfig) {
-        const url = `/api/v1/posts/by-user-ids/${userIds.join(",")}`;
+    static async getManyByUserIds(
+        ids: number[],
+        page: number,
+        config?: RequestConfig
+    ) {
+        const params = new URLSearchParams(`ids=${ids.join(",")}&page=${page}`);
+        const url = `/api/v1/posts/by-user-ids?${params}`;
         return await api.get<PostsGetManyResponseDto>(url, config);
     }
 

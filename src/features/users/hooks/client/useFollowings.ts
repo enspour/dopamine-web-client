@@ -1,18 +1,19 @@
 import { useState } from "react";
 
-import { useRequest } from "@hooks/client";
+import { useRequest, useRequestLoading } from "@hooks/client";
 import { useUser } from "./useUser";
 
 import { Followings, FollowingsApi } from "@features/users";
 
 export const useFollowings = () => {
-    const { user } = useUser();
-
     const [followings, setFollowings] = useState<Followings>([]);
 
-    const request = useRequest(FollowingsApi.getAll);
+    const { user } = useUser();
 
-    const update = async () => {
+    const request = useRequest(FollowingsApi.getAll);
+    const loading = useRequestLoading(request, [followings]);
+
+    const update = async (): Promise<boolean> => {
         const response = await request.run(user.id);
 
         if (response.statusCode === 200) {
@@ -25,5 +26,5 @@ export const useFollowings = () => {
         return false;
     };
 
-    return { followings, update, request };
+    return { followings, loading, update };
 };

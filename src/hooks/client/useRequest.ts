@@ -1,21 +1,25 @@
-import { useRef, useState } from "react";
+import { useRef } from "react";
 
 import { SessionsApi } from "@features/authorization";
 
-import { ApiResponse, LoadingState, RequestConfig } from "@interfaces";
+import { ApiResponse, RequestConfig } from "@interfaces";
+
+export interface Request<TArgs extends any[], TResult = void> {
+    run: (...args: TArgs) => Promise<ApiResponse<TResult>>;
+    cancel: () => void;
+    events: EventTarget;
+}
 
 export const useRequest = <TArgs extends any[], TResult = void>(
     request: (
         ...args: [...TArgs, RequestConfig]
     ) => Promise<ApiResponse<TResult>>
-) => {
-    const [loading, setLoading] = useState<LoadingState>("idle");
+): Request<TArgs, TResult> => {
+    const eventTarget = useRef(new EventTarget());
 
     const abortController = useRef(new AbortController());
 
-    const response = useRef<Promise<ApiResponse<TResult>> | null>(null);
-
-    const exec = async (...args: TArgs) => {
+    const execRequest = async (...args: TArgs) => {
         const controller = new AbortController();
         abortController.current.abort();
         abortController.current = controller;
@@ -27,11 +31,8 @@ export const useRequest = <TArgs extends any[], TResult = void>(
         return await request(...args, config);
     };
 
-    const runRequest = async (
-        resolver: (result: ApiResponse<TResult>) => void,
-        ...args: TArgs
-    ) => {
-        const result = await exec(...args);
+    const runRequest = async (...args: TArgs) => {
+        const result = await execRequest(...args);
 
         const { statusCode } = result;
 
@@ -39,41 +40,36 @@ export const useRequest = <TArgs extends any[], TResult = void>(
             const { statusCode } = await SessionsApi.refresh();
 
             if (statusCode === 200) {
-                const result = await exec(...args);
-                resolver(result);
-                return setLoading("done");
+                return await execRequest(...args);
             }
         }
 
-        resolver(result);
-        return setLoading("done");
+        return result;
     };
 
     const run = async (...args: TArgs): Promise<ApiResponse<TResult>> => {
-        setLoading("loading");
+        const events = eventTarget.current;
 
-        let resolver: (result: ApiResponse<TResult>) => void;
+        events.dispatchEvent(new Event("running"));
 
-        const waiter = new Promise<ApiResponse<TResult>>(
-            (resolve) => (resolver = resolve)
-        );
+        const response = await runRequest(...args);
 
-        response.current = waiter;
+        const event = new CustomEvent("finished", {
+            detail: response,
+        });
 
-        setTimeout(runRequest, 0, resolver!, ...args);
+        events.dispatchEvent(event);
 
-        return await response.current;
+        return response;
     };
 
-    const cancel = () => {
-        setLoading("done");
+    const cancel = (): void => {
         abortController.current.abort();
     };
 
     return {
-        response: response.current,
-        loading,
         run,
         cancel,
+        events: eventTarget.current,
     };
 };
