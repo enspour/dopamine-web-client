@@ -6,12 +6,14 @@ interface ModalsState {
     isOpenSearchModal: boolean;
     isOpenSettingsModal: boolean;
     isOpenMenuModal: boolean;
+    isOpenCreatePostModal: boolean;
 }
 
 const initialState: ModalsState = {
     isOpenSearchModal: false,
     isOpenSettingsModal: false,
     isOpenMenuModal: false,
+    isOpenCreatePostModal: false,
 };
 
 export const modalsSlice = createSlice({
@@ -41,6 +43,14 @@ export const modalsSlice = createSlice({
         closeMenuModal: (state) => {
             state.isOpenMenuModal = false;
         },
+
+        openCreatePostModal: (state) => {
+            state.isOpenCreatePostModal = true;
+        },
+
+        closeCreatePostModal: (state) => {
+            state.isOpenCreatePostModal = false;
+        },
     },
 });
 
@@ -51,6 +61,8 @@ export const {
     closeSettingsModal,
     openMenuModal,
     closeMenuModal,
+    openCreatePostModal,
+    closeCreatePostModal,
 } = modalsSlice.actions;
 
 export const selectIsOpenSearchModal = (state: RootState) =>
@@ -61,5 +73,8 @@ export const selectIsOpenSettingsModal = (state: RootState) =>
 
 export const selectIsOpenMenuModal = (state: RootState) =>
     state.modals.isOpenMenuModal;
+
+export const selectIsOpenCreatePostModal = (state: RootState) =>
+    state.modals.isOpenCreatePostModal;
 
 export const modalsReducer = modalsSlice.reducer;

@@ -1,0 +1,29 @@
+.modal__header {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.modal__form {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+
+    &__content {
+        // 2.5rem - header, 3.5rem - footer, 4rem - padding, 6rem - gap
+        max-height: calc(70rem - 2.5rem - 3.5rem - 4rem - 6rem);
+        display: flex;
+        gap: 2.5rem;
+    }
+
+    &__text {
+        width: 100%;
+    }
+
+    &__submit {
+        display: flex;
+        justify-content: flex-end;
+    }
+}
