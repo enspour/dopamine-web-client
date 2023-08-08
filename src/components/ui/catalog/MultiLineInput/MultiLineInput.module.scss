@@ -1,0 +1,25 @@
+@import "@styles/mixins/scroll.scss";
+
+.container {
+    --thumb: var(--theme-primary-scroll-thumb);
+    --thumb-hover: var(--theme-primary-scroll-thumb-hover);
+
+    height: 100%;
+    width: 100%;
+    overflow-x: auto;
+
+    @include custom-scroll(var(--thumb), var(--thumb-hover));
+}
+
+.input {
+    height: 100%;
+    width: 100%;
+    cursor: text;
+
+    --placeholder: var(--theme-primary-placeholder);
+
+    &[placeholder]:empty::before {
+        content: attr(placeholder);
+        color: var(--placeholder);
+    }
+}

@@ -73,11 +73,11 @@ const Box: FC<BoxProps> = ({
         if (box) {
             box.style.setProperty(
                 "--thumb",
-                getThemePropertyValue("scroll-thumb")
+                getThemePropertyValue("scroll-thumb", palette)
             );
             box.style.setProperty(
                 "--thumb-hover",
-                getThemePropertyValue("scroll-thumb-hover")
+                getThemePropertyValue("scroll-thumb-hover", palette)
             );
         }
     }, []);
