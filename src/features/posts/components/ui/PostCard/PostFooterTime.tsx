@@ -2,7 +2,7 @@ import { FC, memo } from "react";
 
 import { Post } from "@features/posts";
 
-import { useLocate } from "@features/inter/client";
+import FormatDateFromNow from "@components/others/FormatDateFromNow";
 
 import styles from "./PostCard.module.scss";
 
@@ -11,11 +11,9 @@ interface PostFooterTimeProps {
 }
 
 const PostFooterTime: FC<PostFooterTimeProps> = ({ post }) => {
-    const [locate] = useLocate();
-
     return (
         <div className={styles.post__footer__time}>
-            {new Date(post.createdAt).toLocaleString(locate)}
+            <FormatDateFromNow date={post.createdAt} />
         </div>
     );
 };

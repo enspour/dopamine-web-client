@@ -1,12 +1,11 @@
 import { FC, memo } from "react";
 
+import FormatTimeHHMMSS from "@components/others/FormatTimeHHMMSS";
 import Icon from "@components/ui/catalog/Icon/Icon";
 
 import { type ThemePalette } from "@features/theme";
 
 import type { Song } from "@features/songs";
-
-import { toHHMMSS } from "@utils";
 
 import LikeIcon from "@assets/icons/song-card/like.svg";
 import MoreIcon from "@assets/icons/song-card/more.svg";
@@ -25,7 +24,11 @@ const SongCardControls: FC<SongCardControlsProps> = ({
     palette,
 }) => {
     if (!isHover) {
-        return <div>{toHHMMSS(song.time)}</div>;
+        return (
+            <div>
+                <FormatTimeHHMMSS seconds={song.time} />
+            </div>
+        );
     }
 
     return (
