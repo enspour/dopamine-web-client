@@ -1,0 +1,16 @@
+.posts {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.posts__empty {
+    width: 100%;
+    height: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 0.1rem solid var(--theme-primary-border);
+    border-radius: 2rem;
+}

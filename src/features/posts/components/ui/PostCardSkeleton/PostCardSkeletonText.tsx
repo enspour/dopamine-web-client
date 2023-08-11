@@ -1,10 +1,10 @@
-import { memo } from "react";
+import { FC, memo } from "react";
 
 import SkeletonBox from "@components/ui/catalog/Skeleton/SkeletonBox";
 
 import styles from "./PostCardSkeleton.module.scss";
 
-const PostCardSkeletonText = () => {
+const PostCardSkeletonText: FC = () => {
     return (
         <div className={styles.post__text}>
             <SkeletonBox

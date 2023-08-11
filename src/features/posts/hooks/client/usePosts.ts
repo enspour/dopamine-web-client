@@ -1,38 +1,25 @@
+import { useEffect, useRef, useState } from "react";
+
 import { useRequest, useRequestLoading } from "@hooks/client";
 
-import { useAppDispatch, useAppSelector } from "@redux/hooks";
-
 import { Post, PostsApi } from "@features/posts";
-import {
-    appendPosts,
-    clearPosts,
-    insertPosts,
-    selectPosts,
-    selectPostsLastPage,
-} from "@features/posts/client";
 
-import { useFollowingIds, useUser } from "@features/users/client";
+import { events } from "@utils";
 
-export const usePosts = () => {
-    const { user } = useUser();
-    const { followingIds } = useFollowingIds();
+export const usePosts = (userIds: number[]) => {
+    const [posts, setPosts] = useState<Post[]>([]);
 
-    const posts = useAppSelector(selectPosts);
-    const lastPage = useAppSelector(selectPostsLastPage);
-
-    const dispatch = useAppDispatch();
+    const from = useRef<number>(0);
 
     const request = useRequest(PostsApi.getManyByUserIds);
     const loading = useRequestLoading(request, [posts]);
 
-    const upload = async (page: number): Promise<boolean> => {
-        const userIds = [user.id, ...followingIds];
-
-        const response = await request.run(userIds, page);
+    const upload = async (from: number, to: number): Promise<boolean> => {
+        const response = await request.run(userIds, from, to);
 
         if (response.statusCode === 200) {
             const { posts } = response.data;
-            dispatch(appendPosts(posts));
+            setPosts((prev) => [...prev, ...posts]);
 
             return true;
         }
@@ -40,18 +27,30 @@ export const usePosts = () => {
         return false;
     };
 
-    const uploadNext = async (): Promise<boolean> => {
-        const page = lastPage + 1;
-        return await upload(page);
+    const uploadMore = async (): Promise<boolean> => {
+        const value = from.current;
+
+        const isUpload = await upload(value, value + 10);
+
+        if (isUpload) {
+            from.current += 10;
+        }
+
+        return isUpload;
     };
 
-    const insert = (...posts: Post[]) => {
-        dispatch(insertPosts(posts));
-    };
+    useEffect(() => {
+        const off = events.on("posts/user-create-one", (post) => {
+            if (userIds.includes(post.owner.id)) {
+                from.current += 1;
+                setPosts((prev) => [post, ...prev]);
+            }
+        });
 
-    const clear = (): void => {
-        dispatch(clearPosts());
-    };
+        return () => {
+            off();
+        };
+    }, []);
 
-    return { posts, loading, insert, uploadNext, clear };
+    return { posts, loading, uploadMore };
 };

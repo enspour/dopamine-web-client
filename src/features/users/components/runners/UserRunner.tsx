@@ -7,7 +7,7 @@ import { useCustomRouter } from "@hooks/client";
 
 import { useUser } from "@features/users/client";
 
-import { isPrivateNavigation } from "@interfaces";
+import { isPrivateNavigationPath } from "@interfaces";
 
 const UserRunner: Runner = ({ done, setMessage }) => {
     const initialized = useRef(false);
@@ -22,7 +22,7 @@ const UserRunner: Runner = ({ done, setMessage }) => {
 
         const isUpdate = await update();
 
-        if (!isUpdate && isPrivateNavigation(pathname)) {
+        if (!isUpdate && isPrivateNavigationPath(pathname)) {
             await router.push("/login");
         }
 

@@ -3,7 +3,7 @@ import { User } from "@features/users";
 export interface Post {
     id: string;
     text: string;
-    images: string[];
+    files: string[];
     owner: User;
     comments: Post[];
     likes: number[];

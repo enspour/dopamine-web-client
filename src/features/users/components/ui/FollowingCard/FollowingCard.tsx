@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, memo } from "react";
 
 import FollowingCardSkeleton from "../FollowingCardSkeleton/FollowingCardSkeleton";
 
@@ -12,4 +12,4 @@ const FollowingCard: FC<FollowingCardProps> = ({ following }) => {
     return <FollowingCardSkeleton />;
 };
 
-export default FollowingCard;
+export default memo(FollowingCard);

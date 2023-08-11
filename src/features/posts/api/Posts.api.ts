@@ -6,7 +6,7 @@ import {
     PostsCreateDto,
     PostsGetManyResponseDto,
     PostsGetOneResponseDto,
-    PostsUpdateImagesDto,
+    PostsUpdateFilesDto,
     PostsUpdateTextDto,
 } from "@features/posts";
 
@@ -23,10 +23,14 @@ export class PostsApi {
 
     static async getManyByUserIds(
         ids: number[],
-        page: number,
+        from: number,
+        to: number,
         config?: RequestConfig
     ) {
-        const params = new URLSearchParams(`ids=${ids.join(",")}&page=${page}`);
+        const params = new URLSearchParams(
+            `ids=${ids.join(",")}&from=${from}&to=${to}`
+        );
+
         const url = `/api/v1/posts/by-user-ids?${params}`;
         return await api.get<PostsGetManyResponseDto>(url, config);
     }
@@ -46,11 +50,11 @@ export class PostsApi {
         return await api.put(url, data, config);
     }
 
-    static async updateImages(
-        data: PostsUpdateImagesDto,
+    static async updateFiles(
+        data: PostsUpdateFilesDto,
         config?: RequestConfig
     ) {
-        const url = "/api/v1/posts/text";
+        const url = "/api/v1/posts/files";
         return await api.put(url, data, config);
     }
 

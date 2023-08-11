@@ -18,7 +18,7 @@ export interface PostsUpdateTextDto {
     text: string;
 }
 
-export interface PostsUpdateImagesDto {
+export interface PostsUpdateFilesDto {
     id: string;
-    images: string[];
+    files: string[];
 }

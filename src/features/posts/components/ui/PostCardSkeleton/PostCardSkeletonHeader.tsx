@@ -1,11 +1,11 @@
-import { memo } from "react";
+import { FC, memo } from "react";
 
 import SkeletonBox from "@components/ui/catalog/Skeleton/SkeletonBox";
 import SkeletonCircle from "@components/ui/catalog/Skeleton/SkeletonCircle";
 
 import styles from "./PostCardSkeleton.module.scss";
 
-const PostCardSkeletonHeader = () => {
+const PostCardSkeletonHeader: FC = () => {
     return (
         <div className={styles.post__header}>
             <SkeletonCircle style={{ diameter: "5rem" }} />

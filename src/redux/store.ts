@@ -2,16 +2,10 @@ import { configureStore } from "@reduxjs/toolkit";
 
 import { interReducer as inter } from "@features/inter/client";
 import { modalsReducer as modals } from "@features/modals/client";
-import { postsReducer as posts } from "@features/posts/client";
-import {
-    followingsReducer as followings,
-    userReducer as user,
-} from "@features/users/client";
+import { userReducer as user } from "@features/users/client";
 
 const store = configureStore({
     reducer: {
-        followings,
-        posts,
         user,
         inter,
         modals,
