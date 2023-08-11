@@ -1,27 +1,44 @@
+export const browseNavigation = {
+    id: "browse",
+    path: "/browse",
+} as const;
+
+export const storeNavigation = {
+    id: "store",
+    path: "/store",
+} as const;
+
+export const feedNavigation = {
+    id: "feed",
+    path: "/feed",
+} as const;
+
 export const navigation = [
-    {
-        id: "browse",
-        href: "/browse",
-    },
-    {
-        id: "store",
-        href: "/store",
-    },
-    {
-        id: "feed",
-        href: "/feed",
-    },
+    browseNavigation,
+    storeNavigation,
+    feedNavigation,
 ] as const;
 
+export const navigationIds = navigation.map((nav) => nav.id);
+export const navigationPath = navigation.map((nav) => nav.path);
+
 export type Navigation = (typeof navigation)[number];
-export type NavigationIds = Navigation["id"];
+export type NavigationIds = (typeof navigationIds)[number];
+export type NavigationPath = (typeof navigationPath)[number];
 
-export const privateNavigationIds = ["/feed", "/store"] as const;
+export const privateNavigation = [storeNavigation, feedNavigation] as const;
 
-export type PrivateNavigationId = (typeof privateNavigationIds)[number];
+export const privateNavigationIds = privateNavigation.map((nav) => nav.id);
+export const privateNavigationPaths = privateNavigation.map((nav) => nav.path);
 
-export const isPrivateNavigation = (id: string): id is PrivateNavigationId => {
-    if (privateNavigationIds.includes(id as PrivateNavigationId)) {
+export type PrivateNavigation = (typeof privateNavigation)[number];
+export type PrivateNavigationIds = (typeof privateNavigationIds)[number];
+export type PrivateNavigationPath = (typeof privateNavigationPaths)[number];
+
+export const isPrivateNavigationPath = (
+    path: string
+): path is PrivateNavigationPath => {
+    if (privateNavigationPaths.includes(path as PrivateNavigationPath)) {
         return true;
     }
 

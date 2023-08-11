@@ -6,9 +6,11 @@ import AsyncButton from "@components/ui/catalog/AsyncButton/AsyncButton";
 import type { StepperFooterProps } from "@components/ui/navigation/Stepper/Stepper";
 import type { ExtraProps } from "../../Login/Login";
 
-import { AuthApi } from "@features/authorization";
-
-import { validateEmail, validatePassword } from "@utils";
+import {
+    AuthApi,
+    validateEmail,
+    validatePassword,
+} from "@features/authorization";
 
 import styles from "./CredentialsStep.module.scss";
 

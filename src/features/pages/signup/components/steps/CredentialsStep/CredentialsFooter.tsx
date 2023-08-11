@@ -3,9 +3,9 @@ import { FC, memo } from "react";
 import AsyncButton from "@components/ui/catalog/AsyncButton/AsyncButton";
 
 import type { StepperFooterProps } from "@components/ui/navigation/Stepper/Stepper";
-import type { ExtraProps } from "../../Signup";
+import type { ExtraProps } from "../../Signup/Signup";
 
-import { validateEmail } from "@utils";
+import { validateEmail } from "@features/authorization";
 
 import styles from "./CredentialsStep.module.scss";
 

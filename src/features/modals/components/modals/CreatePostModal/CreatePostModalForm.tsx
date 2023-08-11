@@ -10,9 +10,10 @@ import CreatePostModalUser from "./CreatePostModalUser";
 import { useRequest } from "@hooks/client";
 
 import { PostsApi } from "@features/posts";
-import { usePosts } from "@features/posts/client";
 
 import { useCreatePostModal } from "@features/modals/client";
+
+import { events } from "@utils";
 
 import styles from "./CreatePostModal.module.scss";
 
@@ -23,15 +24,15 @@ const CreatePostModalForm: FC = () => {
 
     const request = useRequest(PostsApi.create);
 
-    const { insert } = usePosts();
-
     const submit = async (): Promise<void> => {
         const data = { text };
+
         const response = await request.run(data);
 
         if (response.statusCode === 201) {
             const { post } = response.data;
-            insert(post);
+
+            events.dispatch("posts/user-create-one", post);
 
             close();
         }

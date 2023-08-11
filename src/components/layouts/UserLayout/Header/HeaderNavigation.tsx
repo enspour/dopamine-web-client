@@ -22,9 +22,9 @@ const HeaderNavigation: FC = () => {
             {navigation.map((nav) => (
                 <Link
                     key={nav.id}
-                    href={nav.href}
+                    href={nav.path}
                     className={
-                        isActive(nav.href)
+                        isActive(nav.path)
                             ? styles.header__navigation__item__active
                             : styles.header__navigation__item
                     }

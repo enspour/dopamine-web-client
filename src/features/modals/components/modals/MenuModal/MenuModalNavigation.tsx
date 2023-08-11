@@ -30,7 +30,7 @@ const MenuModalNavigation = () => {
             {navigation.map((nav) => (
                 <HorizontalMenuButton
                     key={nav.id}
-                    id={nav.href}
+                    id={nav.path}
                     onClick={handleClick}
                 >
                     <InterMessage id={`nav.${nav.id}.name`} />
