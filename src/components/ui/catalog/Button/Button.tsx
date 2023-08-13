@@ -18,7 +18,7 @@ import styles from "./Button.module.scss";
 
 interface ButtonProps {
     children: ReactNode | ReactNode[];
-    onClick: (e: MouseEvent<HTMLButtonElement>) => void;
+    onClick?: (e: MouseEvent<HTMLButtonElement>) => void;
     width?: string;
     height?: string;
     disabled?: boolean;

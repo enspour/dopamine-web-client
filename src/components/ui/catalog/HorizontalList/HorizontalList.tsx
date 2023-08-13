@@ -11,24 +11,24 @@ import {
 
 import { type ThemePalette } from "@features/theme";
 
-import styles from "./HorizontalMenu.module.scss";
+import styles from "./HorizontalList.module.scss";
 
-export interface HorizontalMenuStyle {
+export interface HorizontalListStyle {
     justifyContent?: "flex-start" | "flex-end" | "center";
 }
 
-export const initialStyle: HorizontalMenuStyle = {
+export const initialStyle: HorizontalListStyle = {
     justifyContent: "flex-start",
 };
 
-interface HorizontalMenuProps {
+interface HorizontalListProps {
     children: ReactNode | ReactNode[];
     currentId?: string;
-    style?: HorizontalMenuStyle;
+    style?: HorizontalListStyle;
     palette?: ThemePalette;
 }
 
-const HorizontalMenu: FC<HorizontalMenuProps> = ({
+const HorizontalList: FC<HorizontalListProps> = ({
     children,
     currentId,
     style,
@@ -46,7 +46,7 @@ const HorizontalMenu: FC<HorizontalMenuProps> = ({
         return child;
     });
 
-    return <div className={styles.menu}>{cloned}</div>;
+    return <div className={styles.list}>{cloned}</div>;
 };
 
-export default memo(HorizontalMenu);
+export default memo(HorizontalList);

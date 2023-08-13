@@ -2,10 +2,10 @@
 
 import { memo, useRef } from "react";
 
+import ContextMenu from "@components/ui/catalog/ContextMenu/ContextMenu";
 import SkeletonCircle from "@components/ui/catalog/Skeleton/SkeletonCircle";
-import DropdownPanel from "./DropdownPanel/DropdownPanel";
 
-import { useOutsideClickAlerter } from "@hooks/client";
+import DropdownPanel from "./DropdownPanel/DropdownPanel";
 
 import { useUser } from "@features/users/client";
 
@@ -16,29 +16,21 @@ const HeaderUser = () => {
 
     const { user } = useUser();
 
-    const [isOpen, setIsOpen] = useOutsideClickAlerter(userRef);
-
-    const toggle = () => {
-        setIsOpen((prev) => !prev);
-    };
-
-    const close = () => {
-        setIsOpen(false);
-    };
-
     return (
         <div ref={userRef} className={styles.header__user}>
-            <div className={styles.header__user__info} onClick={toggle}>
-                <div className={styles.header__user__avatar}>
-                    <SkeletonCircle style={{ diameter: "3.5rem" }} />
+            <ContextMenu style={{ location: "right" }}>
+                <div className={styles.header__user__info}>
+                    <div className={styles.header__user__avatar}>
+                        <SkeletonCircle style={{ diameter: "3.5rem" }} />
+                    </div>
+
+                    <div className={styles.header__user__nickname}>
+                        {user.nickname}
+                    </div>
                 </div>
 
-                <div className={styles.header__user__nickname}>
-                    {user.nickname}
-                </div>
-            </div>
-
-            <DropdownPanel isOpen={isOpen} close={close} />
+                <DropdownPanel />
+            </ContextMenu>
         </div>
     );
 };

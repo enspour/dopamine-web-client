@@ -1,8 +1,8 @@
 import { useRouter } from "next/navigation";
 import { FC, memo } from "react";
 
-import HorizontalMenu from "@components/ui/navigation/HorizontalMenu/HorizontalMenu";
-import HorizontalMenuButton from "@components/ui/navigation/HorizontalMenu/HorizontalMenuButton";
+import HorizontalList from "@components/ui/catalog/HorizontalList/HorizontalList";
+import HorizontalListElement from "@components/ui/catalog/HorizontalList/HorizontalListElement";
 import DropdownPanelMenuItem from "./DropdownPanelMenuItem";
 
 import { useSettingsModal } from "@features/modals/client";
@@ -46,19 +46,19 @@ const DropdownPanelMenu: FC<DropdownPanelMenuProps> = ({ close }) => {
 
     return (
         <div className={styles.panel__menu}>
-            <HorizontalMenu>
-                <HorizontalMenuButton onClick={openChannel}>
+            <HorizontalList>
+                <HorizontalListElement onClick={openChannel}>
                     <DropdownPanelMenuItem id="channel" svg={ChannelIcon} />
-                </HorizontalMenuButton>
+                </HorizontalListElement>
 
-                <HorizontalMenuButton onClick={openSettings}>
+                <HorizontalListElement onClick={openSettings}>
                     <DropdownPanelMenuItem id="settings" svg={SettingsIcon} />
-                </HorizontalMenuButton>
+                </HorizontalListElement>
 
-                <HorizontalMenuButton onClick={logout}>
+                <HorizontalListElement onClick={logout}>
                     <DropdownPanelMenuItem id="logout" svg={LogoutIcon} />
-                </HorizontalMenuButton>
-            </HorizontalMenu>
+                </HorizontalListElement>
+            </HorizontalList>
         </div>
     );
 };

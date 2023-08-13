@@ -20,7 +20,7 @@ const MultiLineInput: FC<MultiLineInputProps> = ({
     const inputRef = useRef<HTMLDivElement>(null);
 
     const handleInput = (e: FormEvent<HTMLDivElement>) => {
-        onChange(e.currentTarget.textContent || "");
+        onChange(e.currentTarget.innerText || "");
     };
 
     useEffect(() => {
@@ -40,6 +40,30 @@ const MultiLineInput: FC<MultiLineInputProps> = ({
                 "--thumb-hover",
                 getThemePropertyValue("scroll-thumb-hover", palette)
             );
+        }
+    }, []);
+
+    useEffect(() => {
+        const input = inputRef.current;
+
+        if (input) {
+            const paste = async (e: ClipboardEvent) => {
+                e.preventDefault();
+
+                if (e.clipboardData) {
+                    const content = e.clipboardData.getData("text/plain");
+
+                    if (content) {
+                        document.execCommand("insertText", false, content);
+                    }
+                }
+            };
+
+            input.addEventListener("paste", paste);
+
+            return () => {
+                input.removeEventListener("paste", paste);
+            };
         }
     }, []);
 

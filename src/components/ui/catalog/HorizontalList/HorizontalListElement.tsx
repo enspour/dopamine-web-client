@@ -1,36 +1,29 @@
 "use client";
 
-import {
-    CSSProperties,
-    FC,
-    MouseEvent,
-    ReactNode,
-    memo,
-    useEffect,
-    useRef,
-} from "react";
+import { CSSProperties, FC, MouseEvent, ReactNode, memo, useRef } from "react";
 
-import { HorizontalMenuStyle } from "./HorizontalMenu";
+import { HorizontalListStyle } from "./HorizontalList";
 
 import { useIsHover } from "@hooks/client";
 
 import { getThemePropertyValue, type ThemePalette } from "@features/theme";
 
-import styles from "./HorizontalMenu.module.scss";
+import styles from "./HorizontalList.module.scss";
 
-interface HorizontalMenuButtonProps {
+interface HorizontalListElementProps {
     children: ReactNode | ReactNode[];
     id?: string;
     onClick: (id: string, e: MouseEvent<HTMLElement>) => void;
 }
 
-interface HorizontalMenuButtonExtendedProps extends HorizontalMenuButtonProps {
+interface HorizontalListElementExtendedProps
+    extends HorizontalListElementProps {
     isActive: boolean;
-    style: HorizontalMenuStyle;
+    style: HorizontalListStyle;
     palette: ThemePalette;
 }
 
-const HorizontalMenuButton: FC<HorizontalMenuButtonProps> = (props) => {
+const HorizontalListElement: FC<HorizontalListElementProps> = (props) => {
     const {
         children,
         id = "",
@@ -38,43 +31,32 @@ const HorizontalMenuButton: FC<HorizontalMenuButtonProps> = (props) => {
         isActive,
         style,
         palette,
-    } = props as HorizontalMenuButtonExtendedProps;
+    } = props as HorizontalListElementExtendedProps;
 
-    const buttonRef = useRef<HTMLButtonElement>(null);
+    const elementRef = useRef<HTMLDivElement>(null);
 
-    const isHover = useIsHover(buttonRef);
+    const isHover = useIsHover(elementRef);
 
     const handleClick = (e: MouseEvent<HTMLElement>) => {
         onClick(id, e);
     };
 
-    useEffect(() => {
-        const button = buttonRef.current;
-
-        if (button) {
-            button.style.setProperty(
-                "--border-focus",
-                getThemePropertyValue("border-focus", palette)
-            );
-        }
-    }, []); //eslint-disable-line
-
     return (
-        <button
-            ref={buttonRef}
-            className={styles.menu__button}
+        <div
+            ref={elementRef}
+            className={styles.list__element}
             onClick={handleClick}
             style={getStyle(isHover, isActive, style, palette)}
         >
             {children}
-        </button>
+        </div>
     );
 };
 
 const getStyle = (
     isHover: boolean,
     isActive: boolean,
-    style: HorizontalMenuStyle,
+    style: HorizontalListStyle,
     palette: ThemePalette
 ): CSSProperties => ({
     ...style,
@@ -101,4 +83,4 @@ const getStyle = (
     }`,
 });
 
-export default memo(HorizontalMenuButton);
+export default memo(HorizontalListElement);
