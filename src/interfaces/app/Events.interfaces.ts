@@ -1,7 +1,8 @@
-import { Post } from "@features/posts";
+import { type Post } from "@features/posts";
 
-export type EventName = "posts/user-create-one";
-
-export interface Events extends Record<EventName, any[]> {
+export interface Events {
     "posts/user-create-one": [Post];
+    "posts/user-remove-one": [Post];
 }
+
+export type EventName = keyof Events;

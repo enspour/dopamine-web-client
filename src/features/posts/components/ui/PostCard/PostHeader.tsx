@@ -3,14 +3,13 @@
 import { useRouter } from "next/navigation";
 import { CSSProperties, FC, memo, MouseEvent } from "react";
 
-import Icon from "@components/ui/catalog/Icon/Icon";
 import SkeletonCircle from "@components/ui/catalog/Skeleton/SkeletonCircle";
+
+import PostHeaderMore from "./PostHeaderMore";
 
 import { getThemePropertyValue, type ThemePalette } from "@features/theme";
 
-import MoreIcon from "@assets/icons/post-card/more.svg";
-
-import { Post } from "@features/posts";
+import { type Post } from "@features/posts";
 
 import styles from "./PostCard.module.scss";
 
@@ -30,7 +29,7 @@ const PostHeader: FC<PostHeaderProps> = ({ post, palette }) => {
 
     return (
         <div className={styles.post__header} style={getColorStyles(palette)}>
-            <div className={styles.post__header__wrapper}>
+            <div className={styles.post__header__container}>
                 <div className={styles.post__header__user__avatar}>
                     <SkeletonCircle style={{ diameter: "5rem" }} />
                 </div>
@@ -50,7 +49,7 @@ const PostHeader: FC<PostHeaderProps> = ({ post, palette }) => {
                 </div>
             </div>
 
-            <Icon svg={MoreIcon} />
+            <PostHeaderMore post={post} />
         </div>
     );
 };

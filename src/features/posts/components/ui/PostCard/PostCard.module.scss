@@ -14,7 +14,7 @@
     align-items: center;
     justify-content: space-between;
 
-    &__wrapper {
+    &__container {
         display: flex;
         align-items: center;
         gap: 2.5rem;
@@ -31,6 +31,12 @@
     }
 
     &__user__avatar {
+    }
+
+    &__control {
+        height: 1rem;
+        display: flex;
+        align-items: center;
     }
 }
 

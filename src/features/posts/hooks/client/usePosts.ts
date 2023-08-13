@@ -41,16 +41,42 @@ export const usePosts = (userIds: number[]) => {
 
     useEffect(() => {
         const off = events.on("posts/user-create-one", (post) => {
-            if (userIds.includes(post.owner.id)) {
-                from.current += 1;
-                setPosts((prev) => [post, ...prev]);
+            if (!userIds.includes(post.owner.id)) {
+                return;
             }
+
+            from.current += 1;
+            setPosts((prev) => [post, ...prev]);
         });
 
         return () => {
             off();
         };
     }, []);
+
+    useEffect(() => {
+        const off = events.on("posts/user-remove-one", (post) => {
+            if (!userIds.includes(post.owner.id)) {
+                return;
+            }
+
+            const index = posts.findIndex((item) => item.id === post.id);
+
+            if (index === -1) {
+                return;
+            }
+
+            from.current -= 1;
+            setPosts((prev) => [
+                ...prev.slice(0, index),
+                ...prev.slice(index + 1),
+            ]);
+        });
+
+        return () => {
+            off();
+        };
+    }, [posts]);
 
     return { posts, loading, uploadMore };
 };
