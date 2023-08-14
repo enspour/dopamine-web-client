@@ -11,5 +11,5 @@
 -   Launched on Ubuntu 23.04
 
 ```bash
-    yarn run dev
+yarn run dev
 ```
