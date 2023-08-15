@@ -6,7 +6,7 @@ import { Post, PostsApi } from "@features/posts";
 
 import { events } from "@utils";
 
-export const usePosts = (userIds: number[]) => {
+export const usePosts = (...userIds: number[]) => {
     const [posts, setPosts] = useState<Post[]>([]);
 
     const from = useRef<number>(0);

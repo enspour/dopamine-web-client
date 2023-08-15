@@ -2,13 +2,15 @@ import { FC, memo } from "react";
 
 import { FollowingCardSkeleton } from "@features/users";
 
-import styles from "./FollowingsList.module.scss";
+import styles from "./FollowingCardList.module.scss";
 
-interface FollowingCardSkeletonProps {
+interface FollowingCardListSkeletonProps {
     length: number;
 }
 
-const FollowingsSkeleton: FC<FollowingCardSkeletonProps> = ({ length }) => {
+const FollowingCardListSkeleton: FC<FollowingCardListSkeletonProps> = ({
+    length,
+}) => {
     const followings = Array.from({ length }, (_, i) => i);
 
     return (
@@ -20,4 +22,4 @@ const FollowingsSkeleton: FC<FollowingCardSkeletonProps> = ({ length }) => {
     );
 };
 
-export default memo(FollowingsSkeleton);
+export default memo(FollowingCardListSkeleton);

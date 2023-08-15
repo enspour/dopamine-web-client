@@ -1,6 +1,6 @@
 import { memo, useEffect, useRef } from "react";
 
-import { Runner } from "@components/layouts/LoaderLayout/LoaderLayout";
+import { type Runner } from "@components/layouts/LoaderLayout/LoaderLayout";
 
 import { useFollowingIds, useUser } from "@features/users/client";
 
@@ -27,7 +27,7 @@ const FollowingsRunner: Runner = ({ done, setMessage }) => {
 
             run();
         }
-    }, [user]);
+    }, []);
 
     return null;
 };

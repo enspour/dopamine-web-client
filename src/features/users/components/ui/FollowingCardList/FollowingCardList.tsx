@@ -2,20 +2,20 @@
 
 import { FC, memo, useEffect } from "react";
 
-import FollowingsListEmpty from "./FollowingsListEmpty";
-import FollowingsSkeleton from "./FollowingsListSkeleton";
+import FollowingCardListEmpty from "./FollowingCardListEmpty";
+import FollowingCardListSkeleton from "./FollowingCardListSkeleton";
 
 import { FollowingCard } from "@features/users";
 import { useFollowings } from "@features/users/client";
 
-import styles from "./FollowingsList.module.scss";
+import styles from "./FollowingCardList.module.scss";
 
-interface FollowingsListProps {
+interface FollowingCardListProps {
     userId: number;
     emptyListMessage: string;
 }
 
-const FollowingsList: FC<FollowingsListProps> = ({
+const FollowingCardList: FC<FollowingCardListProps> = ({
     userId,
     emptyListMessage,
 }) => {
@@ -26,11 +26,11 @@ const FollowingsList: FC<FollowingsListProps> = ({
     }, []);
 
     if (loading === "loading") {
-        return <FollowingsSkeleton length={8} />;
+        return <FollowingCardListSkeleton length={8} />;
     }
 
     if (loading === "idle" && followings.length === 0) {
-        return <FollowingsListEmpty message={emptyListMessage} />;
+        return <FollowingCardListEmpty message={emptyListMessage} />;
     }
 
     return (
@@ -42,4 +42,4 @@ const FollowingsList: FC<FollowingsListProps> = ({
     );
 };
 
-export default memo(FollowingsList);
+export default memo(FollowingCardList);

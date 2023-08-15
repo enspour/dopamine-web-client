@@ -2,32 +2,32 @@
 
 import { FC, memo, useEffect } from "react";
 
-import PostsListEmpty from "./PostsListEmpty";
-import PostsListSkeleton from "./PostsListSkeleton";
+import PostCardListEmpty from "./PostCardListEmpty";
+import PostCardListSkeleton from "./PostCardListSkeleton";
 
 import { PostCard } from "@features/posts";
 import { usePosts } from "@features/posts/client";
 
-import styles from "./PostsList.module.scss";
+import styles from "./PostCardList.module.scss";
 
-interface PostsListProps {
+interface PostCardListProps {
     userIds: number[];
     emptyListMessage: string;
 }
 
-const PostsList: FC<PostsListProps> = ({ userIds, emptyListMessage }) => {
-    const { posts, loading, uploadMore } = usePosts(userIds);
+const PostCardList: FC<PostCardListProps> = ({ userIds, emptyListMessage }) => {
+    const { posts, loading, uploadMore } = usePosts(...userIds);
 
     useEffect(() => {
         uploadMore();
     }, []);
 
     if (loading === "loading") {
-        return <PostsListSkeleton length={2} />;
+        return <PostCardListSkeleton length={2} />;
     }
 
     if (loading === "idle" && posts.length === 0) {
-        return <PostsListEmpty message={emptyListMessage} />;
+        return <PostCardListEmpty message={emptyListMessage} />;
     }
 
     return (
@@ -39,4 +39,4 @@ const PostsList: FC<PostsListProps> = ({ userIds, emptyListMessage }) => {
     );
 };
 
-export default memo(PostsList);
+export default memo(PostCardList);

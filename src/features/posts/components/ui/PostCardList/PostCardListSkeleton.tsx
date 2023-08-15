@@ -2,13 +2,13 @@ import { FC, memo } from "react";
 
 import { PostCardSkeleton } from "@features/posts";
 
-import styles from "./PostsList.module.scss";
+import styles from "./PostCardList.module.scss";
 
-interface PostsSkeletonProps {
+interface PostCardListSkeletonProps {
     length: number;
 }
 
-const PostsListSkeleton: FC<PostsSkeletonProps> = ({ length }) => {
+const PostCardListSkeleton: FC<PostCardListSkeletonProps> = ({ length }) => {
     const posts = Array.from({ length }, (_, i) => i);
 
     return (
@@ -20,4 +20,4 @@ const PostsListSkeleton: FC<PostsSkeletonProps> = ({ length }) => {
     );
 };
 
-export default memo(PostsListSkeleton);
+export default memo(PostCardListSkeleton);

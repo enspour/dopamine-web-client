@@ -3,7 +3,7 @@ export * from "./dto";
 export * from "./interfaces";
 
 import FollowingCard from "./components/ui/FollowingCard/FollowingCard";
+import FollowingCardList from "./components/ui/FollowingCardList/FollowingCardList";
 import FollowingCardSkeleton from "./components/ui/FollowingCardSkeleton/FollowingCardSkeleton";
-import FollowingsList from "./components/ui/FollowingsList/FollowingsList";
 
-export { FollowingCard, FollowingCardSkeleton, FollowingsList };
+export { FollowingCard, FollowingCardList, FollowingCardSkeleton };
