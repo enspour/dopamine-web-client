@@ -1,8 +1,9 @@
+import { FileMetadata } from "@features/files";
 import { Post } from "@features/posts";
 
 export interface PostsCreateDto {
     text?: string;
-    images?: string[];
+    files?: FileMetadata[];
 }
 
 export interface PostsGetOneResponseDto {
@@ -20,5 +21,5 @@ export interface PostsUpdateTextDto {
 
 export interface PostsUpdateFilesDto {
     id: string;
-    files: string[];
+    files: FileMetadata[];
 }

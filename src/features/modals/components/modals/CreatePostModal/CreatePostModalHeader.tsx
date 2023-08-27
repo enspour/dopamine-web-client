@@ -1,3 +1,5 @@
+"use client";
+
 import { FC, memo } from "react";
 
 import Icon from "@components/ui/catalog/Icon/Icon";
@@ -12,9 +14,9 @@ const CreatePostModalHeader: FC = () => {
     const { close } = useCreatePostModal();
 
     return (
-        <div className={styles.modal__header} onClick={close}>
+        <div className={styles.header} onClick={close}>
             <Icon svg={BackIcon} />
-            <div>Create New Post</div>
+            <div>New Post</div>
         </div>
     );
 };

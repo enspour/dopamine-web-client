@@ -1,6 +1,6 @@
 "use client";
 
-import { memo, useEffect } from "react";
+import { memo } from "react";
 
 import Box from "@components/ui/catalog/Box/Box";
 
@@ -16,10 +16,6 @@ const CreatePostModal = () => {
     const matches = useMediaQuery("(max-width: 768px)");
 
     const { isOpen, close } = useCreatePostModal();
-
-    useEffect(() => {
-        !matches && close();
-    }, [matches]);
 
     return (
         <Modal isOpen={isOpen} close={close} style={getModalStyles(matches)}>

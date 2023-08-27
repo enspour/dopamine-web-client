@@ -1,7 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
 
 import { interReducer as inter } from "@features/inter/client";
-import { modalsReducer as modals } from "@features/modals/client";
+
+import {
+    createPostModalDataReducer as createPostModalData,
+    modalsReducer as modals,
+} from "@features/modals/client";
+
 import { userReducer as user } from "@features/users/client";
 
 const store = configureStore({
@@ -9,6 +14,7 @@ const store = configureStore({
         user,
         inter,
         modals,
+        createPostModalData,
     },
 });
 

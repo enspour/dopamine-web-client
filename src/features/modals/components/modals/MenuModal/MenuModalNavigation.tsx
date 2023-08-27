@@ -2,8 +2,8 @@
 
 import { usePathname } from "next/navigation";
 
-import HorizontalList from "@components/ui/catalog/HorizontalList/HorizontalList";
-import HorizontalListElement from "@components/ui/catalog/HorizontalList/HorizontalListElement";
+import VerticalList from "@components/ui/catalog/VerticalList/VerticalList";
+import VerticalListElement from "@components/ui/catalog/VerticalList/VerticalListElement";
 
 import { InterMessage } from "@features/inter/client";
 
@@ -26,17 +26,17 @@ const MenuModalNavigation = () => {
     };
 
     return (
-        <HorizontalList currentId={pathname} style={getMenuStyles()}>
+        <VerticalList currentId={pathname} style={getMenuStyles()}>
             {navigation.map((nav) => (
-                <HorizontalListElement
+                <VerticalListElement
                     key={nav.id}
                     id={nav.path}
                     onClick={handleClick}
                 >
                     <InterMessage id={`nav.${nav.id}.name`} />
-                </HorizontalListElement>
+                </VerticalListElement>
             ))}
-        </HorizontalList>
+        </VerticalList>
     );
 };
 
