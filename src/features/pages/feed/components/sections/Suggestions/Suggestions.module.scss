@@ -1,0 +1,21 @@
+.container {
+    min-height: calc(100vh - 5rem);
+    width: 100%;
+
+    @media screen and (max-width: 1240px) {
+        display: none;
+    }
+}
+
+.suggestions {
+    position: sticky;
+    top: 13rem;
+    left: 0;
+    color: var(--theme-primary-color);
+
+    &__header {
+        font-weight: 500;
+        display: flex;
+        justify-content: space-between;
+    }
+}

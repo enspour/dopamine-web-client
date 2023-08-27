@@ -1,0 +1,14 @@
+.layout {
+    display: grid;
+    grid-template-columns: 20% minmax(45rem, 60rem) 20%;
+    justify-content: center;
+    gap: 4rem;
+
+    @media screen and (max-width: 1240px) {
+        grid-template-columns: 5rem minmax(45rem, 60rem) 5rem;
+    }
+
+    @media screen and (max-width: 840px) {
+        grid-template-columns: minmax(45rem, 60rem);
+    }
+}
