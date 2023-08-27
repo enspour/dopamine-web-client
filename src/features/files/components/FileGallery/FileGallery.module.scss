@@ -1,0 +1,40 @@
+.gallery {
+    display: grid;
+    gap: 0.3rem;
+
+    & :nth-child(1) {
+        grid-column-start: span 2;
+        grid-row-start: span 2;
+    }
+
+    & :nth-child(2),
+    & :nth-child(3) {
+        grid-column-start: 3;
+    }
+
+    & :nth-child(2):last-child {
+        grid-column: 3 / 5;
+        grid-row-start: span 2;
+    }
+
+    & :nth-child(1):nth-last-child(4) {
+        grid-column-start: span 3;
+        grid-row-start: span 3;
+    }
+
+    & :nth-child(2):nth-last-child(3) {
+        grid-column-start: 1;
+    }
+
+    & :nth-child(3):nth-last-child(2) {
+        grid-column-start: 2;
+    }
+
+    & :nth-child(4):nth-last-child(1) {
+        grid-column-start: 3;
+    }
+}
+
+.gallery__card {
+    border-radius: 1rem;
+}
