@@ -58,7 +58,9 @@ const getCircleStyles = (style: SkeletonCircleStyle): CSSProperties => {
     const { diameter } = Object.assign({}, initialStyle, style);
 
     return {
+        minWidth: diameter,
         width: diameter,
+        minHeight: diameter,
         height: diameter,
     };
 };

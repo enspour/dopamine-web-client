@@ -11,24 +11,24 @@ import {
 
 import { type ThemePalette } from "@features/theme";
 
-import styles from "./HorizontalList.module.scss";
+import styles from "./VerticalList.module.scss";
 
-export interface HorizontalListStyle {
+export interface VerticalListStyle {
     justifyContent?: "flex-start" | "flex-end" | "center";
 }
 
-export const initialStyle: HorizontalListStyle = {
+export const initialStyle: VerticalListStyle = {
     justifyContent: "flex-start",
 };
 
-interface HorizontalListProps {
+interface VerticalListProps {
     children: ReactNode | ReactNode[];
     currentId?: string;
-    style?: HorizontalListStyle;
+    style?: VerticalListStyle;
     palette?: ThemePalette;
 }
 
-const HorizontalList: FC<HorizontalListProps> = ({
+const VerticalList: FC<VerticalListProps> = ({
     children,
     currentId,
     style,
@@ -49,4 +49,4 @@ const HorizontalList: FC<HorizontalListProps> = ({
     return <div className={styles.list}>{cloned}</div>;
 };
 
-export default memo(HorizontalList);
+export default memo(VerticalList);

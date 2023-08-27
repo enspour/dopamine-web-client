@@ -1,8 +1,8 @@
 import { FC, memo } from "react";
 
 import Box from "@components/ui/catalog/Box/Box";
-import HorizontalList from "@components/ui/catalog/HorizontalList/HorizontalList";
-import HorizontalListElement from "@components/ui/catalog/HorizontalList/HorizontalListElement";
+import VerticalList from "@components/ui/catalog/VerticalList/VerticalList";
+import VerticalListElement from "@components/ui/catalog/VerticalList/VerticalListElement";
 
 import { useRequest } from "@hooks/client";
 
@@ -29,15 +29,15 @@ const PostHeaderMoreMenu: FC<PostHeaderMoreMenuProps> = ({ post }) => {
 
     return (
         <Box style={getStyle()}>
-            <HorizontalList>
-                <HorizontalListElement onClick={remove}>
+            <VerticalList>
+                <VerticalListElement onClick={remove}>
                     Remove
-                </HorizontalListElement>
+                </VerticalListElement>
 
-                <HorizontalListElement onClick={complain}>
+                <VerticalListElement onClick={complain}>
                     Complain
-                </HorizontalListElement>
-            </HorizontalList>
+                </VerticalListElement>
+            </VerticalList>
         </Box>
     );
 };

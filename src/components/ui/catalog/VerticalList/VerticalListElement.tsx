@@ -2,28 +2,27 @@
 
 import { CSSProperties, FC, MouseEvent, ReactNode, memo, useRef } from "react";
 
-import { HorizontalListStyle } from "./HorizontalList";
+import { VerticalListStyle } from "./VerticalList";
 
 import { useIsHover } from "@hooks/client";
 
 import { getThemePropertyValue, type ThemePalette } from "@features/theme";
 
-import styles from "./HorizontalList.module.scss";
+import styles from "./VerticalList.module.scss";
 
-interface HorizontalListElementProps {
+interface VerticalListElementProps {
     children: ReactNode | ReactNode[];
     id?: string;
     onClick: (id: string, e: MouseEvent<HTMLElement>) => void;
 }
 
-interface HorizontalListElementExtendedProps
-    extends HorizontalListElementProps {
+interface VerticalListElementExtendedProps extends VerticalListElementProps {
     isActive: boolean;
-    style: HorizontalListStyle;
+    style: VerticalListStyle;
     palette: ThemePalette;
 }
 
-const HorizontalListElement: FC<HorizontalListElementProps> = (props) => {
+const VerticalListElement: FC<VerticalListElementProps> = (props) => {
     const {
         children,
         id = "",
@@ -31,7 +30,7 @@ const HorizontalListElement: FC<HorizontalListElementProps> = (props) => {
         isActive,
         style,
         palette,
-    } = props as HorizontalListElementExtendedProps;
+    } = props as VerticalListElementExtendedProps;
 
     const elementRef = useRef<HTMLDivElement>(null);
 
@@ -56,7 +55,7 @@ const HorizontalListElement: FC<HorizontalListElementProps> = (props) => {
 const getStyle = (
     isHover: boolean,
     isActive: boolean,
-    style: HorizontalListStyle,
+    style: VerticalListStyle,
     palette: ThemePalette
 ): CSSProperties => ({
     ...style,
@@ -83,4 +82,4 @@ const getStyle = (
     }`,
 });
 
-export default memo(HorizontalListElement);
+export default memo(VerticalListElement);
